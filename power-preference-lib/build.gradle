@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-proguard-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api deps.recyclerView
+    api deps.appCompat
+    api deps.expandablerecyclerview
+    api deps.gson
+
+    testImplementation deps.junit
+    testImplementation deps.mockito
+}
+
+//Disable javadoc generation while building module
+tasks.withType(Javadoc).all { enabled = false }

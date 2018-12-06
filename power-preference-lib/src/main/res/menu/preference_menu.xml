@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/expand_collapse"
+        android:title="COLLAPSE"
+        app:showAsAction="always" />
+</menu>

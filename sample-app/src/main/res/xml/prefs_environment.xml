@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultMap>
+
+    <entry>
+        <key>env</key>
+        <value>productionXml</value>
+    </entry>
+
+    <entry>
+        <key>host</key>
+        <value>githubXml.com</value>
+    </entry>
+
+</defaultMap>

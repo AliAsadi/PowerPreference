@@ -1,0 +1,48 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+
+buildscript {
+
+    ext.versions = [
+            'compileSdk': 28,
+            'minSdk': 15,
+            'targetSdk': 28,
+    ]
+
+    ext.deps = [
+            appCompat   : "com.android.support:appcompat-v7:25.0.0",
+            recyclerView: "com.android.support:recyclerview-v7:25.0.0",
+            expandablerecyclerview: "com.thoughtbot:expandablerecyclerview:1.3",
+            gson: "com.google.code.gson:gson:2.8.5",
+            junit: 'junit:junit:4.12',
+            mockito: 'org.mockito:mockito-core:2.23.0'
+    ]
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.0'
+
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+

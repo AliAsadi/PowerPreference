@@ -1,0 +1,14 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.preference" >
+<application>
+    <provider
+        android:authorities="${applicationId}.content.provider"
+        android:exported="false"
+        android:enabled="true"
+        android:name="com.preference.provider.PreferenceProvider" />
+
+    <activity android:name=".ui.activity.preference.PreferenceActivity" />
+
+</application>
+</manifest>
+

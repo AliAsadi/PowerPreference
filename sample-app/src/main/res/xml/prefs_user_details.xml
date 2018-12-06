@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultMap>
+
+    <entry>
+        <key>email</key>
+        <value>none@xml.com</value>
+    </entry>
+
+    <entry>
+        <key>firstName</key>
+        <value>noneXml</value>
+    </entry>
+
+    <entry>
+        <key>lastName</key>
+        <value>noneXml</value>
+    </entry>
+
+</defaultMap>

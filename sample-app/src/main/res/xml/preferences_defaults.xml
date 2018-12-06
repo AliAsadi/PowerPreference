@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultMap>
+    <entry>
+        <key>boolean</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>string</key>
+        <value>Ali</value>
+    </entry>
+
+    <entry>
+        <key>int</key>
+        <value>5</value>
+    </entry>
+
+    <entry>
+        <key>long</key>
+        <value>6</value>
+    </entry>
+
+    <entry>
+        <key>float</key>
+        <value>7</value>
+    </entry>
+
+    <entry>
+        <key>double</key>
+        <value>8</value>
+    </entry>
+
+    <entry>
+        <key>object</key>
+        <value>Hello World!</value>
+    </entry>
+</defaultMap>

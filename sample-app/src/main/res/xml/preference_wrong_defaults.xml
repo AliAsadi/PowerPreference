@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultMap>
+
+    <entry>
+        <key>boolean</key>
+        <value>string bla bla bla</value>
+    </entry>
+
+    <entry>
+        <key>string</key>
+        <value>test</value>
+    </entry>
+
+    <entry>
+        <key>int</key>
+        <value>wrong string</value>
+    </entry>
+
+    <entry>
+        <key>long</key>
+        <value>wrong string</value>
+    </entry>
+
+    <entry>
+        <key>float</key>
+        <value>wrong string</value>
+    </entry>
+
+    <entry>
+        <key>double</key>
+        <value>wrong string</value>
+    </entry>
+
+    <entry>
+        <key>object</key>
+        <value>bla bla bla</value>
+    </entry>
+
+</defaultMap>
