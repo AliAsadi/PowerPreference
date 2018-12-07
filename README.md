@@ -7,6 +7,8 @@ A Powerful library to control and simplify the usage of shared preference in And
   <img src="https://i.imgur.com/hjMxQo1.png" title="screen">
 </p>
 
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Android--Power--Preference-green.svg?style=flat )]( https://android-arsenal.com/details/1/7353 ) [ ![Download](https://api.bintray.com/packages/aliassadi/maven/power-preference-lib/images/download.svg) ](https://bintray.com/aliassadi/maven/power-preference-lib/_latestVersion)
+
 # Download
 
 ```gradle
@@ -193,7 +195,7 @@ PowerPreference.showPreferenceScreen(true) //true - describe if the value is edi
 
 ### License
 ```
-Copyright 2017 Ali Esa Assadi.
+Copyright 2018 Ali Esa Assadi.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
