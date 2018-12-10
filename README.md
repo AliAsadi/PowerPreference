@@ -88,6 +88,7 @@ PowerPreference.defult().setDefaults(R.xml.preferences_defaults)
 ```
 
 2. HashMap
+
 ```java
 PowerPreference.defult().setDefaults(hashMap);
 ```
