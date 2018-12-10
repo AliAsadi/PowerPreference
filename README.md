@@ -170,7 +170,7 @@ PowerPreference.defult().getObject("object", Object.class, defaultValue);
 PowerPreference.defult().clear(); //OR - PowerPreference.name("sampleName").clear();
 PowerPreference.defult().remove("key");
 PowerPreference.defult().contains("key");
-PowerPreference.defult().getData(");
+PowerPreference.defult().getData("key");
 ```
 
 For all preference in the app.
