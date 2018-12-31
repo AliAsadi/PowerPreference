@@ -32,6 +32,10 @@ class PreferenceManager {
         this.defaults = defaults;
     }
 
+    public static void setSingletonInstance(PreferenceManager singleton) {
+        PreferenceManager.singleton = singleton;
+    }
+
     static PreferenceManager get() {
         if (singleton == null) {
             synchronized (PreferenceManager.class) {
@@ -122,15 +126,15 @@ class PreferenceManager {
         return preferencesList;
     }
 
-    private static class Builder {
+    public static class Builder {
 
         private final Context context;
 
-        private Builder(Context context) {
+        public Builder(Context context) {
             this.context = context;
         }
 
-        private PreferenceManager build() {
+        public PreferenceManager build() {
             return new PreferenceManager(context, new HashMap<String, Object>());
         }
     }

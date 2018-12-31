@@ -1,5 +1,8 @@
 package com.preference;
 
+import android.content.Context;
+import android.support.annotation.NonNull;
+
 import com.preference.model.PreferenceObject;
 import com.preference.utils.PreferenceCreator;
 
@@ -16,6 +19,13 @@ public class PowerPreference {
      */
     public static void showPreferenceScreen(boolean editable) {
         PreferenceManager.get().showPreferenceScreen(editable);
+    }
+
+    /**
+     * Set the global instance returned from {@link PreferenceManager#get()}.
+     */
+    public static void setSingletonInstance(PreferenceManager instance) {
+        PreferenceManager.setSingletonInstance(instance);
     }
 
     /**
@@ -51,6 +61,27 @@ public class PowerPreference {
         defult().clear();
         for (String filename : PreferenceManager.get().getFilesName()) {
             PreferenceManager.get().getPreferenceByName(filename).clear();
+        }
+    }
+
+    public static class Builder {
+        private final Context context;
+
+        /**
+         * Start building a new {@link PowerPreference} instance.
+         */
+        public Builder(@NonNull Context context) {
+            if (context == null) {
+                throw new IllegalArgumentException("Context must not be null.");
+            }
+            this.context = context.getApplicationContext();
+        }
+
+        /**
+         * Create the {@link PowerPreference} instance.
+         */
+        public PreferenceManager build() {
+            return new PreferenceManager.Builder(context).build();
         }
     }
 }
