@@ -10,6 +10,7 @@ import android.support.annotation.XmlRes;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.xmlpull.v1.XmlPullParser;
 
@@ -437,6 +438,25 @@ public class PreferenceCreator {
     public @Nullable <T> T getObject(String key, Class classType) {
         String json = sharedPreferences.getString(key, "");
         Object value = new Gson().fromJson(json, classType);
+        if (value == null) {
+            return (T) getDefaultValue(key);
+        }
+        return (T) value;
+    }
+
+    /**
+     * Retrieve a Map value from the preferences
+     *
+     * @param key - The name of the preference to retrieve.
+     * @param classType - the type of the Map -> HashMap,TreeMap..etc.
+     * @param keyType - the type of the key that used in the map.
+     * @param valueType - the type of the value that used in the map.
+     * @return Returns the preference value if it exists, or null.
+     */
+    public @Nullable <T> T getMap(String key, Class classType, Class keyType, Class valueType) {
+        String json = sharedPreferences.getString(key, "");
+        Object value = new Gson().fromJson(json, TypeToken.getParameterized(classType, keyType,
+                valueType).getType());
         if (value == null) {
             return (T) getDefaultValue(key);
         }
