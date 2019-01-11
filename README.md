@@ -20,16 +20,14 @@ implementation 'com.aliassadi:power-preference-lib:1.3.2'
 To accsess shared preference there is two option using:
 
 1. Default share preference.
-2. Specefic shared preference file by name.
 
 ```java
 PowerPreference.defult();
 ```
-OR
+2. Specefic shared preference file by name.
 ```java
 PowerPreference.name("sampleName");
 ```
-
 
 
 ## PUT - Write to shared preferences
