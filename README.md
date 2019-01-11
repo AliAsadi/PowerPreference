@@ -36,43 +36,60 @@ PowerPreference.name("sampleName");
 
 To Write data to shared preference 
 
-### Support 
-* int, long, float, double, String, Object.
+* Support -> Int, Long, Float, Double, String, ArrayList, Map, Object.
 
 
 ```java
 PowerPreference.defult().put("key",value);
-```
-OR
-```java
-PowerPreference.name("sampleName").put("key",value);
 ```
 
 Also 
 
 ```java
 PowerPreference.defult()
-        .put("boolean", true)
-        .put("string", "Hello World!")
-        .put("int", 123)
-        .put("long", 111L)
-        .put("float", 1.1f)
-        .put("double", 1.111d)
-        .put("object", new Object());
-              
+        .put("key", value)
+        .put("key", value)
+              .
+              .
+        .put("key", value);
 ```
 
 The library support the default implementation of shared preference
 ```java
 PowerPreference.defult()
-        .putBoolean("boolean", true)
-        .putString("string", "Hello World!")
-        .putInt("int", 123)
-        .putLong("long", 111L)
-        .putFloat("float", 1.1f)
-        .putDouble("double", 1.111d)
-        .putObject("object", new Object());
-              
+        .putBoolean("key", value)
+        .putString("key", value)
+              .
+              . 
+        .putObject("key", value);
+  
+```
+
+# GET - Read from shared preferences
+
+Getting value by key if the value dosn't exist the library will get the value from our defaults that we have declere in `seDefaults`,
+otherwise the library will return a default value from the library defaults.
+
+#### library default values
+* int, long, float, double -> 0
+* String -> ""
+* Object -> null
+
+```java
+PowerPreference.defult().getBoolean("key");
+PowerPreference.defult().getString("key");
+                .
+                .
+PowerPreference.defult().getObject("object", Object.class);
+```
+
+Or you can use it as usual with a default value.
+```java
+PowerPreference.defult().getBoolean("key", defaultValue);
+PowerPreference.defult().getString("key", defaultValue);
+                      .
+                      .
+PowerPreference.defult().getObject("key", Object.class, defaultValue);
 ```
 
 ## DEFAUTLS - Set  default parameter values
@@ -101,17 +118,17 @@ PowerPreference.defult().setDefaults(hashMap);
 <?xml version="1.0" encoding="utf-8"?>
 <defaultMap>
     <entry>
-        <key>boolean</key>
+        <key>key</key>
         <value>true</value>
     </entry>
 
     <entry>
-        <key>string</key>
+        <key>key</key>
         <value>Hello World!</value>
     </entry>
     
     <entry>
-        <key>int</key>
+        <key>key</key>
         <value>5</value>
     </entry>
     
@@ -124,44 +141,13 @@ PowerPreference.defult().setDefaults(hashMap);
 
 ```java
 Map<String, Object> defaults = new HashMap<>();
-defaults.put("boolean", true);
-defaults.put("string", "Hello World!");
-defaults.put("int", 123);
-defaults.put("long", 111L);
-defaults.put("float", 1.1f);
-defaults.put("double", 1.111d);
-defaults.put("object", new Object());
-```
-
-# GET - Read from shared preferences
-
-Getting value by key if the value dosn't exist the library will get the value from our defaults that we have declere in `seDefaults`,
-otherwise the library will return a default value from the library defaults.
-
-#### library default values
-* int, long, float, double -> 0
-* String -> ""
-* Object -> null
-
-```java
-PowerPreference.defult().getBoolean("boolean");
-PowerPreference.defult().getString("string");
-PowerPreference.defult().getInt("int");
-PowerPreference.defult().getLong("long");
-PowerPreference.defult().getFloat("float");
-PowerPreference.defult().getDouble("double");
-PowerPreference.defult().getObject("object", Object.class);
-```
-
-Or you can use it as usual with a default value.
-```java
-PowerPreference.defult().getBoolean("boolean", defaultValue);
-PowerPreference.defult().getString("string", defaultValue);
-PowerPreference.defult().getInt("int", defaultValue);
-PowerPreference.defult().getLong("long", defaultValue);
-PowerPreference.defult().getFloat("float", defaultValue);
-PowerPreference.defult().getDouble("double", defaultValue);
-PowerPreference.defult().getObject("object", Object.class, defaultValue);
+defaults.put("key", true);
+defaults.put("key", "Hello World!");
+defaults.put("key", 123);
+defaults.put("key", 111L);
+defaults.put("key", 1.1f);
+defaults.put("key", 1.111d);
+defaults.put("key", new Object());
 ```
 
 # Other
