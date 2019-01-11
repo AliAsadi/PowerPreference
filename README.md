@@ -41,7 +41,7 @@ To Write data to shared preference
 PowerPreference.defult().put("key",value);
 ```
 
-Also 
+Inserting multiple values
 
 ```java
 PowerPreference.defult()
