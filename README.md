@@ -52,15 +52,7 @@ PowerPreference.defult()
         .put("key", value);
 ```
 
-The library support the default implementation of shared preference
-```java
-PowerPreference.defult()
-        .putBoolean("key", value)
-        .putString("key", value)
-              .
-              . 
-        .putObject("key", value);
-```
+The library support the default implementation of shared preference such as `putBoolean()` and `putString()`.
 
 # GET - Read from shared preferences
 
