@@ -62,7 +62,6 @@ PowerPreference.defult()
               .
               . 
         .putObject("key", value);
-  
 ```
 
 # GET - Read from shared preferences
@@ -99,16 +98,7 @@ You can use a different defaults value for every preference file.
 
 There is two option using:
 1. XML
-
-```java
-PowerPreference.defult().setDefaults(R.xml.preferences_defaults)
-```
-
 2. HashMap
-
-```java
-PowerPreference.defult().setDefaults(hashMap);
-```
 
 ## Examples:
 
@@ -148,6 +138,18 @@ defaults.put("key", 111L);
 defaults.put("key", 1.1f);
 defaults.put("key", 1.111d);
 defaults.put("key", new Object());
+```
+
+There is two option using:
+* XML
+```java
+PowerPreference.defult().setDefaults(R.xml.preferences_defaults)
+```
+
+* HashMap
+
+```java
+PowerPreference.defult().setDefaults(hashMap);
 ```
 
 # Other
