@@ -64,30 +64,40 @@ PowerPreference.defult()
 
 # GET - Read from shared preferences
 
-Getting value by key if the value dosn't exist the library will get the value from our defaults that we have declere in `seDefaults`,
-otherwise the library will return a default value from the library defaults.
-
-#### library default values
-* int, long, float, double -> 0
-* String -> ""
-* Object -> null
+To retrieve values from a shared preferences file, call methods such as `getInt()` and `getString()`, 
 
 ```java
-PowerPreference.defult().getBoolean("key");
-PowerPreference.defult().getString("key");
-                .
-                .
-PowerPreference.defult().getObject("object", Object.class);
+String value = PowerPreference.defult().getString("key", defaultValue);
 ```
 
-Or you can use it as usual with a default value.
+Retrive Object:
 ```java
-PowerPreference.defult().getBoolean("key", defaultValue);
-PowerPreference.defult().getString("key", defaultValue);
-                      .
-                      .
-PowerPreference.defult().getObject("key", Object.class, defaultValue);
+Object value = PowerPreference.defult().getObject("key", Object.class, defaultValue);
 ```
+
+Retrive Array Of Objects:
+```java
+Object value = PowerPreference.defult().getObject("key", Object[].class, defaultValue);
+```
+
+Retrive Map:
+```java
+HashMap<String, Object> value = PowerPreference.defult().getMap("key", HashMap.class, String.class, Object.class);
+```
+
+You can getting a value with out pass a `defaultValue` the library well retrive a default see the example above
+
+#### Library default values
+* Int, Long, Float, Double = 0
+* String = ""
+* Object = null
+
+```java
+String value = PowerPreference.defult().getString("key");
+//If the key dosn't exist the library will return a default value from list in this case an empty string.
+```
+
+You also can choose a default value for each key in you preference file by ``seDefaults()`` method see the defaults section for more.
 
 ## DEFAUTLS - Set  default parameter values
 
