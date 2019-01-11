@@ -155,7 +155,7 @@ PowerPreference.defult().setDefaults(hashMap);
 # Other
 
 ```java
-PowerPreference.defult().clear(); //OR - PowerPreference.name("sampleName").clear();
+PowerPreference.defult().clear();
 PowerPreference.defult().remove("key");
 PowerPreference.defult().contains("key");
 PowerPreference.defult().getData("key");
