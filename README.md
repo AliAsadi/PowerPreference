@@ -77,7 +77,7 @@ Retrive Map:
 HashMap<String, Object> value = PowerPreference.defult().getMap("key", HashMap.class, String.class, Object.class);
 ```
 
-You can getting a value with out pass a `defaultValue` the library well retrive a default see the example above
+You can getting a value with out pass a `defaultValue` the library well return a default from the list see the example above
 
 #### Library default values
 * Int, Long, Float, Double = 0
