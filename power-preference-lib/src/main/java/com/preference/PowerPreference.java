@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.preference.model.PreferenceObject;
-import com.preference.utils.PreferenceCreator;
 
 import java.util.List;
 
@@ -36,10 +35,10 @@ public class PowerPreference {
     }
 
     /**
-     * @return A {@link PreferenceCreator} instance that can be used to to retrieve and modify
+     * @return A {@link Preference} instance that can be used to to retrieve and modify
      * the default preference file.
      */
-    public static PreferenceCreator defult() {
+    public static Preference defult() {
         return PreferenceManager.get().getDefaultPreference();
     }
 
@@ -47,10 +46,10 @@ public class PowerPreference {
      * @param name Preference file name. If a preferences file by this name
      * does not exist, it will be created
      *
-     * @return A {@link PreferenceCreator} instance that can be used to to retrieve and modify
+     * @return A {@link Preference} instance that can be used to to retrieve and modify
      * the {@code name} preference file.
      */
-    public static PreferenceCreator name(String name) {
+    public static Preference name(String name) {
         return PreferenceManager.get().getPreferenceByName(name);
     }
 

@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.preference.PowerPreference;
+import com.preference.Preference;
 import com.preference.model.PreferenceItem;
 import com.preference.model.PreferenceObject;
-import com.preference.utils.PreferenceCreator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ class PreferencePresenter {
     }
 
     void onSavePreferenceClicked(PreferenceItem item, String newValue) throws NumberFormatException {
-        PreferenceCreator preference = PowerPreference.name(item.parentName);
+        Preference preference = PowerPreference.name(item.parentName);
         switch (item.type) {
             case Integer:
                 preference.put(item.key, Integer.parseInt(newValue));

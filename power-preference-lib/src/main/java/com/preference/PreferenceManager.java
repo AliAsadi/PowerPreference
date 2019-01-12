@@ -10,7 +10,6 @@ import com.preference.ui.activity.preference.PreferenceActivity;
 import com.preference.model.PreferenceItem;
 import com.preference.model.PreferenceObject;
 import com.preference.model.PreferenceType;
-import com.preference.utils.PreferenceCreator;
 
 import java.io.File;
 import java.util.ArrayList;
