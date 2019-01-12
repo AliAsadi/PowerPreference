@@ -127,6 +127,10 @@ There is two option using:
 </defaultMap>
 ```
 
+```java
+PowerPreference.defult().setDefaults(R.xml.preferences_defaults)
+```
+
 ### HashMap:
 
 ```java
@@ -140,13 +144,6 @@ defaults.put("key", 1.111d);
 defaults.put("key", new Object());
 ```
 
-There is two option using:
-* XML
-```java
-PowerPreference.defult().setDefaults(R.xml.preferences_defaults)
-```
-
-* HashMap
 
 ```java
 PowerPreference.defult().setDefaults(hashMap);
