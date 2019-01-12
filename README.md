@@ -17,16 +17,16 @@ implementation 'com.aliassadi:power-preference-lib:1.3.3'
 
 ## Getting started
 
-To accsess shared preference there is two option using:
+To accsess preference there is two option using:
 
 1. Default share preference.
 
 ```java
-PowerPreference.defult();
+Preference defult = PowerPreference.defult();
 ```
-2. Specefic shared preference file by name.
+2. Specefic preference file by name.
 ```java
-PowerPreference.name("sampleName");
+Preference preferenceName = PowerPreference.name("preferenceName");
 ```
 
 
