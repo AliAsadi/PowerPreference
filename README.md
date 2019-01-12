@@ -17,9 +17,9 @@ implementation 'com.aliassadi:power-preference-lib:1.3.3'
 
 ## Getting started
 
-To accsess preference there is two option using:
+To accsess preference file there is two option using:
 
-1. Default share preference.
+1. Default preference file.
 
 ```java
 Preference defult = PowerPreference.defult();
@@ -30,7 +30,7 @@ Preference preferenceName = PowerPreference.name("preferenceName");
 ```
 
 
-## PUT - Write to shared preferences
+## PUT - Write to preference file
 
 To Write data to shared preference 
 
@@ -54,7 +54,7 @@ PowerPreference.defult()
 
 The library support the default implementation of shared preference such as `putBoolean()` and `putString()`.
 
-# GET - Read from shared preferences
+# GET - Read from preference file
 
 To retrieve values from a shared preferences file, call methods such as `getInt()` and `getString()`, 
 
