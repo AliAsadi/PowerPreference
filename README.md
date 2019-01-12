@@ -15,9 +15,9 @@ A Powerful library to control and simplify the usage of shared preference in And
 implementation 'com.aliassadi:power-preference-lib:1.3.3'
 ```
 
-## Getting started
+# Getting started
 
-To accsess preference file there is two option using:
+To accsess preference file there is two option:
 
 1. Default preference file.
 
@@ -30,9 +30,9 @@ Preference preferenceName = PowerPreference.name("preferenceName");
 ```
 
 
-## PUT - Write to preference file
+# Put
 
-To Write data to shared preference 
+To Write data to preference file 
 
 * Support -> Int, Long, Float, Double, String, ArrayList, Map, Object.
 
@@ -54,9 +54,9 @@ PowerPreference.defult()
 
 The library support the default implementation of shared preference such as `putBoolean()` and `putString()`.
 
-# GET - Read from preference file
+# Get
 
-To retrieve values from a shared preferences file, call methods such as `getInt()` and `getString()`, 
+To retrieve values from a preference file, call methods such as `getInt()` and `getString()`, 
 
 ```java
 String value = PowerPreference.defult().getString("key", defaultValue);
@@ -91,7 +91,7 @@ String value = PowerPreference.defult().getString("key");
 
 You also can choose a default value for each key in you preference file by ``seDefaults()`` method see the defaults section for more.
 
-## DEFAUTLS - Set  default parameter values
+# Defaults
 
 Set Default value to be used when reading from shared preference,
 You can use a different defaults value for every preference file.
@@ -100,9 +100,9 @@ There is two option using:
 1. XML
 2. HashMap
 
-## Examples:
+### Examples:
 
-### XML:
+* XML:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -131,7 +131,7 @@ There is two option using:
 PowerPreference.defult().setDefaults(R.xml.preferences_defaults)
 ```
 
-### HashMap:
+* HashMap:
 
 ```java
 Map<String, Object> defaults = new HashMap<>();
