@@ -22,11 +22,11 @@ To accsess preference file there is two option:
 1. Default preference file.
 
 ```java
-Preference defult = PowerPreference.defult();
+Preference preference = PowerPreference.getDefaultFile();
 ```
 2. Specefic preference file by name.
 ```java
-Preference preferenceName = PowerPreference.name("preferenceName");
+Preference preference = PowerPreference.getFileByName("preferenceName");
 ```
 
 
@@ -38,13 +38,13 @@ To Write data to preference file
 
 
 ```java
-PowerPreference.defult().put("key",value);
+PowerPreference.getDefaultFile().put("key",value);
 ```
 
 Inserting multiple values
 
 ```java
-PowerPreference.defult()
+PowerPreference.getDefaultFile()
         .put("key", value)
         .put("key", value)
               .
@@ -59,22 +59,22 @@ The library support the default implementation of shared preference such as `put
 To retrieve values from a preference file, call methods such as `getInt()` and `getString()`, 
 
 ```java
-String value = PowerPreference.defult().getString("key", defaultValue);
+String value = PowerPreference.getDefaultFile().getString("key", defaultValue);
 ```
 
 Retrive Object:
 ```java
-Object value = PowerPreference.defult().getObject("key", Object.class, defaultValue);
+Object value = PowerPreference.getDefaultFile().getObject("key", Object.class, defaultValue);
 ```
 
 Retrive Array Of Objects:
 ```java
-Object value = PowerPreference.defult().getObject("key", Object[].class, defaultValue);
+Object value = PowerPreference.getDefaultFile().getObject("key", Object[].class, defaultValue);
 ```
 
 Retrive Map:
 ```java
-HashMap<String, Object> value = PowerPreference.defult().getMap("key", HashMap.class, String.class, Object.class);
+HashMap<String, Object> value = PowerPreference.getDefaultFile().getMap("key", HashMap.class, String.class, Object.class);
 ```
 
 You can getting a value with out pass a `defaultValue` the library well return a default from the list see the example above
@@ -85,7 +85,7 @@ You can getting a value with out pass a `defaultValue` the library well return a
 * Object = null
 
 ```java
-String value = PowerPreference.defult().getString("key");
+String value = PowerPreference.getDefaultFile().getString("key");
 //If the key dosn't exist the library will return a default value from list in this case an empty string.
 ```
 
@@ -128,7 +128,7 @@ There is two option using:
 ```
 
 ```java
-PowerPreference.defult().setDefaults(R.xml.preferences_defaults)
+PowerPreference.getDefaultFile().setDefaults(R.xml.preferences_defaults)
 ```
 
 * HashMap:
@@ -146,22 +146,22 @@ defaults.put("key", new Object());
 
 
 ```java
-PowerPreference.defult().setDefaults(hashMap);
+PowerPreference.getDefaultFile().setDefaults(hashMap);
 ```
 
 # Other
 
 ```java
-PowerPreference.defult().clear();
-PowerPreference.defult().remove("key");
-PowerPreference.defult().contains("key");
-PowerPreference.defult().getData("key");
+PowerPreference.getDefaultFile().clear();
+PowerPreference.getDefaultFile().remove("key");
+PowerPreference.getDefaultFile().contains("key");
+PowerPreference.getDefaultFile().getData("key");
 ```
 
 For all preference in the app.
 ```java
-PowerPreference.getData()
-PowerPreference.clearAll()
+PowerPreference.getAllData()
+PowerPreference.clearAllData()
 ```
 
 
@@ -170,7 +170,7 @@ PowerPreference.clearAll()
 By preference debugger you can show all the preference in all the file in your app simply by calling.
 
 ```java
-PowerPreference.showPreferenceScreen(true) //true - describe if the value is editable
+PowerPreference.showDebugScreen(true) //true - describe if the value is editable
 ```
 
 <p align="center">
