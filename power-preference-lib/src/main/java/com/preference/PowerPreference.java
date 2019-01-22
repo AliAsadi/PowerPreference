@@ -11,56 +11,62 @@ import java.util.List;
  * Created by Ali Esa Assadi on 28/11/2018.
  */
 public class PowerPreference {
-    /**
-     * Lunch Preference screen that shows all the preference in the app.
-     *
-     * @param editable - Whether preference value able to edit or not.
-     */
-    public static void showPreferenceScreen(boolean editable) {
-        PreferenceManager.get().showPreferenceScreen(editable);
-    }
 
-    /**
-     * Set the global instance returned from {@link PreferenceManager#get()}.
-     */
-    public static void setSingletonInstance(PreferenceManager instance) {
-        PreferenceManager.setSingletonInstance(instance);
-    }
+    private Context context;
 
-    /**
-     * @return {@link PreferenceObject} that hold all the preference data in the app in all files.
-     */
-    public static List<PreferenceObject> getData() {
-        return PreferenceManager.get().getData();
+    private PowerPreference(Context context) {
+        this.context = context;
     }
 
     /**
      * @return A {@link Preference} instance that can be used to to retrieve and modify
      * the default preference file.
      */
-    public static Preference defult() {
+    public static Preference getDefaultFile() {
         return PreferenceManager.get().getDefaultPreference();
     }
 
     /**
-     * @param name Preference file name. If a preferences file by this name
-     * does not exist, it will be created
-     *
+     * @param name Preference file getFileByName. If a preferences file by this getFileByName
+     *             does not exist, it will be created
      * @return A {@link Preference} instance that can be used to to retrieve and modify
-     * the {@code name} preference file.
+     * the {@code getFileByName} preference file.
      */
-    public static Preference name(String name) {
+    public static Preference getFileByName(String name) {
         return PreferenceManager.get().getPreferenceByName(name);
+    }
+
+    /**
+     * Set the global instance returned from {@link PreferenceManager#get()}.
+     */
+    public static void setSingletonInstance(PowerPreference instance) {
+        PreferenceManager.setSingletonInstance(new PreferenceManager.Builder(instance.context).build());
+    }
+
+    /**
+     * @return {@link PreferenceObject} that hold all the preference data in the app in all files.
+     */
+    public static List<PreferenceObject> getAllData() {
+        return PreferenceManager.get().getData();
     }
 
     /**
      * clear all data in all preference file.
      */
-    public static void clearAll() {
-        defult().clear();
+    public static void clearAllData() {
+        getDefaultFile().clear();
         for (String filename : PreferenceManager.get().getFilesName()) {
             PreferenceManager.get().getPreferenceByName(filename).clear();
         }
+    }
+
+    /**
+     * Lunch debug screen that shows all the preference in the app.
+     *
+     * @param editable - Whether preference value able to edit or not.
+     */
+    public static void showDebugScreen(boolean editable) {
+        PreferenceManager.get().showPreferenceScreen(editable);
     }
 
     public static class Builder {
@@ -79,8 +85,8 @@ public class PowerPreference {
         /**
          * Create the {@link PowerPreference} instance.
          */
-        public PreferenceManager build() {
-            return new PreferenceManager.Builder(context).build();
+        public PowerPreference build() {
+            return new PowerPreference(context);
         }
     }
 }

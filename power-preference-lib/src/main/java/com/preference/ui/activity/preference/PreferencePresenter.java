@@ -31,7 +31,7 @@ class PreferencePresenter {
 
     void getData() {
         List<PreferenceAdapter.PreferenceGroup> list = new ArrayList<>();
-        List<PreferenceObject> data = PowerPreference.getData();
+        List<PreferenceObject> data = PowerPreference.getAllData();
         for (PreferenceObject object : data) {
             PreferenceAdapter.PreferenceGroup group = new PreferenceAdapter.PreferenceGroup(object.name, object.items);
             list.add(group);
@@ -41,7 +41,7 @@ class PreferencePresenter {
     }
 
     void onBooleanPreferenceClicked(PreferenceItem item, boolean isChecked) {
-        PowerPreference.name(item.parentName).put(item.key, isChecked);
+        PowerPreference.getFileByName(item.parentName).put(item.key, isChecked);
         item.value = isChecked;
     }
 
@@ -50,7 +50,7 @@ class PreferencePresenter {
     }
 
     void onSavePreferenceClicked(PreferenceItem item, String newValue) throws NumberFormatException {
-        Preference preference = PowerPreference.name(item.parentName);
+        Preference preference = PowerPreference.getFileByName(item.parentName);
         switch (item.type) {
             case Integer:
                 preference.put(item.key, Integer.parseInt(newValue));
