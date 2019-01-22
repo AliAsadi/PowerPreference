@@ -92,22 +92,22 @@ public class TestActivity extends Activity {
     }
 
     public void showPreferenceScreen(View view) {
-        PowerPreference.showPreferenceScreen(true);
+        PowerPreference.showDebugScreen(true);
     }
 
     public void setDefaultValueByXml(View view) {
-        PowerPreference.defult().setDefaults(R.xml.preferences_defaults);
+        PowerPreference.getDefaultFile().setDefaults(R.xml.preferences_defaults);
     }
 
     public void setDefaultValueByMap(View view) {
         Map<String, Object> defaultValues = getDefaults();
-        PowerPreference.defult().setDefaults(defaultValues);
+        PowerPreference.getDefaultFile().setDefaults(defaultValues);
     }
 
     public void fill(View view) {
         PreferenceItem object = new PreferenceItem("test", "test", "test", PreferenceType.String);
 
-        PowerPreference.defult()
+        PowerPreference.getDefaultFile()
                 .put("boolean", true)
                 .put("string", "Hello World!")
                 .put("int", 123)
@@ -116,7 +116,7 @@ public class TestActivity extends Activity {
                 .put("double", 1.111d)
                 .put("object", object);
 
-        PowerPreference.name("Old")
+        PowerPreference.getFileByName("Old")
                 .putBoolean("boolean", true)
                 .putString("string", "Hello World!")
                 .putInt("int", 123)
@@ -125,7 +125,7 @@ public class TestActivity extends Activity {
                 .putDouble("double", 1.111d)
                 .putObject("object", object);
 
-        PowerPreference.name("Test")
+        PowerPreference.getFileByName("Test")
                 .put("boolean", true)
                 .put("string", "Hello World!")
                 .put("int", 123)
@@ -137,18 +137,18 @@ public class TestActivity extends Activity {
     }
 
     public void clearData(View view) {
-        PowerPreference.clearAll();
+        PowerPreference.clearAllData();
     }
 
     public void print(View view) {
 
-        boolean bool = PowerPreference.defult().getBoolean("boolean");
-        String str = PowerPreference.defult().getString("string");
-        int integer = PowerPreference.defult().getInt("int");
-        long aLong = PowerPreference.defult().getLong("long");
-        float aFloat = PowerPreference.defult().getFloat("float");
-        double aDouble = PowerPreference.defult().getDouble("double");
-        Object aObject = PowerPreference.defult().getObject("object", Object.class);
+        boolean bool = PowerPreference.getDefaultFile().getBoolean("boolean");
+        String str = PowerPreference.getDefaultFile().getString("string");
+        int integer = PowerPreference.getDefaultFile().getInt("int");
+        long aLong = PowerPreference.getDefaultFile().getLong("long");
+        float aFloat = PowerPreference.getDefaultFile().getFloat("float");
+        double aDouble = PowerPreference.getDefaultFile().getDouble("double");
+        Object aObject = PowerPreference.getDefaultFile().getObject("object", Object.class);
 
         Log.d(TAG, "boolean = [" + bool + "]");
         Log.d(TAG, "string = [" + str + "]");
