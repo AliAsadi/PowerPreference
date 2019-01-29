@@ -12,7 +12,7 @@ A Powerful library to control and simplify the usage of shared preference in And
 # Download
 
 ```gradle
-implementation 'com.aliassadi:power-preference-lib:1.3.3'
+implementation 'com.aliassadi:power-preference-lib:1.3.4'
 ```
 
 # Getting started
