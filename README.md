@@ -34,7 +34,9 @@ Preference preference = PowerPreference.getFileByName("preferenceName");
 
 To Write data to preference file 
 
-* Support -> Int, Long, Float, Double, String, ArrayList, Map, Object.
+| ``Support`` | Integer, Long, Float, Double, String, ArrayList, Map, Object | 
+| --- | --- |
+
 
 
 ```java
@@ -80,9 +82,11 @@ HashMap<String, Object> value = PowerPreference.getDefaultFile().getMap("key", H
 You can getting a value with out pass a `defaultValue` the library well return a default from the list see the example above
 
 #### Library default values
-* Int, Long, Float, Double = 0
-* String = ""
-* Object = null
+| Type | Default |
+| --- | --- |
+| Integer, Long, Float, Double | 0 |
+| String | "" |
+| Object | null |
 
 ```java
 String value = PowerPreference.getDefaultFile().getString("key");
