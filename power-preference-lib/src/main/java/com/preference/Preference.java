@@ -85,7 +85,7 @@ public interface Preference {
 
     /**
      * Store int in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -97,7 +97,7 @@ public interface Preference {
 
     /**
      * Store long in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -109,7 +109,7 @@ public interface Preference {
 
     /**
      * Store float in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -121,7 +121,7 @@ public interface Preference {
 
     /**
      * Store double in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -133,7 +133,7 @@ public interface Preference {
 
     /**
      * Store boolean in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -145,7 +145,7 @@ public interface Preference {
 
     /**
      * Store String in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -157,7 +157,7 @@ public interface Preference {
 
     /**
      * Store Object in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -239,7 +239,7 @@ public interface Preference {
 
     /**
      * Store int in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -251,7 +251,7 @@ public interface Preference {
 
     /**
      * Store long in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -263,7 +263,7 @@ public interface Preference {
 
     /**
      * Store float in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -275,7 +275,7 @@ public interface Preference {
 
     /**
      * Store double in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -287,7 +287,7 @@ public interface Preference {
 
     /**
      * Store boolean in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -299,7 +299,7 @@ public interface Preference {
 
     /**
      * Store String in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -311,7 +311,7 @@ public interface Preference {
 
     /**
      * Store Object in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *

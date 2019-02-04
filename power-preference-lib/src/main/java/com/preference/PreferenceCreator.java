@@ -147,7 +147,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store int in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -161,7 +161,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store long in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -175,7 +175,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store float in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -189,7 +189,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store double in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -204,7 +204,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store boolean in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -218,7 +218,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store String in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -232,7 +232,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store Object in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -339,7 +339,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store int in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -353,7 +353,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store long in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -367,7 +367,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store float in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -381,7 +381,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store double in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -396,7 +396,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store boolean in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -410,7 +410,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store String in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -424,7 +424,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store Object in SharedPreference Data.
-     * <p>
+     * <p><p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
