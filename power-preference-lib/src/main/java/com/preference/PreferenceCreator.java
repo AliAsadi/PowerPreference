@@ -147,13 +147,12 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store int in SharedPreference Data.
-     *
+     * <p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     *
      * @return returns true if the save works, false otherwise.
      */
     public boolean set(String key, int value) {
@@ -162,13 +161,12 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store long in SharedPreference Data.
-     *
+     * <p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     *
      * @return returns true if the save works, false otherwise.
      */
     public boolean set(String key, long value) {
@@ -177,13 +175,12 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store float in SharedPreference Data.
-     *
+     * <p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     *
      * @return returns true if the save works, false otherwise.
      */
     public boolean set(String key, float value) {
@@ -192,13 +189,12 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store double in SharedPreference Data.
-     *
+     * <p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     *
      * @return returns true if the save works, false otherwise.
      */
     public boolean set(String key, double value) {
@@ -208,13 +204,12 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store boolean in SharedPreference Data.
-     *
+     * <p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     *
      * @return returns true if the save works, false otherwise.
      */
     public boolean set(String key, boolean value) {
@@ -223,13 +218,12 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store String in SharedPreference Data.
-     *
+     * <p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     *
      * @return returns true if the save works, false otherwise.
      */
     public boolean set(String key, String value) {
@@ -238,13 +232,12 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store Object in SharedPreference Data.
-     *
+     * <p>
      * commit() writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     *
      * @return returns true if the save works, false otherwise.
      */
     public boolean set(String key, Object value) {
@@ -345,6 +338,106 @@ class PreferenceCreator implements Preference {
     }
 
     /**
+     * Store int in SharedPreference Data.
+     * <p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean setInt(String key, int value) {
+        return sharedPreferences.edit().putInt(key, value).commit();
+    }
+
+    /**
+     * Store long in SharedPreference Data.
+     * <p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean setLong(String key, long value) {
+        return sharedPreferences.edit().putLong(key, value).commit();
+    }
+
+    /**
+     * Store float in SharedPreference Data.
+     * <p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean setFloat(String key, float value) {
+        return sharedPreferences.edit().putFloat(key, value).commit();
+    }
+
+    /**
+     * Store double in SharedPreference Data.
+     * <p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean setDouble(String key, double value) {
+        return sharedPreferences.edit().putString(key, String.valueOf(value)).commit();
+
+    }
+
+    /**
+     * Store boolean in SharedPreference Data.
+     * <p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean setBoolean(String key, boolean value) {
+        return sharedPreferences.edit().putBoolean(key, value).commit();
+    }
+
+    /**
+     * Store String in SharedPreference Data.
+     * <p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean setString(String key, String value) {
+        return sharedPreferences.edit().putString(key, value).commit();
+    }
+
+    /**
+     * Store Object in SharedPreference Data.
+     * <p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean setObject(String key, Object value) {
+        String json = new Gson().toJson(value);
+        return sharedPreferences.edit().putString(key, json).commit();
+    }
+
+    /**
      * @param key - key name.
      * @return Returns true if the preference exists in the preferences,
      * otherwise false.
@@ -380,7 +473,8 @@ class PreferenceCreator implements Preference {
      * @return Returns the preference value if it exists, or defValue.
      * if preference value did'nt exists and defValue didn't exists will return {@value ""} empty string.
      */
-    public @NonNull String getString(String key) {
+    public @NonNull
+    String getString(String key) {
         Object value = getDefaultValue(key);
 
         String defaultValue = "";
@@ -414,10 +508,10 @@ class PreferenceCreator implements Preference {
                 try {
                     defaultValue = Integer.parseInt((String) value);
                 } catch (NumberFormatException e) {
-                    Log.d(TAG,"you to must have a {Integer} default value! for the key => {" + key + "}", e);
+                    Log.d(TAG, "you to must have a {Integer} default value! for the key => {" + key + "}", e);
                 }
             } else {
-                Log.d(TAG,"you to must have a {Integer} default value! for the key => {" + key + "}",
+                Log.d(TAG, "you to must have a {Integer} default value! for the key => {" + key + "}",
                         new WrongValueException(value));
             }
         }
@@ -448,10 +542,10 @@ class PreferenceCreator implements Preference {
                 try {
                     defaultValue = Long.parseLong((String) value);
                 } catch (NumberFormatException e) {
-                    Log.d(TAG,"you to must have a {Long} default value! for the key => {" + key + "}", e);
+                    Log.d(TAG, "you to must have a {Long} default value! for the key => {" + key + "}", e);
                 }
             } else {
-                Log.d(TAG,"you to must have a {Long} default value! for the key => {" + key + "}",
+                Log.d(TAG, "you to must have a {Long} default value! for the key => {" + key + "}",
                         new WrongValueException(value));
             }
         }
@@ -543,7 +637,8 @@ class PreferenceCreator implements Preference {
      * <p>
      * if preference value did'nt exists and defValue didn't exists will return {@linkplain null}.
      */
-    public @Nullable <T> T getObject(String key, Class classType) {
+    public @Nullable
+    <T> T getObject(String key, Class classType) {
         String json = sharedPreferences.getString(key, "");
         Object value = new Gson().fromJson(json, classType);
         if (value == null) {
@@ -555,13 +650,14 @@ class PreferenceCreator implements Preference {
     /**
      * Retrieve a Map value from the preferences
      *
-     * @param key - The name of the preference to retrieve.
+     * @param key       - The name of the preference to retrieve.
      * @param classType - the type of the Map -> HashMap,TreeMap..etc.
-     * @param keyType - the type of the key that used in the map.
+     * @param keyType   - the type of the key that used in the map.
      * @param valueType - the type of the value that used in the map.
      * @return Returns the preference value if it exists, or null.
      */
-    public @Nullable <T> T getMap(String key, Class classType, Class keyType, Class valueType) {
+    public @Nullable
+    <T> T getMap(String key, Class classType, Class keyType, Class valueType) {
         String json = sharedPreferences.getString(key, "");
         Object value = new Gson().fromJson(json, TypeToken.getParameterized(classType, keyType,
                 valueType).getType());
@@ -637,7 +733,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Set defaults value fo this preference file.
-     *
+     * <p>
      * defaults will uses when use one of the method getString, getInt...etc, and there is no value
      * for the key you entered then the library will use this default value.
      *
@@ -697,13 +793,14 @@ class PreferenceCreator implements Preference {
 
             defaults.put(name, defaultValues);
         } catch (Exception e) {
-            Log.d(TAG,"Caught exception while parsing XML resource. Skipping setDefaults.", e);
+            Log.d(TAG, "Caught exception while parsing XML resource. Skipping setDefaults.", e);
         }
 
 
     }
 
-    private @Nullable Object getDefaultValue(String key) {
+    private @Nullable
+    Object getDefaultValue(String key) {
         Map<String, Object> defaultValues = (Map<String, Object>) defaults.get(name);
         if (defaultValues != null) {
             if (defaultValues.containsKey(key)) {
