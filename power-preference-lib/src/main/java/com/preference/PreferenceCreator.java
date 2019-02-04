@@ -148,6 +148,113 @@ class PreferenceCreator implements Preference {
     /**
      * Store int in SharedPreference Data.
      *
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     *
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean set(String key, int value) {
+        return sharedPreferences.edit().putInt(key, value).commit();
+    }
+
+    /**
+     * Store long in SharedPreference Data.
+     *
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     *
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean set(String key, long value) {
+        return sharedPreferences.edit().putLong(key, value).commit();
+    }
+
+    /**
+     * Store float in SharedPreference Data.
+     *
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     *
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean set(String key, float value) {
+        return sharedPreferences.edit().putFloat(key, value).commit();
+    }
+
+    /**
+     * Store double in SharedPreference Data.
+     *
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     *
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean set(String key, double value) {
+        return sharedPreferences.edit().putString(key, String.valueOf(value)).commit();
+
+    }
+
+    /**
+     * Store boolean in SharedPreference Data.
+     *
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     *
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean set(String key, boolean value) {
+        return sharedPreferences.edit().putBoolean(key, value).commit();
+    }
+
+    /**
+     * Store String in SharedPreference Data.
+     *
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     *
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean set(String key, String value) {
+        return sharedPreferences.edit().putString(key, value).commit();
+    }
+
+    /**
+     * Store Object in SharedPreference Data.
+     *
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     *
+     * @return returns true if the save works, false otherwise.
+     */
+    public boolean set(String key, Object value) {
+        String json = new Gson().toJson(value);
+        return sharedPreferences.edit().putString(key, json).commit();
+    }
+
+    /**
+     * Store int in SharedPreference Data.
+     *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
      * @return a reference to the same {@link PreferenceCreator} object, so you can
