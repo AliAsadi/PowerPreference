@@ -1,7 +1,9 @@
 package com.preference;
 
 import android.support.annotation.XmlRes;
+
 import com.preference.utils.WrongValueException;
+
 import java.util.Map;
 
 /**
@@ -83,6 +85,90 @@ public interface Preference {
 
     /**
      * Store int in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean set(String key, int value);
+
+    /**
+     * Store long in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean set(String key, long value);
+
+    /**
+     * Store float in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean set(String key, float value);
+
+    /**
+     * Store double in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean set(String key, double value);
+
+    /**
+     * Store boolean in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean set(String key, boolean value);
+
+    /**
+     * Store String in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean set(String key, String value);
+
+    /**
+     * Store Object in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean set(String key, Object value);
+
+    /**
+     * Store int in SharedPreference Data.
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
@@ -151,6 +237,89 @@ public interface Preference {
      */
     Preference putObject(String key, Object value);
 
+    /**
+     * Store int in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean setInt(String key, int value);
+
+    /**
+     * Store long in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean setLong(String key, long value);
+
+    /**
+     * Store float in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean setFloat(String key, float value);
+
+    /**
+     * Store double in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean setDouble(String key, double value);
+
+    /**
+     * Store boolean in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean setBoolean(String key, boolean value);
+
+    /**
+     * Store String in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean setString(String key, String value);
+
+    /**
+     * Store Object in SharedPreference Data.
+     * <p><p>
+     * commit() writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return returns true if the save works, false otherwise.
+     */
+    boolean setObject(String key, Object value);
 
     //////////////////// GET /////////////////////////
 
@@ -214,6 +383,7 @@ public interface Preference {
      *                             an invalid value type for the default key.
      */
     float getFloat(String key);
+
     float getFloat(String key, float defValue);
 
     <T> T getObject(String key, Class classType, T defValue);
