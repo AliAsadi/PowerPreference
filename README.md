@@ -83,7 +83,7 @@ Object value = PowerPreference.getDefaultFile().getObject("key", Object.class, d
 
 Retrive Array Of Objects:
 ```java
-Object value = PowerPreference.getDefaultFile().getObject("key", Object[].class, defaultValue);
+ArrayList<Object> value = PowerPreference.getDefaultFile().getObject("key", Object[].class, defaultValue);
 ```
 
 Retrive Map:
