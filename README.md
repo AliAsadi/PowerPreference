@@ -68,6 +68,8 @@ thread until done and returning a success flag.
 boolean result = PowerPreference.getDefaultFile().set("key",value);
 ```
 
+You can also call set with the type such as `setBoolean()` and `setString()`.
+
 # Get
 
 To retrieve values from a preference file, call methods such as `getInt()` and `getString()`, 
