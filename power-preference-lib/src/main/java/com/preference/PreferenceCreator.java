@@ -659,8 +659,15 @@ class PreferenceCreator implements Preference {
     public @Nullable
     <T> T getMap(String key, Class classType, Class keyType, Class valueType) {
         String json = sharedPreferences.getString(key, "");
-        Object value = new Gson().fromJson(json, TypeToken.getParameterized(classType, keyType,
-                valueType).getType());
+
+        Object value = null;
+        try {
+            value = new Gson().fromJson(json, TypeToken.getParameterized(classType, keyType,
+                    valueType).getType());
+        } catch (Exception e) {
+            Log.d(TAG, "something went wrong!!", e);
+        }
+
         if (value == null) {
             return (T) getDefaultValue(key);
         }
