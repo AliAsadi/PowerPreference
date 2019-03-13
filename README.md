@@ -12,7 +12,7 @@ A Powerful library to control and simplify the usage of shared preference in And
 # Download
 
 ```gradle
-implementation 'com.aliassadi:power-preference-lib:1.3.4'
+implementation 'com.aliassadi:power-preference-lib:1.4.0'
 ```
 
 # Getting started
@@ -68,6 +68,8 @@ thread until done and returning a success flag.
 boolean result = PowerPreference.getDefaultFile().set("key",value);
 ```
 
+You can also call set with the type such as `setBoolean()` and `setString()`.
+
 # Get
 
 To retrieve values from a preference file, call methods such as `getInt()` and `getString()`, 
@@ -83,7 +85,7 @@ Object value = PowerPreference.getDefaultFile().getObject("key", Object.class, d
 
 Retrive Array Of Objects:
 ```java
-Object value = PowerPreference.getDefaultFile().getObject("key", Object[].class, defaultValue);
+ArrayList<Object> value = PowerPreference.getDefaultFile().getObject("key", Object[].class, defaultValue);
 ```
 
 Retrive Map:
