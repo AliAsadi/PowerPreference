@@ -3,10 +3,6 @@
 
 A Powerful library to control and simplify the usage of shared preference in Android.
 
-<p align="center">
-  <img src="https://i.imgur.com/hjMxQo1.png" title="screen">
-</p>
-
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Android--Power--Preference-green.svg?style=flat )]( https://android-arsenal.com/details/1/7353 ) [ ![Download](https://api.bintray.com/packages/aliassadi/maven/power-preference-lib/images/download.svg) ](https://bintray.com/aliassadi/maven/power-preference-lib/_latestVersion)
 
 # Download
