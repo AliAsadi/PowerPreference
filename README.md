@@ -195,7 +195,7 @@ PowerPreference.showDebugScreen(true) //true - describe if the value is editable
 
 ### License
 ```
-Copyright 2018 Ali Esa Assadi.
+Copyright 2018 Ali Asadi.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
