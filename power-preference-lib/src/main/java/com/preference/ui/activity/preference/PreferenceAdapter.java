@@ -169,7 +169,7 @@ public class PreferenceAdapter extends MultiTypeExpandableRecyclerViewAdapter<Pr
     }
 
     //ViewHolder
-    public class TitleViewHolder extends GroupViewHolder {
+    public static class TitleViewHolder extends GroupViewHolder {
 
         private TextView prefsTitle;
 
@@ -188,7 +188,7 @@ public class PreferenceAdapter extends MultiTypeExpandableRecyclerViewAdapter<Pr
         }
     }
 
-    public class StringChildViewHolder extends ChildViewHolder {
+    public static class StringChildViewHolder extends ChildViewHolder {
 
         TextView keyText;
         TextView valueText;
@@ -201,7 +201,7 @@ public class PreferenceAdapter extends MultiTypeExpandableRecyclerViewAdapter<Pr
 
     }
 
-    public class BooleanChildViewHolder extends ChildViewHolder {
+    public static class BooleanChildViewHolder extends ChildViewHolder {
 
         TextView keyText;
         CheckBox checkBox;

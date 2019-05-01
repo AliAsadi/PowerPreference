@@ -37,14 +37,10 @@ class PreferenceManager {
 
     static PreferenceManager get() {
         if (singleton == null) {
-            synchronized (PreferenceManager.class) {
-                if (singleton == null) {
-                    if (PreferenceProvider.context == null) {
-                        throw new IllegalStateException("context == null");
-                    }
-                    singleton = new Builder(PreferenceProvider.context).build();
-                }
+            if (PreferenceProvider.context == null) {
+                throw new IllegalStateException("context == null");
             }
+            singleton = new Builder(PreferenceProvider.context).build();
         }
         return singleton;
     }

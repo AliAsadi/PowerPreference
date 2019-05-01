@@ -61,6 +61,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator put(String key, int value) {
         sharedPreferences.edit().putInt(key, value).apply();
         return this;
@@ -74,6 +75,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator put(String key, long value) {
         sharedPreferences.edit().putLong(key, value).apply();
         return this;
@@ -87,6 +89,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator put(String key, float value) {
         sharedPreferences.edit().putFloat(key, value).apply();
         return this;
@@ -100,6 +103,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator put(String key, double value) {
         sharedPreferences.edit().putString(key, String.valueOf(value)).apply();
         return this;
@@ -113,6 +117,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator put(String key, boolean value) {
         sharedPreferences.edit().putBoolean(key, value).apply();
         return this;
@@ -126,6 +131,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator put(String key, String value) {
         sharedPreferences.edit().putString(key, value).apply();
         return this;
@@ -139,6 +145,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator put(String key, Object value) {
         String json = new Gson().toJson(value);
         sharedPreferences.edit().putString(key, json).apply();
@@ -155,6 +162,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean set(String key, int value) {
         return sharedPreferences.edit().putInt(key, value).commit();
     }
@@ -169,6 +177,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean set(String key, long value) {
         return sharedPreferences.edit().putLong(key, value).commit();
     }
@@ -183,6 +192,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean set(String key, float value) {
         return sharedPreferences.edit().putFloat(key, value).commit();
     }
@@ -197,6 +207,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean set(String key, double value) {
         return sharedPreferences.edit().putString(key, String.valueOf(value)).commit();
 
@@ -212,6 +223,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean set(String key, boolean value) {
         return sharedPreferences.edit().putBoolean(key, value).commit();
     }
@@ -226,6 +238,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean set(String key, String value) {
         return sharedPreferences.edit().putString(key, value).commit();
     }
@@ -240,6 +253,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean set(String key, Object value) {
         String json = new Gson().toJson(value);
         return sharedPreferences.edit().putString(key, json).commit();
@@ -253,6 +267,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator putInt(String key, int value) {
         sharedPreferences.edit().putInt(key, value).apply();
         return this;
@@ -266,6 +281,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator putLong(String key, long value) {
         sharedPreferences.edit().putLong(key, value).apply();
         return this;
@@ -279,6 +295,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator putFloat(String key, float value) {
         sharedPreferences.edit().putFloat(key, value).apply();
         return this;
@@ -292,6 +309,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator putDouble(String key, double value) {
         sharedPreferences.edit().putString(key, String.valueOf(value)).apply();
         return this;
@@ -305,6 +323,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator putBoolean(String key, boolean value) {
         sharedPreferences.edit().putBoolean(key, value).apply();
         return this;
@@ -318,6 +337,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator putString(String key, String value) {
         sharedPreferences.edit().putString(key, value).apply();
         return this;
@@ -331,6 +351,7 @@ class PreferenceCreator implements Preference {
      * @return a reference to the same {@link PreferenceCreator} object, so you can
      * chain put calls together.
      */
+    @Override
     public PreferenceCreator putObject(String key, Object value) {
         String json = new Gson().toJson(value);
         sharedPreferences.edit().putString(key, json).apply();
@@ -347,6 +368,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean setInt(String key, int value) {
         return sharedPreferences.edit().putInt(key, value).commit();
     }
@@ -361,6 +383,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean setLong(String key, long value) {
         return sharedPreferences.edit().putLong(key, value).commit();
     }
@@ -375,6 +398,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean setFloat(String key, float value) {
         return sharedPreferences.edit().putFloat(key, value).commit();
     }
@@ -389,6 +413,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean setDouble(String key, double value) {
         return sharedPreferences.edit().putString(key, String.valueOf(value)).commit();
 
@@ -404,6 +429,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean setBoolean(String key, boolean value) {
         return sharedPreferences.edit().putBoolean(key, value).commit();
     }
@@ -418,6 +444,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean setString(String key, String value) {
         return sharedPreferences.edit().putString(key, value).commit();
     }
@@ -432,6 +459,7 @@ class PreferenceCreator implements Preference {
      * @param value The new value for the preference.
      * @return returns true if the save works, false otherwise.
      */
+    @Override
     public boolean setObject(String key, Object value) {
         String json = new Gson().toJson(value);
         return sharedPreferences.edit().putString(key, json).commit();
@@ -442,6 +470,7 @@ class PreferenceCreator implements Preference {
      * @return Returns true if the preference exists in the preferences,
      * otherwise false.
      */
+    @Override
     public boolean contains(String key) {
         return sharedPreferences.contains(key);
     }
@@ -451,6 +480,7 @@ class PreferenceCreator implements Preference {
      *
      * @param key - key name to remove.
      */
+    @Override
     public void remove(String key) {
         sharedPreferences.edit().remove(key).apply();
     }
@@ -458,10 +488,12 @@ class PreferenceCreator implements Preference {
     /**
      * remove all data from this preference.
      */
+    @Override
     public void clear() {
         sharedPreferences.edit().clear().apply();
     }
 
+    @Override
     public Map<String, ?> getData() {
         return sharedPreferences.getAll();
     }
@@ -473,8 +505,8 @@ class PreferenceCreator implements Preference {
      * @return Returns the preference value if it exists, or defValue.
      * if preference value did'nt exists and defValue didn't exists will return {@value ""} empty string.
      */
-    public @NonNull
-    String getString(String key) {
+    @Override
+    public @NonNull String getString(String key) {
         Object value = getDefaultValue(key);
 
         String defaultValue = "";
@@ -484,6 +516,7 @@ class PreferenceCreator implements Preference {
         return sharedPreferences.getString(key, defaultValue);
     }
 
+    @Override
     public String getString(String key, String defValue) {
         return sharedPreferences.getString(key, defValue);
     }
@@ -497,6 +530,7 @@ class PreferenceCreator implements Preference {
      * @throws WrongValueException print error exception to the console if used
      *                             an invalid value type for the default key.
      */
+    @Override
     public int getInt(String key) {
         Object value = getDefaultValue(key);
 
@@ -518,6 +552,7 @@ class PreferenceCreator implements Preference {
         return sharedPreferences.getInt(key, defaultValue);
     }
 
+    @Override
     public int getInt(String key, int defValue) {
         return sharedPreferences.getInt(key, defValue);
     }
@@ -531,6 +566,7 @@ class PreferenceCreator implements Preference {
      * @throws WrongValueException print error exception to the console if used
      *                             an invalid value type for the default key.
      */
+    @Override
     public long getLong(String key) {
         Object value = getDefaultValue(key);
 
@@ -552,6 +588,7 @@ class PreferenceCreator implements Preference {
         return sharedPreferences.getLong(key, defaultValue);
     }
 
+    @Override
     public long getLong(String key, long defValue) {
         return sharedPreferences.getLong(key, defValue);
     }
@@ -565,6 +602,7 @@ class PreferenceCreator implements Preference {
      * @throws WrongValueException print error exception to the console if used
      *                             an invalid value type for the default key.
      */
+    @Override
     public boolean getBoolean(String key) {
         Object value = getDefaultValue(key);
 
@@ -582,6 +620,7 @@ class PreferenceCreator implements Preference {
         return sharedPreferences.getBoolean(key, defaultValue);
     }
 
+    @Override
     public boolean getBoolean(String key, boolean defValue) {
         return sharedPreferences.getBoolean(key, defValue);
     }
@@ -595,6 +634,7 @@ class PreferenceCreator implements Preference {
      * @throws WrongValueException print error exception to the console if used
      *                             an invalid value type for the default key.
      */
+    @Override
     public float getFloat(String key) {
         Object value = getDefaultValue(key);
 
@@ -616,10 +656,12 @@ class PreferenceCreator implements Preference {
         return sharedPreferences.getFloat(key, defaultValue);
     }
 
+    @Override
     public float getFloat(String key, float defValue) {
         return sharedPreferences.getFloat(key, defValue);
     }
 
+    @Override
     public <T> T getObject(String key, Class classType, T defValue) {
         String json = sharedPreferences.getString(key, "");
         Object value = new Gson().fromJson(json, classType);
@@ -637,8 +679,9 @@ class PreferenceCreator implements Preference {
      * <p>
      * if preference value did'nt exists and defValue didn't exists will return {@linkplain null}.
      */
-    public @Nullable
-    <T> T getObject(String key, Class classType) {
+    @Override
+    @SuppressWarnings("TypeParameterUnusedInFormals")
+    public @Nullable <T> T getObject(String key, Class classType) {
         String json = sharedPreferences.getString(key, "");
         Object value = new Gson().fromJson(json, classType);
         if (value == null) {
@@ -656,8 +699,9 @@ class PreferenceCreator implements Preference {
      * @param valueType - the type of the value that used in the map.
      * @return Returns the preference value if it exists, or null.
      */
-    public @Nullable
-    <T> T getMap(String key, Class classType, Class keyType, Class valueType) {
+    @Override
+    @SuppressWarnings("TypeParameterUnusedInFormals")
+    public @Nullable <T> T getMap(String key, Class classType, Class keyType, Class valueType) {
         String json = sharedPreferences.getString(key, "");
 
         Object value = null;
@@ -684,6 +728,7 @@ class PreferenceCreator implements Preference {
      * @throws WrongValueException print error exception to the console if used
      *                             an invalid value type for the default key.
      */
+    @Override
     public double getDouble(String key) {
         String string = sharedPreferences.getString(key, "");
 
@@ -715,6 +760,7 @@ class PreferenceCreator implements Preference {
         return value;
     }
 
+    @Override
     public double getDouble(String key, double defValue) {
         String json = sharedPreferences.getString(key, "");
         Object value = new Gson().fromJson(json, double.class);
@@ -731,6 +777,7 @@ class PreferenceCreator implements Preference {
      *
      * @param defaultValues - map.
      */
+    @Override
     public void setDefaults(Map<String, Object> defaultValues) {
         if (defaultValues == null) {
             return;
@@ -746,6 +793,7 @@ class PreferenceCreator implements Preference {
      *
      * @param xml - xml.
      */
+    @Override
     public void setDefaults(@XmlRes int xml) {
         try {
 
@@ -806,8 +854,7 @@ class PreferenceCreator implements Preference {
 
     }
 
-    private @Nullable
-    Object getDefaultValue(String key) {
+    private @Nullable Object getDefaultValue(String key) {
         Map<String, Object> defaultValues = (Map<String, Object>) defaults.get(name);
         if (defaultValues != null) {
             if (defaultValues.containsKey(key)) {

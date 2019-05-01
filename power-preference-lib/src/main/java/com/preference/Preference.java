@@ -396,6 +396,7 @@ public interface Preference {
      * <p>
      * if preference value did'nt exists and defValue didn't exists will return {@linkplain null}.
      */
+    @SuppressWarnings("TypeParameterUnusedInFormals")
     <T> T getObject(String key, Class classType);
 
     /**
@@ -407,6 +408,7 @@ public interface Preference {
      * @param valueType - the type of the value that used in the map.
      * @return Returns the preference value if it exists, or null.
      */
+    @SuppressWarnings("TypeParameterUnusedInFormals")
     <T> T getMap(String key, Class classType, Class keyType, Class valueType);
 
     /**
