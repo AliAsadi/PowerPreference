@@ -26,7 +26,7 @@ Preference preference = PowerPreference.getFileByName("preferenceName");
 ```
 
 
-# Put
+## Save Data - Asynchronous(PUT)
 
 To write data to preference file **asynchronous**.
 
@@ -54,7 +54,7 @@ PowerPreference.getDefaultFile()
 
 The library support the default implementation of shared preference such as `putBoolean()` and `putString()`.
 
-# Set
+## Save Data - Synchronous(SET)
 To write data to preference file **synchronous**.
 
 Set will synchronously save the preference while holding the current 
@@ -66,7 +66,7 @@ boolean result = PowerPreference.getDefaultFile().set("key",value);
 
 You can also call set with the type such as `setBoolean()` and `setString()`.
 
-# Get
+# Read Data
 
 To retrieve values from a preference file, call methods such as `getInt()` and `getString()`, 
 
@@ -105,7 +105,7 @@ String value = PowerPreference.getDefaultFile().getString("key");
 
 You also can choose a default value for each key in you preference file by ``seDefaults()`` method see the defaults section for more.
 
-# Defaults
+# Default Values
 
 Set Default value to be used when reading from shared preference,
 You can use a different defaults value for every preference file.
@@ -163,7 +163,7 @@ defaults.put("key", new Object());
 PowerPreference.getDefaultFile().setDefaults(hashMap);
 ```
 
-# Other
+# Utils
 
 ```java
 PowerPreference.getDefaultFile().clear();
