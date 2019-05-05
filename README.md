@@ -1,5 +1,5 @@
 
-# Android Power Preference
+# Power Preference
 
 A Powerful library to control and simplify the usage of shared preference in Android.
 
@@ -15,19 +15,17 @@ implementation 'com.aliassadi:power-preference-lib:1.4.1'
 
 To accsess preference file there is two option:
 
-1. Default preference file.
+1. Default file.
 
 ```java
 Preference preference = PowerPreference.getDefaultFile();
 ```
-2. Specefic preference file by name.
+2. Specefic file.
 ```java
 Preference preference = PowerPreference.getFileByName("preferenceName");
 ```
 
-
 ## Save Data - Asynchronous(PUT)
-
 
 To write data to preference file **asynchronous**.
 
@@ -91,7 +89,7 @@ ArrayList<Object> value = PowerPreference.getDefaultFile().getObject("key", Obje
 HashMap<String, Object> value = PowerPreference.getDefaultFile().getMap("key", HashMap.class, String.class, Object.class);
 ```
 
-#### Library default values
+### Note
 
 You can getting a value with out pass a `defaultValue` the library well return a default from the list if the key not exist.
 
@@ -194,7 +192,7 @@ PowerPreference.getDefaultFile().setDefaults(hashMap);
 By preference debugger you can show all the preference in all the file in your app simply by calling.
 
 ```java
-PowerPreference.showDebugScreen(true) //true - describe if the value is editable
+PowerPreference.showDebugScreen();
 ```
 
 <p align="center">
