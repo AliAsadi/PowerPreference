@@ -28,20 +28,15 @@ Preference preference = PowerPreference.getFileByName("preferenceName");
 
 ## Save Data - Asynchronous(PUT)
 
+
 To write data to preference file **asynchronous**.
 
-Put will asynchronously save the preferences without holding the current thread.
-
-| ``Support`` | Integer, Long, Float, Double, String, ArrayList, Map, Object | 
-| --- | --- |
-
-
-
+1. Insert value
 ```java
 PowerPreference.getDefaultFile().put("key",value);
 ```
 
-Inserting multiple values
+2. Inserting multiple values
 
 ```java
 PowerPreference.getDefaultFile()
@@ -52,7 +47,13 @@ PowerPreference.getDefaultFile()
         .put("key", value);
 ```
 
+Put will asynchronously save the preferences without holding the current thread.
+
 The library support the default implementation of shared preference such as `putBoolean()` and `putString()`.
+
+#### Note
+You can write any type of data **Integer, Long, Float, Double, String, ArrayList, Map, Object**
+
 
 ## Save Data - Synchronous(SET)
 To write data to preference file **synchronous**.
