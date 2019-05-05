@@ -100,8 +100,8 @@ You can getting a value with out pass a `defaultValue` the library well return a
 
 ```java
 String value = PowerPreference.getDefaultFile().getString("key");
-//If the key dosn't exist the library will return a default value from list in this case an empty string.
 ```
+If the key dosn't exist the library will return a default value from list in this case an empty string.
 
 You also can choose a default value for each key in you preference file by ``seDefaults()`` method see the defaults section for more.
 
@@ -120,7 +120,7 @@ PowerPreference.getAllData()
 PowerPreference.getDefaultFile().remove("key");
 ```
 
-## Get Data By File
+## Get Data
 
 1. Get all data from specefic file
 ```java
