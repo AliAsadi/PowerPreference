@@ -90,19 +90,20 @@ ArrayList<Object> value = PowerPreference.getDefaultFile().getObject("key", Obje
 HashMap<String, Object> value = PowerPreference.getDefaultFile().getMap("key", HashMap.class, String.class, Object.class);
 ```
 
-You can getting a value with out pass a `defaultValue` the library well return a default from the list see the example above
-
 #### Library default values
-| Type | Default |
-| --- | --- |
-| Integer, Long, Float, Double | 0 |
-| String | "" |
-| Object | null |
+
+You can getting a value with out pass a `defaultValue` the library well return a default from the list see the example above
 
 ```java
 String value = PowerPreference.getDefaultFile().getString("key");
 ```
 If the key dosn't exist the library will return a default value from list in this case an empty string.
+
+| Type | Default |
+| --- | --- |
+| Integer, Long, Float, Double | 0 |
+| String | "" |
+| Object | null |
 
 You also can choose a default value for each key in you preference file by ``seDefaults()`` method see the defaults section for more.
 
