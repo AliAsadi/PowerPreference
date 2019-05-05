@@ -66,7 +66,7 @@ boolean result = PowerPreference.getDefaultFile().set("key",value);
 
 You can also call set with the type such as `setBoolean()` and `setString()`.
 
-# Read Data
+## Read Data
 
 To retrieve values from a preference file, call methods such as `getInt()` and `getString()`, 
 
@@ -105,6 +105,34 @@ String value = PowerPreference.getDefaultFile().getString("key");
 
 You also can choose a default value for each key in you preference file by ``seDefaults()`` method see the defaults section for more.
 
+## Clear Data
+1. Clear data from specefic file
+```java
+PowerPreference.getDefaultFile().clear();
+```
+2. Clear data from all files
+```java
+PowerPreference.getAllData()
+```
+
+## Remove Data
+```java
+PowerPreference.getDefaultFile().remove("key");
+```
+
+## Get Data By File
+
+1. Get all data from specefic file
+```java
+Map<String, ?> fileData = PowerPreference.getDefaultFile().getData();
+```
+
+2. Get all data from all files in the app.
+```java
+List<PreferenceObject> appData = PowerPreference.getAllData()
+```
+
+
 # Default Values
 
 Set Default value to be used when reading from shared preference,
@@ -112,12 +140,6 @@ You can use a different defaults value for every preference file.
 
 There is two option using:
 1. XML
-2. HashMap
-
-### Examples:
-
-* XML:
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <defaultMap>
@@ -145,7 +167,7 @@ There is two option using:
 PowerPreference.getDefaultFile().setDefaults(R.xml.preferences_defaults)
 ```
 
-* HashMap:
+2. HashMap
 
 ```java
 Map<String, Object> defaults = new HashMap<>();
@@ -161,21 +183,6 @@ defaults.put("key", new Object());
 
 ```java
 PowerPreference.getDefaultFile().setDefaults(hashMap);
-```
-
-# Utils
-
-```java
-PowerPreference.getDefaultFile().clear();
-PowerPreference.getDefaultFile().remove("key");
-PowerPreference.getDefaultFile().contains("key");
-PowerPreference.getDefaultFile().getData("key");
-```
-
-For all preference in the app.
-```java
-PowerPreference.getAllData()
-PowerPreference.clearAllData()
 ```
 
 
