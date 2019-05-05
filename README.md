@@ -49,7 +49,7 @@ Put will asynchronously save the preferences without holding the current thread.
 
 The library support the default implementation of shared preference such as `putBoolean()` and `putString()`.
 
-#### Note
+### Note:
 You can write any type of data **Integer, Long, Float, Double, String, ArrayList, Map, Object**
 
 
@@ -89,7 +89,7 @@ ArrayList<Object> value = PowerPreference.getDefaultFile().getObject("key", Obje
 HashMap<String, Object> value = PowerPreference.getDefaultFile().getMap("key", HashMap.class, String.class, Object.class);
 ```
 
-### Note
+### Note:
 
 You can getting a value with out pass a `defaultValue` the library well return a default from the list if the key not exist.
 
