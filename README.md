@@ -31,12 +31,12 @@ Preference preference = PowerPreference.getFileByName("preferenceName");
 
 To write data to preference file **asynchronous**.
 
-1. Insert value
+1. Insert single value
 ```java
 PowerPreference.getDefaultFile().put("key",value);
 ```
 
-2. Inserting multiple values
+2. Insert multiple values
 
 ```java
 PowerPreference.getDefaultFile()
