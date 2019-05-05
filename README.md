@@ -92,12 +92,12 @@ HashMap<String, Object> value = PowerPreference.getDefaultFile().getMap("key", H
 
 #### Library default values
 
-You can getting a value with out pass a `defaultValue` the library well return a default from the list see the example above
+You can getting a value with out pass a `defaultValue` the library well return a default from the list if the key not exist.
 
 ```java
 String value = PowerPreference.getDefaultFile().getString("key");
 ```
-If the key dosn't exist the library will return a default value from list in this case an empty string.
+If the key dosn't exist the library will return an empty string.
 
 | Type | Default |
 | --- | --- |
