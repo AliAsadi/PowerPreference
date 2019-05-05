@@ -70,21 +70,22 @@ You can also call set with the type such as `setBoolean()` and `setString()`.
 
 To retrieve values from a preference file, call methods such as `getInt()` and `getString()`, 
 
+1. **String**
 ```java
 String value = PowerPreference.getDefaultFile().getString("key", defaultValue);
 ```
 
-Retrive Object:
+2. **Object**
 ```java
 Object value = PowerPreference.getDefaultFile().getObject("key", Object.class, defaultValue);
 ```
 
-Retrive Array Of Objects:
+3. **Array**
 ```java
 ArrayList<Object> value = PowerPreference.getDefaultFile().getObject("key", Object[].class, defaultValue);
 ```
 
-Retrive Map:
+4. **Map**
 ```java
 HashMap<String, Object> value = PowerPreference.getDefaultFile().getMap("key", HashMap.class, String.class, Object.class);
 ```
