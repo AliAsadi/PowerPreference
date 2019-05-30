@@ -1,5 +1,5 @@
 
-# Android Power Preference
+# Power Preference
 
 A Powerful library to control and simplify the usage of shared preference in Android.
 
@@ -15,33 +15,26 @@ implementation 'com.aliassadi:power-preference-lib:1.4.1'
 
 To accsess preference file there is two option:
 
-1. Default preference file.
+1. Default file.
 
 ```java
 Preference preference = PowerPreference.getDefaultFile();
 ```
-2. Specefic preference file by name.
+2. Specefic file.
 ```java
 Preference preference = PowerPreference.getFileByName("preferenceName");
 ```
 
-
-# Put
+## Save Data - Asynchronous(PUT)
 
 To write data to preference file **asynchronous**.
 
-Put will asynchronously save the preferences without holding the current thread.
-
-| ``Support`` | Integer, Long, Float, Double, String, ArrayList, Map, Object | 
-| --- | --- |
-
-
-
+1. Insert single value
 ```java
 PowerPreference.getDefaultFile().put("key",value);
 ```
 
-Inserting multiple values
+2. Insert multiple values
 
 ```java
 PowerPreference.getDefaultFile()
@@ -52,9 +45,15 @@ PowerPreference.getDefaultFile()
         .put("key", value);
 ```
 
+Put will asynchronously save the preferences without holding the current thread.
+
 The library support the default implementation of shared preference such as `putBoolean()` and `putString()`.
 
-# Set
+### Note:
+You can write any type of data **Integer, Long, Float, Double, String, ArrayList, Map, Object**
+
+
+## Save Data - Synchronous(SET)
 To write data to preference file **synchronous**.
 
 Set will synchronously save the preference while holding the current 
@@ -66,58 +65,82 @@ boolean result = PowerPreference.getDefaultFile().set("key",value);
 
 You can also call set with the type such as `setBoolean()` and `setString()`.
 
-# Get
+## Read Data
 
 To retrieve values from a preference file, call methods such as `getInt()` and `getString()`, 
 
+1. **String**
 ```java
 String value = PowerPreference.getDefaultFile().getString("key", defaultValue);
 ```
 
-Retrive Object:
+2. **Object**
 ```java
 Object value = PowerPreference.getDefaultFile().getObject("key", Object.class, defaultValue);
 ```
 
-Retrive Array Of Objects:
+3. **Array**
 ```java
 ArrayList<Object> value = PowerPreference.getDefaultFile().getObject("key", Object[].class, defaultValue);
 ```
 
-Retrive Map:
+4. **Map**
 ```java
 HashMap<String, Object> value = PowerPreference.getDefaultFile().getMap("key", HashMap.class, String.class, Object.class);
 ```
 
-You can getting a value with out pass a `defaultValue` the library well return a default from the list see the example above
+### Note:
 
-#### Library default values
+You can getting a value with out pass a `defaultValue` the library well return a default from the list if the key not exist.
+
+```java
+String value = PowerPreference.getDefaultFile().getString("key");
+```
+If the key dosn't exist the library will return an empty string.
+
 | Type | Default |
 | --- | --- |
 | Integer, Long, Float, Double | 0 |
 | String | "" |
 | Object | null |
 
-```java
-String value = PowerPreference.getDefaultFile().getString("key");
-//If the key dosn't exist the library will return a default value from list in this case an empty string.
-```
-
 You also can choose a default value for each key in you preference file by ``seDefaults()`` method see the defaults section for more.
 
-# Defaults
+## Clear Data
+1. Clear data from specefic file
+```java
+PowerPreference.getDefaultFile().clear();
+```
+2. Clear data from all files
+```java
+PowerPreference.getAllData()
+```
+
+## Remove Data
+```java
+PowerPreference.getDefaultFile().remove("key");
+```
+
+## Get Data
+
+1. Get all data from specefic file
+```java
+Map<String, ?> fileData = PowerPreference.getDefaultFile().getData();
+```
+
+2. Get all data from all files in the app.
+```java
+List<PreferenceObject> appData = PowerPreference.getAllData()
+```
+
+
+# Default Values
 
 Set Default value to be used when reading from shared preference,
 You can use a different defaults value for every preference file.
 
 There is two option using:
 1. XML
-2. HashMap
-
-### Examples:
-
-* XML:
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <defaultMap>
@@ -145,7 +168,7 @@ There is two option using:
 PowerPreference.getDefaultFile().setDefaults(R.xml.preferences_defaults)
 ```
 
-* HashMap:
+2. HashMap
 
 ```java
 Map<String, Object> defaults = new HashMap<>();
@@ -163,28 +186,13 @@ defaults.put("key", new Object());
 PowerPreference.getDefaultFile().setDefaults(hashMap);
 ```
 
-# Other
-
-```java
-PowerPreference.getDefaultFile().clear();
-PowerPreference.getDefaultFile().remove("key");
-PowerPreference.getDefaultFile().contains("key");
-PowerPreference.getDefaultFile().getData("key");
-```
-
-For all preference in the app.
-```java
-PowerPreference.getAllData()
-PowerPreference.clearAllData()
-```
-
 
 # Preference Debbuger 
 
 By preference debugger you can show all the preference in all the file in your app simply by calling.
 
 ```java
-PowerPreference.showDebugScreen(true) //true - describe if the value is editable
+PowerPreference.showDebugScreen();
 ```
 
 <p align="center">
