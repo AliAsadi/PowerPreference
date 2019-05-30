@@ -23,7 +23,7 @@ public class PowerPreference {
      * the default preference file.
      */
     public static Preference getDefaultFile() {
-        return PreferenceManager.get().getDefaultPreference();
+        return PreferenceManager.getInstance().getDefaultPreference();
     }
 
     /**
@@ -33,11 +33,11 @@ public class PowerPreference {
      * the {@code getFileByName} preference file.
      */
     public static Preference getFileByName(String name) {
-        return PreferenceManager.get().getPreferenceByName(name);
+        return PreferenceManager.getInstance().getPreferenceByName(name);
     }
 
     /**
-     * Set the global instance returned from {@link PreferenceManager#get()}.
+     * Set the global instance returned from {@link PreferenceManager#getInstance()}.
      */
     public static void setSingletonInstance(PowerPreference instance) {
         PreferenceManager.setSingletonInstance(new PreferenceManager.Builder(instance.context).build());
@@ -47,7 +47,7 @@ public class PowerPreference {
      * @return {@link PreferenceObject} that hold all the preference data in the app in all files.
      */
     public static List<PreferenceObject> getAllData() {
-        return PreferenceManager.get().getData();
+        return PreferenceManager.getInstance().getData();
     }
 
     /**
@@ -55,8 +55,8 @@ public class PowerPreference {
      */
     public static void clearAllData() {
         getDefaultFile().clear();
-        for (String filename : PreferenceManager.get().getFilesName()) {
-            PreferenceManager.get().getPreferenceByName(filename).clear();
+        for (String filename : PreferenceManager.getInstance().getFilesName()) {
+            PreferenceManager.getInstance().getPreferenceByName(filename).clear();
         }
     }
 
@@ -66,7 +66,7 @@ public class PowerPreference {
      * @param editable - Whether preference value able to edit or not.
      */
     public static void showDebugScreen(boolean editable) {
-        PreferenceManager.get().showPreferenceScreen(editable);
+        PreferenceManager.getInstance().showPreferenceScreen(editable);
     }
 
     public static class Builder {

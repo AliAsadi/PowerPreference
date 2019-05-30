@@ -35,7 +35,7 @@ class PreferenceManager {
         PreferenceManager.singleton = singleton;
     }
 
-    static PreferenceManager get() {
+    synchronized static PreferenceManager getInstance() {
         if (singleton == null) {
             if (PreferenceProvider.context == null) {
                 throw new IllegalStateException("context == null");
@@ -85,7 +85,7 @@ class PreferenceManager {
     ArrayList<String> getFilesName() {
         ArrayList<String> filesName = new ArrayList<>();
 
-        String[] files = new File(get().context.getApplicationInfo().dataDir + "/shared_prefs").list();
+        String[] files = new File(getInstance().context.getApplicationInfo().dataDir + "/shared_prefs").list();
         if (files != null) {
             for (String fileName : files) {
                 String fileNameWithoutExtension = fileName.substring(0, TextUtils.indexOf(fileName, ".xml"));
