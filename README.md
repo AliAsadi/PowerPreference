@@ -196,8 +196,8 @@ PowerPreference.showDebugScreen();
 ```
 
 <p align="center">
-  <img src="https://i.imgur.com/OGUmLzW.png" width="300" title="screen">
-  <img src="https://i.imgur.com/FEVCtrK.png" width="300" title="edot">
+  <img src="https://github.com/AliAsadi/PowerPreference/blob/master/screenshot/debug-screen.png" width="300" title="screen">
+  <img src="https://github.com/AliAsadi/PowerPreference/blob/master/screenshot/edit-value.png" width="300" title="edot">
 </p>
 
 
