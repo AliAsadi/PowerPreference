@@ -3,17 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".TestActivity">
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="Preference Screen"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="showPreferenceScreen"
-        android:text="showPreferenceScreen"
+        android:text="Show Preference Screen"
         android:textAllCaps="false" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="#fff" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="Fill"
+        android:textColor="#fff"
+        android:textSize="18sp" />
 
 
     <Button
@@ -21,40 +48,150 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="fill"
-        android:text="fill"
+        android:text="All Data"
         android:textAllCaps="false" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="#fff" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="Clear"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="clearData"
-        android:text="clearAllData"
+        android:onClick="clearAllData"
+        android:text="All Data"
         android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="print"
-        android:text="print"
-        android:textAllCaps="false" />
+        android:gravity="center"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="setDefaultValueByXml"
-        android:text="setDefaultValueByXml"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clearUserDetailsData"
+            android:text="User Details"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/button6"
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clearEnvironmentData"
+            android:text="Environment"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clearDefaultData"
+            android:text="Defaults"
+            android:textAllCaps="false" />
+
+
+    </LinearLayout>
+
+    <View
         android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="#fff" />
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="setDefaultValueByMap"
-        android:text="setDefaultValueByMap"
-        android:textAllCaps="false" />
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="Print to console"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="printUserDetails"
+            android:text="User Details"
+            android:textAllCaps="false" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="printEnv"
+            android:text="Environment"
+            android:textAllCaps="false" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="printDefault"
+            android:text="Defaults"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="#fff" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="Default Value"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setDefaultsByHashMap"
+            android:text="HashMap"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setDefaultsByXml"
+            android:text="XML"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

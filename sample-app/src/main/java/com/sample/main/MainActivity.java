@@ -10,9 +10,9 @@ import com.preference.PowerPreference;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SampleActivity extends Activity {
+public class MainActivity extends Activity {
 
-    private static final String TAG = "SampleActivity";
+    private static final String TAG = "MainActivity";
 
     private static final String USER_DETAILS = "UserDetails";
     private static final String ENVIRONMENT = "Environment";
@@ -20,7 +20,7 @@ public class SampleActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sample);
+        setContentView(R.layout.activity_main);
 
         //there is no defaults!
     }
@@ -32,8 +32,8 @@ public class SampleActivity extends Activity {
     public void fill(View view) {
         PowerPreference.getFileByName(USER_DETAILS)
                 .put("firstName", "ali")
-                .put("lastName", "assadi")
-                .put("email", "ali@assadi.com");
+                .put("lastName", "asadi")
+                .put("email", "ali@asadi.com");
 
         PowerPreference.getFileByName(ENVIRONMENT)
                 .put("env", "beta")
