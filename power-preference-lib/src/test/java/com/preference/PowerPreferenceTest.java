@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -84,7 +85,7 @@ public class PowerPreferenceTest {
     @Test
     public void getDefaultFileByNameTest() {
         preference = PowerPreference.getFileByName("name");
-        assert preference != null;
+        Assert.assertNotNull(preference);
     }
 
     //--------------------------------------------------------//
@@ -251,9 +252,10 @@ public class PowerPreferenceTest {
 
     @Test
     public void getDoubleTest() {
+        double expected = 0;
         when(sharedPreferences.getString(KEY, "")).thenReturn("");
         double result = preference.getDouble(KEY);
-        assert result == 0;
+        Assert.assertEquals(expected, result, 0);
         verify(sharedPreferences).getString(KEY, "");
     }
 
@@ -261,7 +263,7 @@ public class PowerPreferenceTest {
     public void getObjectTest() {
         Object result = preference.getObject(KEY, Object.class);
         verify(sharedPreferences).getString(KEY, "");
-        assert result == null;
+        assertNull(result);
     }
 
     @Test
@@ -301,14 +303,14 @@ public class PowerPreferenceTest {
     public void getDoubleWithDefaultTest() {
         double result = preference.getDouble(KEY, DOUBLE_VALUE);
         verify(sharedPreferences).getString(KEY, "");
-        assert result == DOUBLE_VALUE;
+        Assert.assertEquals(DOUBLE_VALUE, result, 0);
     }
 
     @Test
     public void getObjectWithDefaultTest() {
         Object result = preference.getObject(KEY, Object.class, OBJECT_VALUE);
         verify(sharedPreferences).getString(KEY, "");
-        assert result == OBJECT_VALUE;
+        Assert.assertEquals(OBJECT_VALUE, result);
     }
 
     @Test
