@@ -94,65 +94,58 @@ public class PowerPreferenceTest {
     @Test
     public void putStringTest() {
         preference.putString(KEY, STRING_VALUE);
-        preference.put(KEY, STRING_VALUE);
 
-        verify(editor, times(2)).putString(KEY, STRING_VALUE);
-        verify(editor, times(2)).apply();
+        verify(editor, times(1)).putString(KEY, STRING_VALUE);
+        verify(editor, times(1)).apply();
     }
 
     @Test
     public void putIntTest() {
         preference.putInt(KEY, INT_VALUE);
-        preference.put(KEY, INT_VALUE);
 
-        verify(editor, times(2)).putInt(KEY, INT_VALUE);
-        verify(editor, times(2)).apply();
+        verify(editor, times(1)).putInt(KEY, INT_VALUE);
+        verify(editor, times(1)).apply();
     }
 
     @Test
     public void putFloatTest() {
         preference.putFloat(KEY, FLOAT_VALUE);
-        preference.put(KEY, FLOAT_VALUE);
 
-        verify(editor, times(2)).putFloat(KEY, FLOAT_VALUE);
-        verify(editor, times(2)).apply();
+        verify(editor, times(1)).putFloat(KEY, FLOAT_VALUE);
+        verify(editor, times(1)).apply();
     }
 
     @Test
     public void putDoubleTest() {
         preference.putDouble(KEY, DOUBLE_VALUE);
-        preference.put(KEY, DOUBLE_VALUE);
 
-        verify(editor, times(2)).putString(KEY, String.valueOf(DOUBLE_VALUE));
-        verify(editor, times(2)).apply();
+        verify(editor, times(1)).putString(KEY, String.valueOf(DOUBLE_VALUE));
+        verify(editor, times(1)).apply();
     }
 
     @Test
     public void putLongTest() {
         preference.putLong(KEY, LONG_VALUE);
-        preference.put(KEY, LONG_VALUE);
 
-        verify(editor, times(2)).putLong(KEY, LONG_VALUE);
-        verify(editor, times(2)).apply();
+        verify(editor, times(1)).putLong(KEY, LONG_VALUE);
+        verify(editor, times(1)).apply();
     }
 
     @Test
     public void putBooleanTest() {
         preference.putBoolean(KEY, BOOLEAN_VALUE);
-        preference.put(KEY, BOOLEAN_VALUE);
 
-        verify(editor, times(2)).putBoolean(KEY, BOOLEAN_VALUE);
-        verify(editor, times(2)).apply();
+        verify(editor, times(1)).putBoolean(KEY, BOOLEAN_VALUE);
+        verify(editor, times(1)).apply();
     }
 
     @Test
     public void putObjectTest() {
         preference.putObject(KEY, OBJECT_VALUE);
-        preference.put(KEY, OBJECT_VALUE);
 
         String value = new Gson().toJson(OBJECT_VALUE);
-        verify(editor, times(2)).putString(KEY, value);
-        verify(editor, times(2)).apply();
+        verify(editor, times(1)).putString(KEY, value);
+        verify(editor, times(1)).apply();
     }
 
     //--------------------------------------------------------//
@@ -162,65 +155,58 @@ public class PowerPreferenceTest {
     public void setStringTest() {
         when(editor.commit()).thenReturn(true);
         boolean b = preference.setString(KEY, STRING_VALUE);
-        boolean b2 = preference.set(KEY, STRING_VALUE);
 
-        verify(editor, times(2)).putString(KEY, STRING_VALUE);
-        verify(editor, times(2)).commit();
+        verify(editor, times(1)).putString(KEY, STRING_VALUE);
+        verify(editor, times(1)).commit();
     }
 
     @Test
     public void setIntTest() {
         boolean b = preference.setInt(KEY, INT_VALUE);
-        boolean b2 = preference.set(KEY, INT_VALUE);
 
-        verify(editor, times(2)).putInt(KEY, INT_VALUE);
-        verify(editor, times(2)).commit();
+        verify(editor, times(1)).putInt(KEY, INT_VALUE);
+        verify(editor, times(1)).commit();
     }
 
     @Test
     public void setFloatTest() {
         boolean b = preference.setFloat(KEY, FLOAT_VALUE);
-        boolean b2 = preference.set(KEY, FLOAT_VALUE);
 
-        verify(editor, times(2)).putFloat(KEY, FLOAT_VALUE);
-        verify(editor, times(2)).commit();
+        verify(editor, times(1)).putFloat(KEY, FLOAT_VALUE);
+        verify(editor, times(1)).commit();
     }
 
     @Test
     public void setDoubleTest() {
         boolean b = preference.setDouble(KEY, DOUBLE_VALUE);
-        boolean b2 = preference.set(KEY, DOUBLE_VALUE);
 
-        verify(editor, times(2)).putString(KEY, String.valueOf(DOUBLE_VALUE));
-        verify(editor, times(2)).commit();
+        verify(editor, times(1)).putString(KEY, String.valueOf(DOUBLE_VALUE));
+        verify(editor, times(1)).commit();
     }
 
     @Test
     public void setLongTest() {
         boolean b = preference.setLong(KEY, LONG_VALUE);
-        boolean b2 = preference.set(KEY, LONG_VALUE);
 
-        verify(editor, times(2)).putLong(KEY, LONG_VALUE);
-        verify(editor, times(2)).commit();
+        verify(editor, times(1)).putLong(KEY, LONG_VALUE);
+        verify(editor, times(1)).commit();
     }
 
     @Test
     public void setBooleanTest() {
         boolean b = preference.setBoolean(KEY, BOOLEAN_VALUE);
-        boolean b2 = preference.set(KEY, BOOLEAN_VALUE);
 
-        verify(editor, times(2)).putBoolean(KEY, BOOLEAN_VALUE);
-        verify(editor, times(2)).commit();
+        verify(editor, times(1)).putBoolean(KEY, BOOLEAN_VALUE);
+        verify(editor, times(1)).commit();
     }
 
     @Test
     public void setObjectTest() {
         boolean b = preference.setObject(KEY, OBJECT_VALUE);
-        boolean b2 = preference.set(KEY, OBJECT_VALUE);
 
         String value = new Gson().toJson(OBJECT_VALUE);
-        verify(editor, times(2)).putString(KEY, value);
-        verify(editor, times(2)).commit();
+        verify(editor, times(1)).putString(KEY, value);
+        verify(editor, times(1)).commit();
     }
 
     //--------------------------------------------------------//
