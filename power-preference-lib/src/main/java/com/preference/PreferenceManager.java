@@ -31,8 +31,8 @@ class PreferenceManager {
         this.defaults = defaults;
     }
 
-    public static void setSingletonInstance(PreferenceManager singleton) {
-        PreferenceManager.singleton = singleton;
+    static void init(Context context) {
+        PreferenceProvider.context = context;
     }
 
     synchronized static PreferenceManager getInstance() {
@@ -40,7 +40,7 @@ class PreferenceManager {
             if (PreferenceProvider.context == null) {
                 throw new IllegalStateException("context == null");
             }
-            singleton = new Builder(PreferenceProvider.context).build();
+            singleton = new PreferenceManager(PreferenceProvider.context, new HashMap<String, Object>());
         }
         return singleton;
     }
@@ -121,16 +121,4 @@ class PreferenceManager {
         return preferencesList;
     }
 
-    public static class Builder {
-
-        private final Context context;
-
-        public Builder(Context context) {
-            this.context = context;
-        }
-
-        public PreferenceManager build() {
-            return new PreferenceManager(context, new HashMap<String, Object>());
-        }
-    }
 }
