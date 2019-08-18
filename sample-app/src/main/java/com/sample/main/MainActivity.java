@@ -25,9 +25,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         PowerPreference.init(this);
-        List<PreferenceFile> allData = PowerPreference.getAllData();
-        allData.toString();
-        //there is no defaults!
     }
 
     public void showPreferenceScreen(View view) {
