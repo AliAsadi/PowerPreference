@@ -31,7 +31,7 @@ class PreferenceManager {
         this.defaults = defaults;
     }
 
-    static void init(Context context) {
+    synchronized static void init(Context context) {
         singleton = new PreferenceManager(context, new HashMap<String, Object>());
     }
 
