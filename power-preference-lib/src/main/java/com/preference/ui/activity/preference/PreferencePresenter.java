@@ -41,7 +41,7 @@ class PreferencePresenter {
     }
 
     void onBooleanPreferenceClicked(PreferenceItem item, boolean isChecked) {
-        PowerPreference.getFileByName(item.parentName).put(item.key, isChecked);
+        PowerPreference.getFileByName(item.parentName).putBoolean(item.key, isChecked);
         item.value = isChecked;
     }
 
@@ -53,24 +53,24 @@ class PreferencePresenter {
         Preference preference = PowerPreference.getFileByName(item.parentName);
         switch (item.type) {
             case Integer:
-                preference.put(item.key, Integer.parseInt(newValue));
+                preference.putInt(item.key, Integer.parseInt(newValue));
                 item.value = Integer.parseInt(newValue);
                 break;
             case Float:
-                preference.put(item.key, Float.parseFloat(newValue));
+                preference.putFloat(item.key, Float.parseFloat(newValue));
                 item.value = Float.parseFloat(newValue);
                 break;
             case Long:
-                preference.put(item.key, Long.parseLong(newValue));
+                preference.putLong(item.key, Long.parseLong(newValue));
                 item.value = Long.parseLong(newValue);
                 break;
             case Boolean:
-                preference.put(item.key, Boolean.parseBoolean(newValue));
+                preference.putBoolean(item.key, Boolean.parseBoolean(newValue));
                 item.value = Boolean.parseBoolean(newValue);
 
                 break;
             case String:
-                preference.put(item.key, newValue);
+                preference.putString(item.key, newValue);
                 item.value = newValue;
                 break;
         }
