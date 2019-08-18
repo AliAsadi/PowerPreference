@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
+import com.preference.model.PreferenceFile;
 import com.preference.provider.PreferenceProvider;
 import com.preference.ui.debug.DebugActivity;
 import com.preference.model.PreferenceItem;
-import com.preference.model.PreferenceObject;
 import com.preference.model.PreferenceType;
 
 import java.io.File;
@@ -60,9 +60,9 @@ class PreferenceManager {
         return new PreferenceCreator(context, defaults);
     }
 
-    List<PreferenceObject> getData() {
+    List<PreferenceFile> getData() {
         Map<SharedPreferences, String> nameHelper = new HashMap<>(); //prefs name helper
-        List<PreferenceObject> items = new ArrayList<>(); //items
+        List<PreferenceFile> items = new ArrayList<>(); //items
 
         List<SharedPreferences> allFiles = getFiles(nameHelper);
         for (SharedPreferences sp : allFiles) {
@@ -76,7 +76,7 @@ class PreferenceManager {
                     prefsItems.add(new PreferenceItem(obj.getKey(), obj.getValue(), nameHelper.get(sp), type));
                 }
 
-                items.add(new PreferenceObject(sp, nameHelper.get(sp), prefsItems));
+                items.add(new PreferenceFile(sp, nameHelper.get(sp), prefsItems));
             }
         }
         return items;

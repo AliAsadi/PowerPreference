@@ -6,7 +6,7 @@ import android.view.MenuItem;
 import com.preference.PowerPreference;
 import com.preference.Preference;
 import com.preference.model.PreferenceItem;
-import com.preference.model.PreferenceObject;
+import com.preference.model.PreferenceFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +33,9 @@ class DebugPresenter implements DebugContract.Presenter {
     @Override
     public void getData() {
         List<DebugAdapter.PreferenceGroup> list = new ArrayList<>();
-        List<PreferenceObject> data = PowerPreference.getAllData();
-        for (PreferenceObject object : data) {
-            DebugAdapter.PreferenceGroup group = new DebugAdapter.PreferenceGroup(object.name, object.items);
+        List<PreferenceFile> data = PowerPreference.getAllData();
+        for (PreferenceFile object : data) {
+            DebugAdapter.PreferenceGroup group = new DebugAdapter.PreferenceGroup(object.fileName, object.items);
             list.add(group);
         }
 
@@ -44,7 +44,7 @@ class DebugPresenter implements DebugContract.Presenter {
 
     @Override
     public void onBooleanPreferenceClicked(PreferenceItem item, boolean isChecked) {
-        PowerPreference.getFileByName(item.parentName).putBoolean(item.key, isChecked);
+        PowerPreference.getFileByName(item.fileName).putBoolean(item.key, isChecked);
         item.value = isChecked;
     }
 
@@ -55,7 +55,7 @@ class DebugPresenter implements DebugContract.Presenter {
 
     @Override
     public void onSavePreferenceClicked(PreferenceItem item, String newValue) throws NumberFormatException {
-        Preference preference = PowerPreference.getFileByName(item.parentName);
+        Preference preference = PowerPreference.getFileByName(item.fileName);
         switch (item.type) {
             case Integer:
                 preference.putInt(item.key, Integer.parseInt(newValue));

@@ -3,12 +3,8 @@ package com.preference.ui.debug;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.preference.PowerPreference;
-import com.preference.Preference;
 import com.preference.model.PreferenceItem;
-import com.preference.model.PreferenceObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
