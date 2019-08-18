@@ -32,7 +32,7 @@ class PreferenceManager {
     }
 
     static void init(Context context) {
-        PreferenceProvider.context = context;
+        singleton = new PreferenceManager(context, new HashMap<String, Object>());
     }
 
     synchronized static PreferenceManager getInstance() {

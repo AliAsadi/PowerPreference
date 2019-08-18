@@ -57,7 +57,7 @@ public class PowerPreferenceTest {
         mockContext();
         mockEditor();
 
-        PowerPreference.setSingletonInstance(new PowerPreference.Builder(context).build());
+        PowerPreference.init(context);
 
         preference = PowerPreference.getFileByName("name");
         assertNotNull(preference);
