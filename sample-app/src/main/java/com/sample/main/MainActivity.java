@@ -31,15 +31,15 @@ public class MainActivity extends Activity {
 
     public void fill(View view) {
         PowerPreference.getFileByName(USER_DETAILS)
-                .put("firstName", "ali")
-                .put("lastName", "asadi")
-                .put("email", "ali@asadi.com");
+                .putString("firstName", "ali")
+                .putString("lastName", "asadi")
+                .putString("email", "ali@asadi.com");
 
         PowerPreference.getFileByName(ENVIRONMENT)
-                .put("env", "beta")
-                .put("host", "google.com");
+                .putString("env", "beta")
+                .putString("host", "google.com");
 
-        PowerPreference.getDefaultFile().put("firstOpen", true);
+        PowerPreference.getDefaultFile().putBoolean("firstOpen", true);
     }
 
     public void clearAllData(View view) {
