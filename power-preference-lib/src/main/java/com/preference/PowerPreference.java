@@ -1,10 +1,7 @@
 package com.preference;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-
 import com.preference.model.PreferenceObject;
-
 import java.util.List;
 
 /**
@@ -12,10 +9,14 @@ import java.util.List;
  */
 public class PowerPreference {
 
-    private Context context;
-
-    private PowerPreference(Context context) {
-        this.context = context;
+    /**
+     * Initialize the library.
+     */
+    public static void init(Context context) {
+        if (context == null) {
+            throw new IllegalArgumentException("Context must not be null.");
+        }
+        PreferenceManager.init(context.getApplicationContext());
     }
 
     /**
@@ -34,13 +35,6 @@ public class PowerPreference {
      */
     public static Preference getFileByName(String name) {
         return PreferenceManager.getInstance().getPreferenceByName(name);
-    }
-
-    /**
-     * Set the global instance returned from {@link PreferenceManager#getInstance()}.
-     */
-    public static void setSingletonInstance(PowerPreference instance) {
-        PreferenceManager.setSingletonInstance(new PreferenceManager.Builder(instance.context).build());
     }
 
     /**
@@ -69,24 +63,4 @@ public class PowerPreference {
         PreferenceManager.getInstance().showPreferenceScreen(editable);
     }
 
-    public static class Builder {
-        private final Context context;
-
-        /**
-         * Start building a new {@link PowerPreference} instance.
-         */
-        public Builder(@NonNull Context context) {
-            if (context == null) {
-                throw new IllegalArgumentException("Context must not be null.");
-            }
-            this.context = context.getApplicationContext();
-        }
-
-        /**
-         * Create the {@link PowerPreference} instance.
-         */
-        public PowerPreference build() {
-            return new PowerPreference(context);
-        }
-    }
 }
