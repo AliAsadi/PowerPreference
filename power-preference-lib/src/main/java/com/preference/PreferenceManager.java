@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import com.preference.provider.PreferenceProvider;
-import com.preference.ui.activity.preference.PreferenceActivity;
+import com.preference.ui.debug.DebugActivity;
 import com.preference.model.PreferenceItem;
 import com.preference.model.PreferenceObject;
 import com.preference.model.PreferenceType;
@@ -46,7 +46,7 @@ class PreferenceManager {
     }
 
     void showPreferenceScreen(boolean editable) {
-        Intent intent = new Intent(context, PreferenceActivity.class);
+        Intent intent = new Intent(context, DebugActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("editable", editable);
         context.startActivity(intent);

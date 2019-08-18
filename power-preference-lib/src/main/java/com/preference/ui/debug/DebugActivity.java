@@ -1,4 +1,4 @@
-package com.preference.ui.activity.preference;
+package com.preference.ui.debug;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,19 +17,19 @@ import java.util.List;
 /**
  * Created by Ali Esa Assadi on 10/10/2018.
  */
-public class PreferenceActivity extends AppCompatActivity implements PreferenceView,
-        PreferenceAdapter.PrefsListener, DialogUtils.OnSaveClicked {
+public class DebugActivity extends AppCompatActivity implements DebugContract.View,
+        DebugAdapter.PrefsListener, DialogUtils.OnSaveClicked {
 
     private RecyclerView recyclerView;
-    private PreferenceAdapter adapter;
-    private PreferencePresenter presenter;
+    private DebugAdapter adapter;
+    private DebugPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.PreferenceTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preference);
-        setTitle("Preference");
+        setTitle("Debug");
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -38,14 +38,14 @@ public class PreferenceActivity extends AppCompatActivity implements PreferenceV
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
-        presenter = new PreferencePresenter(this);
+        presenter = new DebugPresenter(this);
         presenter.getExtras(getIntent().getExtras());
         presenter.getData();
     }
 
     @Override
-    public void updateView(List<PreferenceAdapter.PreferenceGroup> list, boolean editable) {
-        adapter = new PreferenceAdapter(list, this, editable);
+    public void updateView(List<DebugAdapter.PreferenceGroup> list, boolean editable) {
+        adapter = new DebugAdapter(list, this, editable);
         adapter.expandAll();
         recyclerView.setAdapter(adapter);
     }

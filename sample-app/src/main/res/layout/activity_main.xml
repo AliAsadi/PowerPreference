@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="6dp"
-        android:text="Preference Screen"
+        android:text="Debug Screen"
         android:textColor="#fff"
         android:textSize="18sp" />
 
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="showPreferenceScreen"
-        android:text="Show Preference Screen"
+        android:text="Show Debug Screen"
         android:textAllCaps="false" />
 
     <View

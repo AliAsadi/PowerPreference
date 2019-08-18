@@ -1,4 +1,4 @@
-package com.preference.ui.activity.preference;
+package com.preference.ui.debug;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,42 +14,47 @@ import java.util.List;
 /**
  * Created by Ali Esa Assadi on 24/11/2018.
  */
-class PreferencePresenter {
+class DebugPresenter implements DebugContract.Presenter {
 
-    private final PreferenceView view;
+    private final DebugContract.View view;
     private boolean editable;
 
-    PreferencePresenter(PreferenceView view) {
+    DebugPresenter(DebugContract.View view) {
         this.view = view;
     }
 
-    void getExtras(Bundle extras) {
+    @Override
+    public void getExtras(Bundle extras) {
         if (extras != null) {
             editable = extras.getBoolean("editable", false);
         }
     }
 
-    void getData() {
-        List<PreferenceAdapter.PreferenceGroup> list = new ArrayList<>();
+    @Override
+    public void getData() {
+        List<DebugAdapter.PreferenceGroup> list = new ArrayList<>();
         List<PreferenceObject> data = PowerPreference.getAllData();
         for (PreferenceObject object : data) {
-            PreferenceAdapter.PreferenceGroup group = new PreferenceAdapter.PreferenceGroup(object.name, object.items);
+            DebugAdapter.PreferenceGroup group = new DebugAdapter.PreferenceGroup(object.name, object.items);
             list.add(group);
         }
 
         view.updateView(list, editable);
     }
 
-    void onBooleanPreferenceClicked(PreferenceItem item, boolean isChecked) {
+    @Override
+    public void onBooleanPreferenceClicked(PreferenceItem item, boolean isChecked) {
         PowerPreference.getFileByName(item.parentName).putBoolean(item.key, isChecked);
         item.value = isChecked;
     }
 
-    void onDefaultPreferenceClicked(PreferenceItem item) {
+    @Override
+    public void onDefaultPreferenceClicked(PreferenceItem item) {
         view.showEditValueDialog(item);
     }
 
-    void onSavePreferenceClicked(PreferenceItem item, String newValue) throws NumberFormatException {
+    @Override
+    public void onSavePreferenceClicked(PreferenceItem item, String newValue) throws NumberFormatException {
         Preference preference = PowerPreference.getFileByName(item.parentName);
         switch (item.type) {
             case Integer:
@@ -78,14 +83,17 @@ class PreferencePresenter {
         view.refreshView();
     }
 
+    @Override
     public void onExpandClicked(MenuItem item) {
         view.onExpandClicked(item);
     }
 
+    @Override
     public void onCollapseClicked(MenuItem item) {
         view.onCollapseClicked(item);
     }
 
+    @Override
     public void onBackButtonClicked() {
         view.onBackButtonClicked();
     }

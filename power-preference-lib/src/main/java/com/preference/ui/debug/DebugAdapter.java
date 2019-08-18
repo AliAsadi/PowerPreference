@@ -1,4 +1,4 @@
-package com.preference.ui.activity.preference;
+package com.preference.ui.debug;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by Ali Esa Assadi on 10/10/2018.
  */
-public class PreferenceAdapter extends MultiTypeExpandableRecyclerViewAdapter<PreferenceAdapter.TitleViewHolder, ChildViewHolder> implements View.OnClickListener {
+public class DebugAdapter extends MultiTypeExpandableRecyclerViewAdapter<DebugAdapter.TitleViewHolder, ChildViewHolder> implements View.OnClickListener {
 
     private final PrefsListener listener;
 
@@ -52,7 +52,7 @@ public class PreferenceAdapter extends MultiTypeExpandableRecyclerViewAdapter<Pr
         void onBooleanPreferenceClicked(PreferenceItem item, boolean checked);
     }
 
-    public PreferenceAdapter(List<? extends ExpandableGroup> groups, PrefsListener listener, boolean editable) {
+    public DebugAdapter(List<? extends ExpandableGroup> groups, PrefsListener listener, boolean editable) {
         super(groups);
         this.listener = listener;
         this.editable = editable;
