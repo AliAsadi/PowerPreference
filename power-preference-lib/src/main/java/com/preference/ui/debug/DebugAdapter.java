@@ -17,7 +17,7 @@ import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder;
 import java.util.List;
 
 /**
- * Created by Ali Esa Assadi on 10/10/2018.
+ * Created by Ali Asadi on 10/10/2018.
  */
 public class DebugAdapter extends MultiTypeExpandableRecyclerViewAdapter<DebugAdapter.TitleViewHolder, ChildViewHolder> implements View.OnClickListener {
 

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Ali Esa Assadi on 16/11/2018.
+ * Created by Ali Asadi on 16/11/2018.
  */
 class PreferenceManager {
     private static PreferenceManager singleton;

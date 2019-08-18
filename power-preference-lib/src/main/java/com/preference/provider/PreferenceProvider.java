@@ -11,7 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 /**
- * Created by Ali Esa Assadi on 20/11/2018.
+ * Created by Ali Asadi on 20/11/2018.
  */
 public class PreferenceProvider extends ContentProvider {
 

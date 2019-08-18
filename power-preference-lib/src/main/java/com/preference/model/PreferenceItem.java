@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by Ali Esa Assadi on 19/11/2018.
+ * Created by Ali Asadi on 19/11/2018.
  */
 public class PreferenceItem implements Parcelable {
     public String parentName;

@@ -8,7 +8,7 @@ import com.preference.model.PreferenceObject;
 import java.util.List;
 
 /**
- * Created by Ali Esa Assadi on 28/11/2018.
+ * Created by Ali Asadi on 28/11/2018.
  */
 public class PowerPreference {
 

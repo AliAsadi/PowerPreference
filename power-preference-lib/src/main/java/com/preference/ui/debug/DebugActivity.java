@@ -15,7 +15,7 @@ import com.preference.utils.DialogUtils;
 import java.util.List;
 
 /**
- * Created by Ali Esa Assadi on 10/10/2018.
+ * Created by Ali Asadi on 10/10/2018.
  */
 public class DebugActivity extends AppCompatActivity implements DebugContract.View,
         DebugAdapter.PrefsListener, DialogUtils.OnSaveClicked {

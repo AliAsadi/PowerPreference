@@ -7,7 +7,7 @@ import com.preference.utils.WrongValueException;
 import java.util.Map;
 
 /**
- * Created by Ali Esa Assadi on 12/01/2019.
+ * Created by Ali Asadi on 12/01/2019.
  */
 public interface Preference {
 

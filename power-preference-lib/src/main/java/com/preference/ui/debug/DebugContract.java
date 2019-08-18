@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ali Esa Assadi on 10/10/2018.
+ * Created by Ali Asadi on 10/10/2018.
  */
 public interface DebugContract {
 

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ali Esa Assadi on 24/11/2018.
+ * Created by Ali Asadi on 24/11/2018.
  */
 class DebugPresenter implements DebugContract.Presenter {
 

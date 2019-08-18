@@ -12,7 +12,7 @@ import com.preference.R;
 import com.preference.model.PreferenceItem;
 
 /**
- * Created by Ali Esa Assadi on 05/12/2018.
+ * Created by Ali Asadi on 05/12/2018.
  */
 public class DialogUtils {
     public interface OnSaveClicked {

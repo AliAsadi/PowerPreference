@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Ali Esa Assadi on 22/11/2018.
+ * Created by Ali Asadi on 22/11/2018.
  */
 class PreferenceCreator implements Preference {
 

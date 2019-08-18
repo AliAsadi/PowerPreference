@@ -1,7 +1,7 @@
 package com.preference.utils;
 
 /**
- * Created by Ali Esa Assadi on 30/11/2018.
+ * Created by Ali Asadi on 30/11/2018.
  */
 public class WrongValueException extends IllegalArgumentException{
     public WrongValueException(Object value) {

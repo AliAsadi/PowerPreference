@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import java.util.List;
 
 /**
- * Created by Ali Esa Assadi on 19/11/2018.
+ * Created by Ali Asadi on 19/11/2018.
  */
 public class PreferenceObject {
     public SharedPreferences sharedPreferences;
