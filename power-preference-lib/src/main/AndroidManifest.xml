@@ -7,7 +7,7 @@ package="com.preference" >
         android:enabled="true"
         android:name="com.preference.provider.PreferenceProvider" />
 
-    <activity android:name=".ui.activity.preference.PreferenceActivity" />
+    <activity android:name=".ui.debug.DebugActivity" />
 
 </application>
 </manifest>
