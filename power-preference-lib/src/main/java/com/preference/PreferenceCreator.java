@@ -513,12 +513,17 @@ class PreferenceCreator implements Preference {
         if (value != null) {
             defaultValue = String.valueOf(value);
         }
-        return sharedPreferences.getString(key, defaultValue);
+        return getString(key, defaultValue);
     }
 
     @Override
     public String getString(String key, String defValue) {
-        return sharedPreferences.getString(key, defValue);
+        try {
+            return sharedPreferences.getString(key, defValue);
+        } catch (ClassCastException e) {
+            Log.e(TAG, "The value of {" + key + "} key is not a String.", e);
+            return defValue;
+        }
     }
 
     /**
@@ -549,12 +554,17 @@ class PreferenceCreator implements Preference {
                         new WrongValueException(value));
             }
         }
-        return sharedPreferences.getInt(key, defaultValue);
+        return getInt(key, defaultValue);
     }
 
     @Override
     public int getInt(String key, int defValue) {
-        return sharedPreferences.getInt(key, defValue);
+        try {
+            return sharedPreferences.getInt(key, defValue);
+        } catch (ClassCastException e) {
+            Log.e(TAG, "The value of {" + key + "} key is not an Int.", e);
+            return defValue;
+        }
     }
 
     /**
@@ -585,12 +595,17 @@ class PreferenceCreator implements Preference {
                         new WrongValueException(value));
             }
         }
-        return sharedPreferences.getLong(key, defaultValue);
+        return getLong(key, defaultValue);
     }
 
     @Override
     public long getLong(String key, long defValue) {
-        return sharedPreferences.getLong(key, defValue);
+        try {
+            return sharedPreferences.getLong(key, defValue);
+        } catch (ClassCastException e) {
+            Log.e(TAG, "The value of {" + key + "} key is not a Long.", e);
+            return defValue;
+        }
     }
 
     /**
@@ -617,12 +632,17 @@ class PreferenceCreator implements Preference {
                         new WrongValueException(value));
             }
         }
-        return sharedPreferences.getBoolean(key, defaultValue);
+        return getBoolean(key, defaultValue);
     }
 
     @Override
     public boolean getBoolean(String key, boolean defValue) {
-        return sharedPreferences.getBoolean(key, defValue);
+        try {
+            return sharedPreferences.getBoolean(key, defValue);
+        } catch (ClassCastException e) {
+            Log.e(TAG, "The value of {" + key + "} key is not a Boolean.", e);
+            return defValue;
+        }
     }
 
     /**
@@ -653,17 +673,22 @@ class PreferenceCreator implements Preference {
                         new WrongValueException(value));
             }
         }
-        return sharedPreferences.getFloat(key, defaultValue);
+        return getFloat(key, defaultValue);
     }
 
     @Override
     public float getFloat(String key, float defValue) {
-        return sharedPreferences.getFloat(key, defValue);
+        try {
+            return sharedPreferences.getFloat(key, defValue);
+        } catch (ClassCastException e) {
+            Log.e(TAG, "The value of {" + key + "} key is not a Float.", e);
+            return defValue;
+        }
     }
 
     @Override
     public <T> T getObject(String key, Class classType, T defValue) {
-        String json = sharedPreferences.getString(key, "");
+        String json = getString(key, "");
         Object value = new Gson().fromJson(json, classType);
         if (value == null) {
             return defValue;
@@ -682,7 +707,7 @@ class PreferenceCreator implements Preference {
     @Override
     @SuppressWarnings("TypeParameterUnusedInFormals")
     public @Nullable <T> T getObject(String key, Class classType) {
-        String json = sharedPreferences.getString(key, "");
+        String json = getString(key, "");
         Object value = new Gson().fromJson(json, classType);
         if (value == null) {
             return (T) getDefaultValue(key);
@@ -702,7 +727,7 @@ class PreferenceCreator implements Preference {
     @Override
     @SuppressWarnings("TypeParameterUnusedInFormals")
     public @Nullable <T> T getMap(String key, Class classType, Class keyType, Class valueType) {
-        String json = sharedPreferences.getString(key, "");
+        String json = getString(key, "");
 
         Object value = null;
         try {
@@ -730,7 +755,7 @@ class PreferenceCreator implements Preference {
      */
     @Override
     public double getDouble(String key) {
-        String string = sharedPreferences.getString(key, "");
+        String string = getString(key, "");
 
         double value;
         double defaultDouble = 0;
@@ -762,7 +787,7 @@ class PreferenceCreator implements Preference {
 
     @Override
     public double getDouble(String key, double defValue) {
-        String json = sharedPreferences.getString(key, "");
+        String json = getString(key, "");
         Object value = new Gson().fromJson(json, double.class);
         if (value == null) {
             return defValue;
