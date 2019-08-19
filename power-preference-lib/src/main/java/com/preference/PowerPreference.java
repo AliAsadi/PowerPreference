@@ -1,7 +1,7 @@
 package com.preference;
 
 import android.content.Context;
-import com.preference.model.PreferenceObject;
+import com.preference.model.PreferenceFile;
 import java.util.List;
 
 /**
@@ -38,9 +38,9 @@ public class PowerPreference {
     }
 
     /**
-     * @return {@link PreferenceObject} that hold all the preference data in the app in all files.
+     * @return {@link PreferenceFile} that hold all the preference data in the app in all files.
      */
-    public static List<PreferenceObject> getAllData() {
+    public static List<PreferenceFile> getAllData() {
         return PreferenceManager.getInstance().getData();
     }
 

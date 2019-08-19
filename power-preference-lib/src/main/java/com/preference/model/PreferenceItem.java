@@ -7,15 +7,22 @@ import android.os.Parcelable;
  * Created by Ali Asadi on 19/11/2018.
  */
 public class PreferenceItem implements Parcelable {
-    public String parentName;
+
+    public String fileName;
     public String key;
     public Object value ="";
     public PreferenceType type;
 
-    public PreferenceItem(String key, Object value, String parentName, PreferenceType type) {
+    /**
+     * @param key - The key of the preference.
+     * @param value - The value of the preference
+     * @param fileName - In which file the preference exist (defaultFile, Users ...etc)
+     * @param type - the type of the preference (Boolean, String, Long ...etc)
+     */
+    public PreferenceItem(String key, Object value, String fileName, PreferenceType type) {
         this.key = key;
         this.value = value;
-        this.parentName = parentName;
+        this.fileName = fileName;
         this.type = type;
     }
 

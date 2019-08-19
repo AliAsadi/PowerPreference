@@ -6,8 +6,10 @@ import android.util.Log;
 import android.view.View;
 
 import com.preference.PowerPreference;
+import com.preference.model.PreferenceFile;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends Activity {
@@ -22,7 +24,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //there is no defaults!
+        PowerPreference.init(this);
     }
 
     public void showPreferenceScreen(View view) {
