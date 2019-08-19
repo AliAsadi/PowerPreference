@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
 
         PowerPreference.getDefaultFile()
                 .putBoolean("firstOpen", true)
-                .putObject("map", createMap());
+                .putMap("map", createMap());
     }
 
     private HashMap<String, String> createMap() {
