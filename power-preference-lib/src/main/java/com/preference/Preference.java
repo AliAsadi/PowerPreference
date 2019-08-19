@@ -2,6 +2,8 @@ package com.preference;
 
 import android.support.annotation.XmlRes;
 
+import com.preference.utils.MapStructure;
+
 import java.util.Map;
 
 /**
@@ -289,8 +291,15 @@ public interface Preference {
      * @param valueType - the type of the value that used in the map.
      * @return Preference value if it exists otherwise, returns null.
      */
-    @SuppressWarnings("TypeParameterUnusedInFormals")
+    @Deprecated
     <T> T getMap(String key, Class classType, Class keyType, Class valueType);
+
+    /**
+     * @param key       - The name of the preference to retrieve.
+     * @param structure - map structure
+     * @return Preference value if it exists otherwise, returns null
+     */
+    <T> T getMap(String key, MapStructure structure);
 
     /**
      * Retrieve a double value from the preferences

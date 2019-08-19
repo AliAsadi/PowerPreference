@@ -11,9 +11,11 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.preference.utils.MapStructure;
 
 import org.xmlpull.v1.XmlPullParser;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,7 +55,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store int in SharedPreference Data.
-     *
+     * <p>
      * Writes the data asynchronously
      *
      * @param key   The name of the preference to modify.
@@ -69,7 +71,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store long in SharedPreference Data.
-     *
+     * <p>
      * Writes the data asynchronously
      *
      * @param key   The name of the preference to modify.
@@ -85,7 +87,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store float in SharedPreference Data.
-     *
+     * <p>
      * Writes the data asynchronously
      *
      * @param key   The name of the preference to modify.
@@ -101,7 +103,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store double in SharedPreference Data.
-     *
+     * <p>
      * Writes the data asynchronously
      *
      * @param key   The name of the preference to modify.
@@ -117,7 +119,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store boolean in SharedPreference Data.
-     *
+     * <p>
      * Writes the data asynchronously
      *
      * @param key   The name of the preference to modify.
@@ -133,7 +135,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store String in SharedPreference Data.
-     *
+     * <p>
      * Writes the data asynchronously
      *
      * @param key   The name of the preference to modify.
@@ -149,7 +151,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store Object in SharedPreference Data.
-     *
+     * <p>
      * Writes the data asynchronously
      *
      * @param key   The name of the preference to modify.
@@ -257,7 +259,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store Object in SharedPreference Data.
-     *
+     * <p>
      * Writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
@@ -313,7 +315,8 @@ class PreferenceCreator implements Preference {
      * @return Preference value if it exists otherwise, returns "".
      */
     @Override
-    public @NonNull String getString(String key) {
+    public @NonNull
+    String getString(String key) {
         Object value = getDefaultValue(key);
 
         String defaultValue = "";
@@ -335,7 +338,7 @@ class PreferenceCreator implements Preference {
         try {
             return sharedPreferences.getString(key, defValue);
         } catch (ClassCastException e) {
-            logClassCastException(key,"String",e);
+            logClassCastException(key, "String", e);
             return defValue;
         }
     }
@@ -521,7 +524,8 @@ class PreferenceCreator implements Preference {
      */
     @Override
     @SuppressWarnings("TypeParameterUnusedInFormals")
-    public @Nullable <T> T getObject(String key, Class classType) {
+    public @Nullable
+    <T> T getObject(String key, Class classType) {
         String json = getString(key, "");
         Object value = new Gson().fromJson(json, classType);
         if (value == null) {
@@ -557,7 +561,6 @@ class PreferenceCreator implements Preference {
      * @return Preference value if it exists otherwise, returns null.
      */
     @Override
-    @SuppressWarnings("TypeParameterUnusedInFormals")
     public @Nullable <T> T getMap(String key, Class classType, Class keyType, Class valueType) {
         String json = getString(key, "");
 
@@ -565,6 +568,34 @@ class PreferenceCreator implements Preference {
         try {
             value = new Gson().fromJson(json, TypeToken.getParameterized(classType, keyType,
                     valueType).getType());
+        } catch (Exception e) {
+            Log.d(TAG, "something went wrong!!", e);
+        }
+
+        if (value == null) {
+            return (T) getDefaultValue(key);
+        }
+        return (T) value;
+    }
+
+    /**
+     * @param key       - The name of the preference to retrieve.
+     * @param structure - map structure
+     * @return Preference value if it exists otherwise, returns null
+     */
+    @Override
+    public @Nullable <T> T getMap(String key, MapStructure structure) {
+        String json = getString(key, "");
+
+        Object value = null;
+        try {
+            Type type = TypeToken.getParameterized(
+                    structure.getType(),
+                    structure.getKey(),
+                    structure.getValue()
+            ).getType();
+
+            value = new Gson().fromJson(json, type);
         } catch (Exception e) {
             Log.d(TAG, "something went wrong!!", e);
         }
@@ -713,7 +744,8 @@ class PreferenceCreator implements Preference {
 
     }
 
-    private @Nullable Object getDefaultValue(String key) {
+    private @Nullable
+    Object getDefaultValue(String key) {
         Map<String, Object> defaultValues = (Map<String, Object>) defaults.get(name);
         if (defaultValues != null) {
             if (defaultValues.containsKey(key)) {
@@ -739,7 +771,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * The key have a different value that the requested.
-     *
+     * <p>
      * For example if you call getInt("key") and the value of the "key" is String it will
      * throw class cast exception.
      *
