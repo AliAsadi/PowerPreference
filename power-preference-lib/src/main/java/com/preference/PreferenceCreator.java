@@ -11,7 +11,6 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.preference.utils.WrongValueException;
 
 import org.xmlpull.v1.XmlPullParser;
 
@@ -314,7 +313,7 @@ class PreferenceCreator implements Preference {
         try {
             return sharedPreferences.getString(key, defValue);
         } catch (ClassCastException e) {
-            Log.e(TAG, "The value of {" + key + "} key is not a String.", e);
+            logClassCastException(key,"String",e);
             return defValue;
         }
     }
@@ -340,11 +339,11 @@ class PreferenceCreator implements Preference {
                 try {
                     defaultValue = Integer.parseInt((String) value);
                 } catch (NumberFormatException e) {
-                    Log.d(TAG, "you to must have a {Integer} default value! for the key => {" + key + "}", e);
+                    logWrongValueException(key, "Integer", e);
                 }
             } else {
-                Log.d(TAG, "you to must have a {Integer} default value! for the key => {" + key + "}",
-                        new WrongValueException(value));
+                logWrongValueException(key, "Integer", new WrongValueException(value));
+
             }
         }
         return getInt(key, defaultValue);
@@ -355,7 +354,7 @@ class PreferenceCreator implements Preference {
         try {
             return sharedPreferences.getInt(key, defValue);
         } catch (ClassCastException e) {
-            Log.e(TAG, "The value of {" + key + "} key is not an Int.", e);
+            logClassCastException(key, "Int", e);
             return defValue;
         }
     }
@@ -381,11 +380,10 @@ class PreferenceCreator implements Preference {
                 try {
                     defaultValue = Long.parseLong((String) value);
                 } catch (NumberFormatException e) {
-                    Log.d(TAG, "you to must have a {Long} default value! for the key => {" + key + "}", e);
+                    logWrongValueException(key, "Long", e);
                 }
             } else {
-                Log.d(TAG, "you to must have a {Long} default value! for the key => {" + key + "}",
-                        new WrongValueException(value));
+                logWrongValueException(key, "Long", new WrongValueException(value));
             }
         }
         return getLong(key, defaultValue);
@@ -396,7 +394,7 @@ class PreferenceCreator implements Preference {
         try {
             return sharedPreferences.getLong(key, defValue);
         } catch (ClassCastException e) {
-            Log.e(TAG, "The value of {" + key + "} key is not a Long.", e);
+            logClassCastException(key, "Long", e);
             return defValue;
         }
     }
@@ -421,8 +419,7 @@ class PreferenceCreator implements Preference {
             } else if (value instanceof String) {
                 defaultValue = Boolean.parseBoolean((String) value);
             } else {
-                Log.d(TAG, "you to must have a {Boolean} default value! for the key => {" + key + "}",
-                        new WrongValueException(value));
+                logWrongValueException(key, "Boolean", new WrongValueException(value));
             }
         }
         return getBoolean(key, defaultValue);
@@ -433,7 +430,7 @@ class PreferenceCreator implements Preference {
         try {
             return sharedPreferences.getBoolean(key, defValue);
         } catch (ClassCastException e) {
-            Log.e(TAG, "The value of {" + key + "} key is not a Boolean.", e);
+            logClassCastException(key, "Boolean", e);
             return defValue;
         }
     }
@@ -459,11 +456,10 @@ class PreferenceCreator implements Preference {
                 try {
                     defaultValue = Float.parseFloat((String) value);
                 } catch (NumberFormatException e) {
-                    Log.d(TAG, "you to must have a {Float} default value! for the key => {" + key + "}", e);
+                    logWrongValueException(key, "Float", e);
                 }
             } else {
-                Log.d(TAG, "you to must have a {Float} default value! for the key => {" + key + "}",
-                        new WrongValueException(value));
+                logWrongValueException(key, "Float", new WrongValueException(value));
             }
         }
         return getFloat(key, defaultValue);
@@ -474,7 +470,7 @@ class PreferenceCreator implements Preference {
         try {
             return sharedPreferences.getFloat(key, defValue);
         } catch (ClassCastException e) {
-            Log.e(TAG, "The value of {" + key + "} key is not a Float.", e);
+            logClassCastException(key, "Float", e);
             return defValue;
         }
     }
@@ -565,11 +561,10 @@ class PreferenceCreator implements Preference {
                     try {
                         defaultDouble = Double.parseDouble((String) defaultValue);
                     } catch (NumberFormatException e) {
-                        Log.d(TAG, "you to must have a {Double} default value! for the key => {" + key + "}", e);
+                        logWrongValueException(key, "Double", e);
                     }
                 } else {
-                    Log.d(TAG, "you to must have a {Double} default value! for the key => {" + key + "}",
-                            new WrongValueException(defaultValue));
+                    logWrongValueException(key, "Double", new WrongValueException(defaultValue));
                 }
                 return defaultDouble;
             }
@@ -684,4 +679,35 @@ class PreferenceCreator implements Preference {
         return null;
     }
 
+    /**
+     * print error exception to the console if used an invalid value type for the default key.
+     *
+     * @param key  - requested key
+     * @param type - Integer, String ...etc
+     * @param th   - exception
+     */
+    private void logWrongValueException(String key, String type, Throwable th) {
+        Log.e(TAG, "you to must have a {" + type + "} default value!" +
+                " for the key => {" + key + "}", th);
+    }
+
+    /**
+     * The key have a different value that the requested.
+     *
+     * For example if you call getInt("key") and the value of the "key" is String it will
+     * throw class cast exception.
+     *
+     * @param key  - requested key
+     * @param type - Integer, String ...etc
+     * @param th   - exception
+     */
+    private void logClassCastException(String key, String type, Throwable th) {
+        Log.e(TAG, "The value of {" + key + "} key is not a " + type + ".", th);
+    }
+
+    private class WrongValueException extends IllegalArgumentException {
+        WrongValueException(Object value) {
+            super("value => {" + value + "}");
+        }
+    }
 }
