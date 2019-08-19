@@ -54,9 +54,11 @@ class PreferenceCreator implements Preference {
     /**
      * Store int in SharedPreference Data.
      *
+     * Writes the data asynchronously
+     *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return a reference to the same {@link PreferenceCreator} object, so you can
+     * @return A reference to the same {@link Preference} object, so you can
      * chain put calls together.
      */
     @Override
@@ -68,9 +70,11 @@ class PreferenceCreator implements Preference {
     /**
      * Store long in SharedPreference Data.
      *
+     * Writes the data asynchronously
+     *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return a reference to the same {@link PreferenceCreator} object, so you can
+     * @return A reference to the same {@link Preference} object, so you can
      * chain put calls together.
      */
     @Override
@@ -82,9 +86,11 @@ class PreferenceCreator implements Preference {
     /**
      * Store float in SharedPreference Data.
      *
+     * Writes the data asynchronously
+     *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return a reference to the same {@link PreferenceCreator} object, so you can
+     * @return A reference to the same {@link Preference} object, so you can
      * chain put calls together.
      */
     @Override
@@ -96,9 +102,11 @@ class PreferenceCreator implements Preference {
     /**
      * Store double in SharedPreference Data.
      *
+     * Writes the data asynchronously
+     *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return a reference to the same {@link PreferenceCreator} object, so you can
+     * @return A reference to the same {@link Preference} object, so you can
      * chain put calls together.
      */
     @Override
@@ -110,9 +118,11 @@ class PreferenceCreator implements Preference {
     /**
      * Store boolean in SharedPreference Data.
      *
+     * Writes the data asynchronously
+     *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return a reference to the same {@link PreferenceCreator} object, so you can
+     * @return A reference to the same {@link Preference} object, so you can
      * chain put calls together.
      */
     @Override
@@ -124,9 +134,11 @@ class PreferenceCreator implements Preference {
     /**
      * Store String in SharedPreference Data.
      *
+     * Writes the data asynchronously
+     *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return a reference to the same {@link PreferenceCreator} object, so you can
+     * @return A reference to the same {@link Preference} object, so you can
      * chain put calls together.
      */
     @Override
@@ -138,9 +150,11 @@ class PreferenceCreator implements Preference {
     /**
      * Store Object in SharedPreference Data.
      *
+     * Writes the data asynchronously
+     *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return a reference to the same {@link PreferenceCreator} object, so you can
+     * @return A reference to the same {@link Preference} object, so you can
      * chain put calls together.
      */
     @Override
@@ -152,13 +166,13 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store int in SharedPreference Data.
-     * <p><p>
-     * commit() writes the data synchronously (blocking the thread its called from).
+     * <p>
+     * Writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return returns true if the save works, false otherwise.
+     * @return True if the save works, false otherwise.
      */
     @Override
     public boolean setInt(String key, int value) {
@@ -167,13 +181,13 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store long in SharedPreference Data.
-     * <p><p>
-     * commit() writes the data synchronously (blocking the thread its called from).
+     * <p>
+     * Writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return returns true if the save works, false otherwise.
+     * @return True if the save works, false otherwise.
      */
     @Override
     public boolean setLong(String key, long value) {
@@ -182,13 +196,13 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store float in SharedPreference Data.
-     * <p><p>
-     * commit() writes the data synchronously (blocking the thread its called from).
+     * <p>
+     * Writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return returns true if the save works, false otherwise.
+     * @return True if the save works, false otherwise.
      */
     @Override
     public boolean setFloat(String key, float value) {
@@ -197,13 +211,13 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store double in SharedPreference Data.
-     * <p><p>
-     * commit() writes the data synchronously (blocking the thread its called from).
+     * <p>
+     * Writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return returns true if the save works, false otherwise.
+     * @return True if the save works, false otherwise.
      */
     @Override
     public boolean setDouble(String key, double value) {
@@ -213,13 +227,13 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store boolean in SharedPreference Data.
-     * <p><p>
-     * commit() writes the data synchronously (blocking the thread its called from).
+     * <p>
+     * Writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return returns true if the save works, false otherwise.
+     * @return True if the save works, false otherwise.
      */
     @Override
     public boolean setBoolean(String key, boolean value) {
@@ -228,13 +242,13 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store String in SharedPreference Data.
-     * <p><p>
-     * commit() writes the data synchronously (blocking the thread its called from).
+     * <p>
+     * Writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return returns true if the save works, false otherwise.
+     * @return True if the save works, false otherwise.
      */
     @Override
     public boolean setString(String key, String value) {
@@ -243,13 +257,13 @@ class PreferenceCreator implements Preference {
 
     /**
      * Store Object in SharedPreference Data.
-     * <p><p>
-     * commit() writes the data synchronously (blocking the thread its called from).
+     *
+     * Writes the data synchronously (blocking the thread its called from).
      * It then informs you about the success of the operation
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @return returns true if the save works, false otherwise.
+     * @return True if the save works, false otherwise.
      */
     @Override
     public boolean setObject(String key, Object value) {
@@ -259,8 +273,7 @@ class PreferenceCreator implements Preference {
 
     /**
      * @param key - key name.
-     * @return Returns true if the preference exists in the preferences,
-     * otherwise false.
+     * @return True if preference value exists otherwise, false.
      */
     @Override
     public boolean contains(String key) {
@@ -278,13 +291,16 @@ class PreferenceCreator implements Preference {
     }
 
     /**
-     * remove all data from this preference.
+     * Remove all data from this preference file.
      */
     @Override
     public void clear() {
         sharedPreferences.edit().clear().apply();
     }
 
+    /**
+     * Retrieve all data of this preference file.
+     */
     @Override
     public Map<String, ?> getData() {
         return sharedPreferences.getAll();
@@ -294,8 +310,7 @@ class PreferenceCreator implements Preference {
      * Retrieve a String value from the preferences
      *
      * @param key - The name of the preference to retrieve.
-     * @return Returns the preference value if it exists, or defValue.
-     * if preference value did'nt exists and defValue didn't exists will return {@value ""} empty string.
+     * @return Preference value if it exists otherwise, returns "".
      */
     @Override
     public @NonNull String getString(String key) {
@@ -308,6 +323,13 @@ class PreferenceCreator implements Preference {
         return getString(key, defaultValue);
     }
 
+    /**
+     * Retrieve a String value from the preferences
+     *
+     * @param key      - The name of the preference to retrieve.
+     * @param defValue - Value to return if this preference does not exist.
+     * @return Preference value if it exists otherwise, returns defValue.
+     */
     @Override
     public String getString(String key, String defValue) {
         try {
@@ -322,10 +344,7 @@ class PreferenceCreator implements Preference {
      * Retrieve a int value from the preferences
      *
      * @param key - The name of the preference to retrieve.
-     * @return Returns the preference value if it exists, or defValue.
-     * if preference value did'nt exists and defValue didn't exists will return {@linkplain 0}.
-     * @throws WrongValueException print error exception to the console if used
-     *                             an invalid value type for the default key.
+     * @return Preference value if it exists otherwise, returns 0.
      */
     @Override
     public int getInt(String key) {
@@ -349,6 +368,13 @@ class PreferenceCreator implements Preference {
         return getInt(key, defaultValue);
     }
 
+    /**
+     * Retrieve a int value from the preferences
+     *
+     * @param key      - The name of the preference to retrieve.
+     * @param defValue - Value to return if this preference does not exist.
+     * @return Preference value if it exists otherwise, returns defValue.
+     */
     @Override
     public int getInt(String key, int defValue) {
         try {
@@ -363,10 +389,7 @@ class PreferenceCreator implements Preference {
      * Retrieve a long value from the preferences
      *
      * @param key - The name of the preference to retrieve.
-     * @return Returns the preference value if it exists, or defValue.
-     * if preference value did'nt exists and defValue didn't exists will return {@linkplain 0}.
-     * @throws WrongValueException print error exception to the console if used
-     *                             an invalid value type for the default key.
+     * @return Preference value if it exists otherwise, returns 0.
      */
     @Override
     public long getLong(String key) {
@@ -389,6 +412,13 @@ class PreferenceCreator implements Preference {
         return getLong(key, defaultValue);
     }
 
+    /**
+     * Retrieve a long value from the preferences
+     *
+     * @param key      - The name of the preference to retrieve.
+     * @param defValue - Value to return if this preference does not exist.
+     * @return RPreference value if it exists otherwise, returns defValue.
+     */
     @Override
     public long getLong(String key, long defValue) {
         try {
@@ -403,10 +433,7 @@ class PreferenceCreator implements Preference {
      * Retrieve a boolean value from the preferences
      *
      * @param key - The name of the preference to retrieve.
-     * @return Returns the preference value if it exists, or defValue.
-     * if preference value did'nt exists and defValue didn't exists will return {@linkplain false}.
-     * @throws WrongValueException print error exception to the console if used
-     *                             an invalid value type for the default key.
+     * @return Preference value if it exists otherwise, returns false.
      */
     @Override
     public boolean getBoolean(String key) {
@@ -425,6 +452,13 @@ class PreferenceCreator implements Preference {
         return getBoolean(key, defaultValue);
     }
 
+    /**
+     * Retrieve a boolean value from the preferences
+     *
+     * @param key      - The name of the preference to retrieve.
+     * @param defValue - Value to return if this preference does not exist.
+     * @return Preference value if it exists otherwise, returns defValue.
+     */
     @Override
     public boolean getBoolean(String key, boolean defValue) {
         try {
@@ -439,10 +473,7 @@ class PreferenceCreator implements Preference {
      * Retrieve a float value from the preferences
      *
      * @param key - The name of the preference to retrieve.
-     * @return Returns the preference value if it exists, or defValue.
-     * if preference value did'nt exists and defValue didn't exists will return {@linkplain 0}.
-     * @throws WrongValueException print error exception to the console if used
-     *                             an invalid value type for the default key.
+     * @return Preference value if it exists otherwise, returns 0.
      */
     @Override
     public float getFloat(String key) {
@@ -465,6 +496,13 @@ class PreferenceCreator implements Preference {
         return getFloat(key, defaultValue);
     }
 
+    /**
+     * Retrieve a float value from the preferences
+     *
+     * @param key      - The name of the preference to retrieve.
+     * @param defValue - Value to return if this preference does not exist.
+     * @return Preference value if it exists otherwise, returns defValue.
+     */
     @Override
     public float getFloat(String key, float defValue) {
         try {
@@ -475,23 +513,11 @@ class PreferenceCreator implements Preference {
         }
     }
 
-    @Override
-    public <T> T getObject(String key, Class classType, T defValue) {
-        String json = getString(key, "");
-        Object value = new Gson().fromJson(json, classType);
-        if (value == null) {
-            return defValue;
-        }
-        return (T) value;
-    }
-
     /**
      * Retrieve a Object value from the preferences
      *
      * @param key - The name of the preference to retrieve.
-     * @return Returns the preference value if it exists, or defValue.
-     * <p>
-     * if preference value did'nt exists and defValue didn't exists will return {@linkplain null}.
+     * @return Preference value if it exists otherwise, returns null.
      */
     @Override
     @SuppressWarnings("TypeParameterUnusedInFormals")
@@ -505,13 +531,30 @@ class PreferenceCreator implements Preference {
     }
 
     /**
+     * Retrieve a Object value from the preferences
+     *
+     * @param key      - The name of the preference to retrieve.
+     * @param defValue - Value to return if this preference does not exist.
+     * @return Preference value if it exists otherwise, returns defValue.
+     */
+    @Override
+    public <T> T getObject(String key, Class classType, T defValue) {
+        String json = getString(key, "");
+        Object value = new Gson().fromJson(json, classType);
+        if (value == null) {
+            return defValue;
+        }
+        return (T) value;
+    }
+
+    /**
      * Retrieve a Map value from the preferences
      *
      * @param key       - The name of the preference to retrieve.
      * @param classType - the type of the Map -> HashMap,TreeMap..etc.
      * @param keyType   - the type of the key that used in the map.
      * @param valueType - the type of the value that used in the map.
-     * @return Returns the preference value if it exists, or null.
+     * @return Preference value if it exists otherwise, returns null.
      */
     @Override
     @SuppressWarnings("TypeParameterUnusedInFormals")
@@ -536,11 +579,7 @@ class PreferenceCreator implements Preference {
      * Retrieve a double value from the preferences
      *
      * @param key - The name of the preference to retrieve.
-     * @return Returns the preference value if it exists, or defValue.
-     * <p>
-     * if preference value did'nt exists and defValue didn't exists will return {@linkplain 0}.
-     * @throws WrongValueException print error exception to the console if used
-     *                             an invalid value type for the default key.
+     * @return Preference value if it exists otherwise, returns 0.
      */
     @Override
     public double getDouble(String key) {
@@ -573,6 +612,13 @@ class PreferenceCreator implements Preference {
         return value;
     }
 
+    /**
+     * Retrieve a double value from the preferences
+     *
+     * @param key      - The name of the preference to retrieve.
+     * @param defValue - Value to return if this preference does not exist.
+     * @return Preference value if it exists otherwise, returns defValue.
+     */
     @Override
     public double getDouble(String key, double defValue) {
         String json = getString(key, "");

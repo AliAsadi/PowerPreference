@@ -2,16 +2,12 @@ package com.preference;
 
 import android.support.annotation.XmlRes;
 
-import com.preference.utils.WrongValueException;
-
 import java.util.Map;
 
 /**
  * Created by Ali Asadi on 12/01/2019.
  */
 public interface Preference {
-
-    //////////////////// PUT /////////////////////////
 
     /**
      * Store int in SharedPreference Data.
@@ -97,8 +93,6 @@ public interface Preference {
      */
     Preference putObject(String key, Object value);
 
-    //////////////////// SET /////////////////////////
-
     /**
      * Store int in SharedPreference Data.
      * <p>
@@ -182,8 +176,6 @@ public interface Preference {
      * @return True if the save works, false otherwise.
      */
     boolean setObject(String key, Object value);
-
-    //////////////////// GET /////////////////////////
 
     /**
      * Retrieve a String value from the preferences
@@ -317,8 +309,6 @@ public interface Preference {
      */
     double getDouble(String key, double defValue);
 
-    //////////////////// OTHER /////////////////////////
-
     /**
      * @param key - key name.
      * @return True if preference value exists otherwise, false.
@@ -341,8 +331,6 @@ public interface Preference {
      * Retrieve all data of this preference file.
      */
     Map<String, ?> getData();
-
-    //////////////////// DEFAULTS /////////////////////////
 
     /**
      * Set defaults value fo this preference file.
