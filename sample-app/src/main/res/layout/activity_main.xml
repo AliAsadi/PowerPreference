@@ -166,7 +166,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="6dp"
-        android:text="Default Value"
+        android:text="Set Default Value"
         android:textColor="#fff"
         android:textSize="18sp" />
 

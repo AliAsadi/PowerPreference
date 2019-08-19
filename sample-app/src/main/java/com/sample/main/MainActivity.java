@@ -6,10 +6,9 @@ import android.util.Log;
 import android.view.View;
 
 import com.preference.PowerPreference;
-import com.preference.model.PreferenceFile;
+import com.preference.utils.MapStructure;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends Activity {
@@ -41,18 +40,31 @@ public class MainActivity extends Activity {
                 .putString("env", "beta")
                 .putString("host", "google.com");
 
-        PowerPreference.getDefaultFile().putBoolean("firstOpen", true);
+
+        PowerPreference.getDefaultFile()
+                .putBoolean("firstOpen", true)
+                .putObject("map", createMap());
+    }
+
+    private HashMap<String, String> createMap() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("ali", "AK!JK");
+        map.put("asadi", "164288");
+        return map;
     }
 
     public void clearAllData(View view) {
         PowerPreference.clearAllData();
     }
+
     public void clearUserDetailsData(View view) {
         PowerPreference.getFileByName(USER_DETAILS).clear();
     }
+
     public void clearEnvironmentData(View view) {
         PowerPreference.getFileByName(ENVIRONMENT).clear();
     }
+
     public void clearDefaultData(View view) {
         PowerPreference.getDefaultFile().clear();
     }
@@ -68,19 +80,23 @@ public class MainActivity extends Activity {
         Log.d(TAG, "host = [" + email + "]");
 
     }
-    public void printEnv(View view) {
 
+    public void printEnv(View view) {
         String env = PowerPreference.getFileByName(ENVIRONMENT).getString("env");
         String host = PowerPreference.getFileByName(ENVIRONMENT).getString("host");
 
         Log.d(TAG, "env = [" + env + "]");
         Log.d(TAG, "host = [" + host + "]");
-
     }
+
     public void printDefault(View view) {
         boolean firstOpen = PowerPreference.getDefaultFile().getBoolean("firstOpen");
 
+        MapStructure structure = MapStructure.create(HashMap.class, String.class, String.class);
+        HashMap<String, String> map = PowerPreference.getDefaultFile().getMap("map", structure);
+
         Log.d(TAG, "firstOpen = [" + firstOpen + "]");
+        Log.d(TAG, "map = [" + map + "]");
     }
 
     public void setDefaultsByHashMap(View view) {
@@ -101,6 +117,7 @@ public class MainActivity extends Activity {
         PowerPreference.getFileByName(ENVIRONMENT).setDefaults(envDefaults);
         PowerPreference.getDefaultFile().setDefaults(defaults);
     }
+
     public void setDefaultsByXml(View view) {
         PowerPreference.getFileByName(USER_DETAILS).setDefaults(R.xml.prefs_user_details);
         PowerPreference.getFileByName(ENVIRONMENT).setDefaults(R.xml.prefs_environment);
