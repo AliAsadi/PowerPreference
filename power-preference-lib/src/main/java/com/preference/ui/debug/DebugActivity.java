@@ -1,5 +1,7 @@
 package com.preference.ui.debug;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -7,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.preference.R;
 import com.preference.model.PreferenceItem;
 import com.preference.utils.DialogUtils;
@@ -115,5 +116,12 @@ public class DebugActivity extends AppCompatActivity implements DebugContract.Vi
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public static void start(Context context, boolean editable) {
+        Intent starter = new Intent(context, DebugActivity.class);
+        starter.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        starter.putExtra("editable", editable);
+        context.startActivity(starter);
     }
 }
