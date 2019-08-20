@@ -167,6 +167,22 @@ class PreferenceCreator implements Preference {
     }
 
     /**
+     * Store Map in SharedPreference Data.
+     * <p>
+     * Writes the data asynchronously
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return A reference to the same {@link Preference} object, so you can
+     * chain put calls together.
+     */
+    @Override
+    public Preference putMap(String key, Map value) {
+        putObject(key, value);
+        return this;
+    }
+
+    /**
      * Store int in SharedPreference Data.
      * <p>
      * Writes the data synchronously (blocking the thread its called from).
@@ -271,6 +287,21 @@ class PreferenceCreator implements Preference {
     public boolean setObject(String key, Object value) {
         String json = new Gson().toJson(value);
         return sharedPreferences.edit().putString(key, json).commit();
+    }
+
+    /**
+     * Store Map in SharedPreference Data.
+     *
+     * Writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return True if the save works, false otherwise.
+     */
+    @Override
+    public boolean setMap(String key, Map value) {
+        return setObject(key,value);
     }
 
     /**

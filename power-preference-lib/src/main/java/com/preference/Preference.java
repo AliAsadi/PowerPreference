@@ -96,6 +96,18 @@ public interface Preference {
     Preference putObject(String key, Object value);
 
     /**
+     * Store Map in SharedPreference Data.
+     *
+     * Writes the data asynchronously
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return A reference to the same {@link Preference} object, so you can
+     * chain put calls together.
+     */
+    Preference putMap(String key, Map value);
+
+    /**
      * Store int in SharedPreference Data.
      * <p>
      * Writes the data synchronously (blocking the thread its called from).
@@ -178,6 +190,18 @@ public interface Preference {
      * @return True if the save works, false otherwise.
      */
     boolean setObject(String key, Object value);
+
+    /**
+     * Store Map in SharedPreference Data.
+     *
+     * Writes the data synchronously (blocking the thread its called from).
+     * It then informs you about the success of the operation
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     * @return True if the save works, false otherwise.
+     */
+    boolean setMap(String key, Map value);
 
     /**
      * Retrieve a String value from the preferences
