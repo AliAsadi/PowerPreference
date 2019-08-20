@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import com.preference.R;
 import com.preference.model.PreferenceItem;
-import com.preference.utils.DialogUtils;
+import com.preference.ui.util.DialogUtils;
 
 import java.util.List;
 

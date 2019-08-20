@@ -1,4 +1,4 @@
-package com.preference.utils;
+package com.preference.ui.util;
 
 import android.content.Context;
 import android.content.DialogInterface;

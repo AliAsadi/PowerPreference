@@ -2,8 +2,6 @@ package com.preference;
 
 import android.support.annotation.XmlRes;
 
-import com.preference.utils.MapStructure;
-
 import java.util.Map;
 
 /**

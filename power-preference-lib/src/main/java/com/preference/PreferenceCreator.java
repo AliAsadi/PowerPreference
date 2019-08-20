@@ -11,7 +11,6 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.preference.utils.MapStructure;
 
 import org.xmlpull.v1.XmlPullParser;
 

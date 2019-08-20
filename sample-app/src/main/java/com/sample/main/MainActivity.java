@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.preference.PowerPreference;
-import com.preference.utils.MapStructure;
+import com.preference.MapStructure;
 
 import java.util.HashMap;
 import java.util.Map;

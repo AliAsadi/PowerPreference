@@ -1,4 +1,4 @@
-package com.preference.utils;
+package com.preference;
 
 /**
  * Created by Ali Asadi on 19/08/2019.
