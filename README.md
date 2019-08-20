@@ -32,18 +32,18 @@ To write data to preference file **asynchronous**.
 
 1. Insert single value
 ```java
-PowerPreference.getDefaultFile().put("key",value);
+PowerPreference.getDefaultFile().putString("key",value);
 ```
 
 2. Insert multiple values
 
 ```java
 PowerPreference.getDefaultFile()
-        .put("key", value)
-        .put("key", value)
+        .putString("key", value)
+        .putObject("key", value)
               .
               .
-        .put("key", value);
+        .putMap("key", value);
 ```
 
 Put will asynchronously save the preferences without holding the current thread.
@@ -61,10 +61,10 @@ Set will synchronously save the preference while holding the current
 thread until done and returning a success flag.
 
 ```java
-boolean result = PowerPreference.getDefaultFile().set("key",value);
+boolean result = PowerPreference.getDefaultFile().setString("key",value);
 ```
 
-You can also call set with the type such as `setBoolean()` and `setString()`.
+You can also call set with the type such as `setBoolean()` and `setObject()`.
 
 ## Read Data
 
@@ -124,14 +124,14 @@ PowerPreference.getDefaultFile().remove("key");
 
 ## Get Data
 
-1. Get all data from specefic file
+1. Get all data for a specefic file
 ```java
-Map<String, ?> fileData = PowerPreference.getDefaultFile().getData();
+Map<String, ?> data = PowerPreference.getDefaultFile().getData();
 ```
 
-2. Get all data from all files in the app.
+2. Get all data for all files in the app.
 ```java
-List<PreferenceObject> appData = PowerPreference.getAllData()
+List<PreferenceFile> data = PowerPreference.getAllData()
 ```
 
 
