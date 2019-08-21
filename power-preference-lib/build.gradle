@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         minSdkVersion versions.minSdk
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-proguard-rules.pro'
     }
 
@@ -39,6 +39,9 @@ dependencies {
 
     testImplementation deps.junit
     testImplementation deps.mockito
+
+    androidTestImplementation deps.runner
+    androidTestImplementation deps.junit
 }
 
 //Disable javadoc generation while building module
