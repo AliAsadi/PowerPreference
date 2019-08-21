@@ -12,17 +12,16 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.Assert.assertEquals;
+import java.util.HashMap;
+
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.mockito.ArgumentMatchers.any;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyFloat;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -50,6 +49,7 @@ public class PowerPreferenceTest {
     private final static double DOUBLE_VALUE = 1;
     private final static boolean BOOLEAN_VALUE = false;
     private final static Object OBJECT_VALUE = new Object();
+    private final static HashMap MAP_VALUE = new HashMap();
 
     @Before
     public void setUp() {
@@ -80,6 +80,7 @@ public class PowerPreferenceTest {
         when(editor.putFloat(anyString(), anyFloat())).thenReturn(editor);
         when(editor.putBoolean(anyString(), anyBoolean())).thenReturn(editor);
         when(editor.putString(anyString(), anyString())).thenReturn(editor);
+        when(editor.commit()).thenReturn(true);
     }
 
     @Test
@@ -95,48 +96,48 @@ public class PowerPreferenceTest {
     public void putStringTest() {
         preference.putString(KEY, STRING_VALUE);
 
-        verify(editor, times(1)).putString(KEY, STRING_VALUE);
-        verify(editor, times(1)).apply();
+        verify(editor).putString(KEY, STRING_VALUE);
+        verify(editor).apply();
     }
 
     @Test
     public void putIntTest() {
         preference.putInt(KEY, INT_VALUE);
 
-        verify(editor, times(1)).putInt(KEY, INT_VALUE);
-        verify(editor, times(1)).apply();
+        verify(editor).putInt(KEY, INT_VALUE);
+        verify(editor).apply();
     }
 
     @Test
     public void putFloatTest() {
         preference.putFloat(KEY, FLOAT_VALUE);
 
-        verify(editor, times(1)).putFloat(KEY, FLOAT_VALUE);
-        verify(editor, times(1)).apply();
+        verify(editor).putFloat(KEY, FLOAT_VALUE);
+        verify(editor).apply();
     }
 
     @Test
     public void putDoubleTest() {
         preference.putDouble(KEY, DOUBLE_VALUE);
 
-        verify(editor, times(1)).putString(KEY, String.valueOf(DOUBLE_VALUE));
-        verify(editor, times(1)).apply();
+        verify(editor).putString(KEY, String.valueOf(DOUBLE_VALUE));
+        verify(editor).apply();
     }
 
     @Test
     public void putLongTest() {
         preference.putLong(KEY, LONG_VALUE);
 
-        verify(editor, times(1)).putLong(KEY, LONG_VALUE);
-        verify(editor, times(1)).apply();
+        verify(editor).putLong(KEY, LONG_VALUE);
+        verify(editor).apply();
     }
 
     @Test
     public void putBooleanTest() {
         preference.putBoolean(KEY, BOOLEAN_VALUE);
 
-        verify(editor, times(1)).putBoolean(KEY, BOOLEAN_VALUE);
-        verify(editor, times(1)).apply();
+        verify(editor).putBoolean(KEY, BOOLEAN_VALUE);
+        verify(editor).apply();
     }
 
     @Test
@@ -144,8 +145,17 @@ public class PowerPreferenceTest {
         preference.putObject(KEY, OBJECT_VALUE);
 
         String value = new Gson().toJson(OBJECT_VALUE);
-        verify(editor, times(1)).putString(KEY, value);
-        verify(editor, times(1)).apply();
+        verify(editor).putString(KEY, value);
+        verify(editor).apply();
+    }
+
+    @Test
+    public void putMapTest() {
+        preference.putMap(KEY, MAP_VALUE);
+
+        String value = new Gson().toJson(MAP_VALUE);
+        verify(editor).putString(KEY, value);
+        verify(editor).apply();
     }
 
     //--------------------------------------------------------//
@@ -153,60 +163,75 @@ public class PowerPreferenceTest {
     /// SET ///
     @Test
     public void setStringTest() {
-        when(editor.commit()).thenReturn(true);
-        boolean b = preference.setString(KEY, STRING_VALUE);
+        boolean result = preference.setString(KEY, STRING_VALUE);
+        assertTrue(result);
 
-        verify(editor, times(1)).putString(KEY, STRING_VALUE);
-        verify(editor, times(1)).commit();
+        verify(editor).putString(KEY, STRING_VALUE);
+        verify(editor).commit();
     }
 
     @Test
     public void setIntTest() {
-        boolean b = preference.setInt(KEY, INT_VALUE);
+        boolean result = preference.setInt(KEY, INT_VALUE);
+        assertTrue(result);
 
-        verify(editor, times(1)).putInt(KEY, INT_VALUE);
-        verify(editor, times(1)).commit();
+        verify(editor).putInt(KEY, INT_VALUE);
+        verify(editor).commit();
     }
 
     @Test
     public void setFloatTest() {
-        boolean b = preference.setFloat(KEY, FLOAT_VALUE);
+        boolean result = preference.setFloat(KEY, FLOAT_VALUE);
+        assertTrue(result);
 
-        verify(editor, times(1)).putFloat(KEY, FLOAT_VALUE);
-        verify(editor, times(1)).commit();
+        verify(editor).putFloat(KEY, FLOAT_VALUE);
+        verify(editor).commit();
     }
 
     @Test
     public void setDoubleTest() {
-        boolean b = preference.setDouble(KEY, DOUBLE_VALUE);
+        boolean result = preference.setDouble(KEY, DOUBLE_VALUE);
+        assertTrue(result);
 
-        verify(editor, times(1)).putString(KEY, String.valueOf(DOUBLE_VALUE));
-        verify(editor, times(1)).commit();
+        verify(editor).putString(KEY, String.valueOf(DOUBLE_VALUE));
+        verify(editor).commit();
     }
 
     @Test
     public void setLongTest() {
-        boolean b = preference.setLong(KEY, LONG_VALUE);
+        boolean result = preference.setLong(KEY, LONG_VALUE);
+        assertTrue(result);
 
-        verify(editor, times(1)).putLong(KEY, LONG_VALUE);
-        verify(editor, times(1)).commit();
+        verify(editor).putLong(KEY, LONG_VALUE);
+        verify(editor).commit();
     }
 
     @Test
     public void setBooleanTest() {
-        boolean b = preference.setBoolean(KEY, BOOLEAN_VALUE);
+        boolean result = preference.setBoolean(KEY, BOOLEAN_VALUE);
 
-        verify(editor, times(1)).putBoolean(KEY, BOOLEAN_VALUE);
-        verify(editor, times(1)).commit();
+        verify(editor).putBoolean(KEY, BOOLEAN_VALUE);
+        verify(editor).commit();
     }
 
     @Test
     public void setObjectTest() {
-        boolean b = preference.setObject(KEY, OBJECT_VALUE);
+        boolean result = preference.setObject(KEY, OBJECT_VALUE);
+        assertTrue(result);
 
         String value = new Gson().toJson(OBJECT_VALUE);
-        verify(editor, times(1)).putString(KEY, value);
-        verify(editor, times(1)).commit();
+        verify(editor).putString(KEY, value);
+        verify(editor).commit();
+    }
+
+    @Test
+    public void setMapTest() {
+        boolean result = preference.setMap(KEY, MAP_VALUE);
+        assertTrue(result);
+
+        String value = new Gson().toJson(OBJECT_VALUE);
+        verify(editor).putString(KEY, value);
+        verify(editor).commit();
     }
 
     //--------------------------------------------------------//
@@ -246,6 +271,12 @@ public class PowerPreferenceTest {
     }
 
     @Test
+    public void getBooleanTest() {
+        preference.getBoolean(KEY);
+        verify(sharedPreferences).getBoolean(KEY, false);
+    }
+
+    @Test
     public void getObjectTest() {
         Object result = preference.getObject(KEY, Object.class);
         verify(sharedPreferences).getString(KEY, "");
@@ -253,9 +284,12 @@ public class PowerPreferenceTest {
     }
 
     @Test
-    public void getBooleanTest() {
-        preference.getBoolean(KEY);
-        verify(sharedPreferences).getBoolean(KEY, false);
+    public void getMapTest() {
+        MapStructure structure = MapStructure.create(HashMap.class, Object.class, Object.class);
+        HashMap result = preference.getMap(KEY, structure);
+
+        verify(sharedPreferences).getString(KEY, "");
+        assertNull(result);
     }
 
     //--------------------------------------------------------//
