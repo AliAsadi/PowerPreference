@@ -313,20 +313,38 @@ class PreferenceCreator implements Preference {
     }
 
     /**
-     * remove key from preference.
+     * remove key from preference synchronously.
      *
      * @param key - key name to remove.
      */
     @Override
-    public void remove(String key) {
+    public boolean remove(String key) {
+        return sharedPreferences.edit().remove(key).commit();
+    }
+
+    /**
+     * remove key from preference asynchronously.
+     *
+     * @param key - key name to remove.
+     */
+    @Override
+    public void removeAsync(String key) {
         sharedPreferences.edit().remove(key).apply();
     }
 
     /**
-     * Remove all data from this preference file.
+     * Remove all data from this preference file synchronously.
      */
     @Override
-    public void clear() {
+    public boolean clear() {
+        return sharedPreferences.edit().clear().commit();
+    }
+
+    /**
+     * Remove all data from this preference file asynchronously.
+     */
+    @Override
+    public void clearAsync() {
         sharedPreferences.edit().clear().apply();
     }
 

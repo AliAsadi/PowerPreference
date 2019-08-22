@@ -45,12 +45,22 @@ public class PowerPreference {
     }
 
     /**
-     * clear all data in all preference file.
+     * clear all data in all preference file synchronously.
      */
     public static void clearAllData() {
         getDefaultFile().clear();
         for (String filename : PreferenceManager.getInstance().getFilesName()) {
-            PreferenceManager.getInstance().getPreferenceByName(filename).clear();
+            getFileByName(filename).clear();
+        }
+    }
+
+    /**
+     * clear all data in all preference file asynchronously.
+     */
+    public static void clearAllDataAsync() {
+        getDefaultFile().clearAsync();
+        for (String filename : PreferenceManager.getInstance().getFilesName()) {
+            getFileByName(filename).clearAsync();
         }
     }
 
