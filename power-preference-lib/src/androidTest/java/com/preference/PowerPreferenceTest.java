@@ -17,6 +17,7 @@ import org.junit.runner.RunWith;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -168,6 +169,20 @@ public class PowerPreferenceTest {
     public void getMapTest() {
         MapStructure structure = MapStructure.create(HashMap.class, String.class, String.class);
         assertNull(preference.getMap(KEY, structure));
+    }
+
+    @Test
+    public void getDataTest() {
+        preference.setString("key1", STRING_VALUE);
+        preference.setString("key2", STRING_VALUE);
+        preference.setString("key3", STRING_VALUE);
+
+        Map<String, ?> data = preference.getData();
+        assertEquals(data.size(), 3);
+
+        for (Object values : data.values()) {
+            assertEquals(values, STRING_VALUE);
+        }
     }
 
     @Test
