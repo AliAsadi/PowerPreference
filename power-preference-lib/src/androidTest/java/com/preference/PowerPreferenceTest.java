@@ -257,6 +257,12 @@ public class PowerPreferenceTest {
         assertEquals(PowerPreference.getAllData().size(), 0);
     }
 
+    @Test
+    public void containsTest() {
+        preference.setString(KEY, STRING_VALUE);
+        assertTrue(preference.contains(KEY));
+    }
+
     @After
    public void printLog() {
         logCurrentData();
