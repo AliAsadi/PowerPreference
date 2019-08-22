@@ -14,6 +14,11 @@ implementation 'com.aliassadi:power-preference-lib:1.4.1'
 
 # Getting started
 
+Initialize the library in your `Application.onCreate()` method:
+```java
+PowerPreference.init(this);
+```
+
 To accsess preference file there is two option:
 
 1. Default file.
