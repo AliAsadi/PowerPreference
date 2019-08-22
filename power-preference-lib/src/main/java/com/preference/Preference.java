@@ -347,16 +347,28 @@ public interface Preference {
     boolean contains(String key);
 
     /**
-     * remove key from preference.
+     * remove key from preference synchronously.
      *
      * @param key - key name to remove.
      */
-    void remove(String key);
+    boolean remove(String key);
 
     /**
-     * Remove all data from this preference file.
+     * remove key from preference asynchronously.
+     *
+     * @param key - key name to remove.
      */
-    void clear();
+    void removeAsync(String key);
+
+    /**
+     * Remove all data from this preference file synchronously.
+     */
+    boolean clear();
+
+    /**
+     * Remove all data from this preference file asynchronously.
+     */
+    void clearAsync();
 
     /**
      * Retrieve all data of this preference file.
