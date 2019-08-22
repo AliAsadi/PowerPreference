@@ -171,7 +171,7 @@ public class PowerPreferenceTest {
     }
 
     @Test
-    public void getAllData() {
+    public void getAllDataTest() {
         PowerPreference.getDefaultFile().setString(KEY, STRING_VALUE);
         PowerPreference.getFileByName("TestFile").setString(KEY, STRING_VALUE);
         PowerPreference.getFileByName("AnotherFile").setString(KEY, STRING_VALUE);
