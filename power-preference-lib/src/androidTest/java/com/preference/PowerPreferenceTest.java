@@ -58,7 +58,6 @@ public class PowerPreferenceTest {
 
         logCurrentData();
         PowerPreference.clearAllData();
-        SystemClock.sleep(100);
 
         preference = PowerPreference.getDefaultFile();
     }
@@ -172,32 +171,6 @@ public class PowerPreferenceTest {
     }
 
     @Test
-    public void clearFileDataAsyncTest() {
-        preference.setString("key1", STRING_VALUE);
-        preference.setString("key2", STRING_VALUE);
-
-        assertEquals(preference.getData().size(), 2);
-
-        preference.clear();
-        SystemClock.sleep(100);
-
-        assertEquals(preference.getData().size(), 0);
-    }
-
-    @Test
-    public void clearAllDataAsyncTest() {
-        PowerPreference.getDefaultFile().setString("key1", STRING_VALUE);
-        PowerPreference.getFileByName("TestFile").setString("key2", STRING_VALUE);
-
-        assertEquals(PowerPreference.getAllData().size(), 2);
-
-        PowerPreference.clearAllData();
-        SystemClock.sleep(100);
-
-        assertEquals(PowerPreference.getAllData().size(), 0);
-    }
-
-    @Test
     public void getAllData() {
         PowerPreference.getDefaultFile().setString(KEY, STRING_VALUE);
         PowerPreference.getFileByName("TestFile").setString(KEY, STRING_VALUE);
@@ -213,13 +186,75 @@ public class PowerPreferenceTest {
         }
     }
 
+    ///////////// Clear  /////////////
+
     @Test
-    public void removeAsyncTest() {
+    public void removeTest() {
         preference.setString(KEY, "value");
         assertTrue(preference.contains(KEY));
 
         preference.remove(KEY);
         assertFalse(preference.contains(KEY));
+    }
+
+    @Test
+    public void removeAsyncTest() {
+        preference.setString(KEY, "value");
+        assertTrue(preference.contains(KEY));
+
+        preference.removeAsync(KEY);
+        SystemClock.sleep(50);
+        assertFalse(preference.contains(KEY));
+    }
+
+    @Test
+    public void clearFileTest() {
+        preference.setString("key1", STRING_VALUE);
+        preference.setString("key2", STRING_VALUE);
+
+        assertEquals(preference.getData().size(), 2);
+
+        preference.clear();
+
+        assertEquals(preference.getData().size(), 0);
+    }
+
+    @Test
+    public void clearFileAsyncTest() {
+        preference.setString("key1", STRING_VALUE);
+        preference.setString("key2", STRING_VALUE);
+
+        assertEquals(preference.getData().size(), 2);
+
+        preference.clearAsync();
+        SystemClock.sleep(50);
+
+        assertEquals(preference.getData().size(), 0);
+    }
+
+    @Test
+    public void clearAllDataTest() {
+        PowerPreference.getDefaultFile().setString("key1", STRING_VALUE);
+        PowerPreference.getFileByName("TestFile").setString("key2", STRING_VALUE);
+
+        assertEquals(PowerPreference.getAllData().size(), 2);
+
+        PowerPreference.clearAllData();
+
+        assertEquals(PowerPreference.getAllData().size(), 0);
+    }
+
+    @Test
+    public void clearAllDataAsyncTest() {
+        PowerPreference.getDefaultFile().setString("key1", STRING_VALUE);
+        PowerPreference.getFileByName("TestFile").setString("key2", STRING_VALUE);
+
+        assertEquals(PowerPreference.getAllData().size(), 2);
+
+        PowerPreference.clearAllDataAsync();
+        SystemClock.sleep(50);
+
+        assertEquals(PowerPreference.getAllData().size(), 0);
     }
 
     @After
