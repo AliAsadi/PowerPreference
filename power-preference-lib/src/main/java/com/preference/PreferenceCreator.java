@@ -15,6 +15,7 @@ import com.google.gson.reflect.TypeToken;
 import org.xmlpull.v1.XmlPullParser;
 
 import java.lang.reflect.Type;
+import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -609,7 +610,7 @@ class PreferenceCreator implements Preference {
      * @return Preference value if it exists otherwise, returns null.
      */
     @Override
-    public @Nullable <T> T getMap(String key, Class classType, Class keyType, Class valueType) {
+    public @Nullable <T extends AbstractMap> T getMap(String key, Class classType, Class keyType, Class valueType) {
         String json = getString(key, "");
 
         Object value = null;
@@ -632,7 +633,7 @@ class PreferenceCreator implements Preference {
      * @return Preference value if it exists otherwise, returns null
      */
     @Override
-    public @Nullable <T> T getMap(String key, MapStructure structure) {
+    public @Nullable <T extends AbstractMap> T getMap(String key, MapStructure structure) {
         String json = getString(key, "");
 
         Object value = null;

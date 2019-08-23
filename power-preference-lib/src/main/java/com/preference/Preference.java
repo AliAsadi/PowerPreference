@@ -2,6 +2,7 @@ package com.preference;
 
 import android.support.annotation.XmlRes;
 
+import java.util.AbstractMap;
 import java.util.Map;
 
 /**
@@ -314,14 +315,14 @@ public interface Preference {
      * @return Preference value if it exists otherwise, returns null.
      */
     @Deprecated
-    <T> T getMap(String key, Class classType, Class keyType, Class valueType);
+    <T extends AbstractMap> T getMap(String key, Class classType, Class keyType, Class valueType);
 
     /**
      * @param key       - The name of the preference to retrieve.
      * @param structure - map structure
      * @return Preference value if it exists otherwise, returns null
      */
-    <T> T getMap(String key, MapStructure structure);
+    <T extends AbstractMap> T getMap(String key, MapStructure structure);
 
     /**
      * Retrieve a double value from the preferences
