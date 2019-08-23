@@ -831,7 +831,7 @@ class PreferenceCreator implements Preference {
         Log.e(TAG, "The value of {" + key + "} key is not a " + type + ".", th);
     }
 
-    private class WrongValueException extends IllegalArgumentException {
+    private static class WrongValueException extends IllegalArgumentException {
         WrongValueException(Object value) {
             super("value => {" + value + "}");
         }
