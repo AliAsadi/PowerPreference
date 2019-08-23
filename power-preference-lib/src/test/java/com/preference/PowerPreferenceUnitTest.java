@@ -209,6 +209,7 @@ public class PowerPreferenceUnitTest {
     @Test
     public void setBooleanTest() {
         boolean result = preference.setBoolean(KEY, BOOLEAN_VALUE);
+        assertTrue(result);
 
         verify(editor).putBoolean(KEY, BOOLEAN_VALUE);
         verify(editor).commit();
