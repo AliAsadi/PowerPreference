@@ -15,6 +15,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -222,7 +223,51 @@ public class PowerPreferenceTest {
         assertFalse(preference.contains(KEY));
     }
 
+    public void getHashMap_String_String_Test() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("key", "value");
+
+        preference.setMap(KEY, map);
+
+        MapStructure structure = MapStructure.create(HashMap.class, String.class, String.class);
+        HashMap<String, String> mapResult = preference.getMap(KEY, structure);
+
+        assertNotNull(mapResult);
+        for (String value : mapResult.values()) assertNotNull(value);
+        for (String key : mapResult.keySet()) assertNotNull(key);
+    }
+
     @Test
+    public void getHashMap_String_SampleObject_Test() {
+        HashMap<String, SampleObject> map = new HashMap<>();
+        map.put("key", new SampleObject());
+
+        preference.setMap(KEY, map);
+
+        MapStructure structure = MapStructure.create(HashMap.class, String.class, SampleObject.class);
+        HashMap<String, SampleObject> mapResult = preference.getMap(KEY, structure);
+
+        assertEquals(mapResult.getClass().getSimpleName(), "HashMap");
+        for (String key : mapResult.keySet()) assertNotNull(key);
+        for (SampleObject value : mapResult.values()) assertNotNull(value);
+    }
+
+    @Test
+    public void getHashMap_Long_ArrayList_Test() {
+        HashMap<Long, ArrayList> map = new HashMap<>();
+        map.put(1231L, new ArrayList<>());
+
+        preference.setMap(KEY, map);
+
+        MapStructure structure = MapStructure.create(HashMap.class, Long.class, ArrayList.class);
+        HashMap<Long, ArrayList> mapResult = preference.getMap(KEY, structure);
+
+        assertEquals(mapResult.getClass().getSimpleName(), "HashMap");
+        for (Long key : mapResult.keySet()) assertNotNull(key);
+        for (ArrayList value : mapResult.values()) assertNotNull(value);
+    }
+
+     @Test
     public void clearFileTest() {
         preference.setString("key1", STRING_VALUE);
         preference.setString("key2", STRING_VALUE);
