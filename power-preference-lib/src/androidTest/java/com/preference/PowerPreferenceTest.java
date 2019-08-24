@@ -172,6 +172,7 @@ public class PowerPreferenceTest {
         assertNull(preference.getMap(KEY, structure));
     }
 
+    @Test
     public void getHashMap_String_String_Test() {
         HashMap<String, String> map = new HashMap<>();
         map.put("key", "value");
