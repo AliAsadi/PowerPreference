@@ -314,6 +314,7 @@ public interface Preference {
      * @param valueType - the type of the value that used in the map.
      * @return Preference value if it exists otherwise, returns null.
      */
+    @Deprecated
     <T extends AbstractMap> T getMap(String key, Class<T> mapType, Class keyType, Class valueType);
 
     /**
