@@ -367,11 +367,7 @@ class PreferenceCreator implements Preference {
     public @NonNull
     String getString(String key) {
         Object value = getDefaultValue(key);
-
-        String defaultValue = "";
-        if (value != null) {
-            defaultValue = String.valueOf(value);
-        }
+        String defaultValue = (value != null) ? String.valueOf(value) : "";
         return getString(key, defaultValue);
     }
 
