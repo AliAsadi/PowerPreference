@@ -15,6 +15,7 @@ import com.google.gson.reflect.TypeToken;
 import org.xmlpull.v1.XmlPullParser;
 
 import java.lang.reflect.Type;
+import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -366,11 +367,7 @@ class PreferenceCreator implements Preference {
     public @NonNull
     String getString(String key) {
         Object value = getDefaultValue(key);
-
-        String defaultValue = "";
-        if (value != null) {
-            defaultValue = String.valueOf(value);
-        }
+        String defaultValue = (value != null) ? String.valueOf(value) : "";
         return getString(key, defaultValue);
     }
 
@@ -609,10 +606,10 @@ class PreferenceCreator implements Preference {
      * @return Preference value if it exists otherwise, returns null.
      */
     @Override
-    public @Nullable <T> T getMap(String key, Class classType, Class keyType, Class valueType) {
+    public @Nullable <T extends AbstractMap> T getMap(String key, Class classType, Class keyType, Class valueType) {
         String json = getString(key, "");
 
-        Object value = null;
+        T value = null;
         try {
             value = new Gson().fromJson(json, TypeToken.getParameterized(classType, keyType,
                     valueType).getType());
@@ -623,7 +620,7 @@ class PreferenceCreator implements Preference {
         if (value == null) {
             return (T) getDefaultValue(key);
         }
-        return (T) value;
+        return value;
     }
 
     /**
@@ -632,10 +629,10 @@ class PreferenceCreator implements Preference {
      * @return Preference value if it exists otherwise, returns null
      */
     @Override
-    public @Nullable <T> T getMap(String key, MapStructure structure) {
+    public @Nullable <T extends AbstractMap> T getMap(String key, MapStructure structure) {
         String json = getString(key, "");
 
-        Object value = null;
+        T value = null;
         try {
             Type type = TypeToken.getParameterized(
                     structure.getType(),
@@ -651,7 +648,7 @@ class PreferenceCreator implements Preference {
         if (value == null) {
             return (T) getDefaultValue(key);
         }
-        return (T) value;
+        return value;
     }
 
     /**
@@ -831,7 +828,7 @@ class PreferenceCreator implements Preference {
         Log.e(TAG, "The value of {" + key + "} key is not a " + type + ".", th);
     }
 
-    private class WrongValueException extends IllegalArgumentException {
+    private static class WrongValueException extends IllegalArgumentException {
         WrongValueException(Object value) {
             super("value => {" + value + "}");
         }

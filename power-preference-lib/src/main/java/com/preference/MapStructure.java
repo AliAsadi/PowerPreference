@@ -1,5 +1,7 @@
 package com.preference;
 
+import java.util.AbstractMap;
+
 /**
  * Created by Ali Asadi on 19/08/2019.
  */
@@ -26,7 +28,7 @@ public class MapStructure {
      * @param key   - map key
      * @param value - map value
      */
-    public static MapStructure create(Class type, Class key, Class value) {
+    public static <T extends AbstractMap> MapStructure create(Class<T> type, Class key, Class value) {
         return new MapStructure(type, key, value);
     }
 
