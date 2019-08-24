@@ -309,13 +309,13 @@ public interface Preference {
      * Retrieve a Map value from the preferences
      *
      * @param key       - The name of the preference to retrieve.
-     * @param classType - the type of the Map -> HashMap,TreeMap..etc.
+     * @param mapType - the type of the Map -> HashMap,TreeMap..etc.
      * @param keyType   - the type of the key that used in the map.
      * @param valueType - the type of the value that used in the map.
      * @return Preference value if it exists otherwise, returns null.
      */
     @Deprecated
-    <T extends AbstractMap> T getMap(String key, Class classType, Class keyType, Class valueType);
+    <T extends AbstractMap> T getMap(String key, Class<T> mapType, Class keyType, Class valueType);
 
     /**
      * @param key       - The name of the preference to retrieve.
