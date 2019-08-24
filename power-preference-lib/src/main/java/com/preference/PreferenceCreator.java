@@ -613,7 +613,7 @@ class PreferenceCreator implements Preference {
     public @Nullable <T extends AbstractMap> T getMap(String key, Class classType, Class keyType, Class valueType) {
         String json = getString(key, "");
 
-        Object value = null;
+        T value = null;
         try {
             value = new Gson().fromJson(json, TypeToken.getParameterized(classType, keyType,
                     valueType).getType());
@@ -624,7 +624,7 @@ class PreferenceCreator implements Preference {
         if (value == null) {
             return (T) getDefaultValue(key);
         }
-        return (T) value;
+        return value;
     }
 
     /**
@@ -636,7 +636,7 @@ class PreferenceCreator implements Preference {
     public @Nullable <T extends AbstractMap> T getMap(String key, MapStructure structure) {
         String json = getString(key, "");
 
-        Object value = null;
+        T value = null;
         try {
             Type type = TypeToken.getParameterized(
                     structure.getType(),
@@ -652,7 +652,7 @@ class PreferenceCreator implements Preference {
         if (value == null) {
             return (T) getDefaultValue(key);
         }
-        return (T) value;
+        return value;
     }
 
     /**
