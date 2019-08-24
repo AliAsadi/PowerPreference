@@ -21,3 +21,4 @@ before_install:
 
 script:
   - ./gradlew power-preference-lib:test
+  - ./gradlew power-preference-lib:connectedAndroidTest
