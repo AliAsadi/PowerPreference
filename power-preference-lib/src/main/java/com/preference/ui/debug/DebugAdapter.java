@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.preference.R;
 import com.preference.model.PreferenceItem;
+import com.preference.model.PreferenceType;
 import com.thoughtbot.expandablerecyclerview.MultiTypeExpandableRecyclerViewAdapter;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
@@ -21,36 +22,17 @@ import java.util.List;
  */
 public class DebugAdapter extends MultiTypeExpandableRecyclerViewAdapter<DebugAdapter.TitleViewHolder, ChildViewHolder> implements View.OnClickListener {
 
-    private final PrefsListener listener;
-
-    private static final int DEFAULT_VIEW_TYPE = 3;
-    private static final int BOOLEAN_VIEW_TYPE = 4;
-    private final boolean editable;
-
-    public void expandAll() {
-        for (int i = getGroups().size() - 1; i >= 0; i--) {
-            if (isGroupExpanded(i)) {
-                return;
-            }
-            toggleGroup(i);
-        }
-        notifyDataSetChanged();
-    }
-
-
-    public void collapseAll() {
-        for (ExpandableGroup group : getGroups()) {
-            if (isGroupExpanded(group)) {
-                toggleGroup(group);
-            }
-        }
-    }
-
     public interface PrefsListener {
         void onDefaultPreferenceClicked(PreferenceItem item);
 
         void onBooleanPreferenceClicked(PreferenceItem item, boolean checked);
     }
+
+    private final PrefsListener listener;
+
+    private static final int DEFAULT_VIEW_TYPE = 3;
+    private static final int BOOLEAN_VIEW_TYPE = 4;
+    private final boolean editable;
 
     public DebugAdapter(List<? extends ExpandableGroup> groups, PrefsListener listener, boolean editable) {
         super(groups);
@@ -84,67 +66,53 @@ public class DebugAdapter extends MultiTypeExpandableRecyclerViewAdapter<DebugAd
     }
 
     @Override
+    public void onBindGroupViewHolder(TitleViewHolder holder, int flatPosition, ExpandableGroup group) {
+        holder.setPrefsTitle(group);
+    }
+
+    @Override
     public void onBindChildViewHolder(ChildViewHolder holder, int flatPosition,
                                       ExpandableGroup group, int childIndex) {
         final PreferenceItem item = (PreferenceItem) group.getItems().get(childIndex);
 
-        switch (item.type) {
-            case Boolean:
-                BooleanChildViewHolder booleanHolder = (BooleanChildViewHolder) holder;
-                booleanHolder.keyText.setText(item.key);
-                booleanHolder.checkBox.setChecked((Boolean) item.value);
+        if (item.type == PreferenceType.Boolean) {
+            BooleanChildViewHolder booleanHolder = (BooleanChildViewHolder) holder;
+            booleanHolder.keyText.setText(item.key);
+            booleanHolder.checkBox.setChecked((Boolean) item.value);
 
-                if (editable) {
-                    booleanHolder.checkBox.setClickable(true);
-                    booleanHolder.checkBox.setTag(item);
-                    booleanHolder.checkBox.setOnClickListener(this);
-                } else {
-                    booleanHolder.checkBox.setClickable(false);
-                }
-                break;
-                default:
+            if (editable) {
+                booleanHolder.checkBox.setClickable(true);
+                booleanHolder.checkBox.setTag(item);
+                booleanHolder.checkBox.setOnClickListener(this);
+            } else {
+                booleanHolder.checkBox.setClickable(false);
+            }
+        } else {
 
-                    StringChildViewHolder stringHolder = (StringChildViewHolder) holder;
-                    stringHolder.keyText.setText(item.key);
-                    stringHolder.valueText.setText(item.value + "");
-                    if (editable) {
-                        stringHolder.valueText.setTextColor(Color.WHITE);
-                        holder.itemView.setTag(item);
-                        holder.itemView.setOnClickListener(this);
-                    } else {
-                        //do nothing
-                    }
+            StringChildViewHolder stringHolder = (StringChildViewHolder) holder;
+            stringHolder.keyText.setText(item.key);
+            stringHolder.valueText.setText(item.value + "");
+            if (editable) {
+                stringHolder.valueText.setTextColor(Color.WHITE);
+                holder.itemView.setTag(item);
+                holder.itemView.setOnClickListener(this);
+            } else {
+                //do nothing
+            }
 
-                    break;
         }
-
 
     }
 
     @Override
     public int getChildViewType(int position, ExpandableGroup group, int childIndex) {
         final PreferenceItem item = (PreferenceItem) group.getItems().get(childIndex);
-        switch (item.type) {
-            case String:
-            case Long:
-            case Float:
-            case Integer:
-                return DEFAULT_VIEW_TYPE;
-            case Boolean:
-                return BOOLEAN_VIEW_TYPE;
-            default:
-                throw new IllegalStateException("unknown type");
-        }
+        return (item.type == PreferenceType.Boolean) ? BOOLEAN_VIEW_TYPE : DEFAULT_VIEW_TYPE;
     }
 
     @Override
     public boolean isChild(int viewType) {
         return viewType == DEFAULT_VIEW_TYPE || viewType == BOOLEAN_VIEW_TYPE;
-    }
-
-    @Override
-    public void onBindGroupViewHolder(TitleViewHolder holder, int flatPosition, ExpandableGroup group) {
-        holder.setPrefsTitle(group);
     }
 
     @Override
@@ -166,6 +134,24 @@ public class DebugAdapter extends MultiTypeExpandableRecyclerViewAdapter<DebugAd
                 break;
         }
 
+    }
+
+    public void expandAll() {
+        for (int i = getGroups().size() - 1; i >= 0; i--) {
+            if (isGroupExpanded(i)) {
+                return;
+            }
+            toggleGroup(i);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void collapseAll() {
+        for (ExpandableGroup group : getGroups()) {
+            if (isGroupExpanded(group)) {
+                toggleGroup(group);
+            }
+        }
     }
 
     //ViewHolder
