@@ -9,7 +9,7 @@ A Powerful library to control and simplify the usage of shared preference in And
 # Download
 
 ```gradle
-implementation 'com.aliassadi:power-preference-lib:1.4.1'
+implementation 'com.aliassadi:power-preference-lib:2.0.0'
 ```
 
 # Getting started
@@ -77,22 +77,23 @@ To retrieve values from a preference file, call methods such as `getInt()` and `
 
 1. **String**
 ```java
-String value = PowerPreference.getDefaultFile().getString("key", defaultValue);
+String value = PowerPreference.getDefaultFile().getString("key", defValue);
 ```
 
 2. **Object**
 ```java
-Object value = PowerPreference.getDefaultFile().getObject("key", Object.class, defaultValue);
+Object value = PowerPreference.getDefaultFile().getObject("key", Object.class, defValue);
 ```
 
 3. **Array**
 ```java
-ArrayList<Object> value = PowerPreference.getDefaultFile().getObject("key", Object[].class, defaultValue);
+ArrayList<Object> value = PowerPreference.getDefaultFile().getObject("key", Object[].class, defValue);
 ```
 
 4. **Map**
 ```java
-HashMap<String, Object> value = PowerPreference.getDefaultFile().getMap("key", HashMap.class, String.class, Object.class);
+MapStructure structure = MapStructure.create(HashMap.class, String.class, Object.class);
+HashMap<String, Object> value = PowerPreference.getDefaultFile().getMap("key", structure);
 ```
 
 ### Note:
