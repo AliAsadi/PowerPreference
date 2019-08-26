@@ -115,7 +115,7 @@ You also can choose a default value for each key in you preference file by ``seD
 
 ## Clear Data
 
-1. Clear data from specefic file
+#### 1. Clear data from specefic file
 
 * Synchronous
 ```java
@@ -126,7 +126,7 @@ PowerPreference.getDefaultFile().clear();
 PowerPreference.getDefaultFile().clearAsync();
 ```
 
-2. Clear data from all files
+#### 2. Clear data from all files
 
 * Synchronous
 ```java
