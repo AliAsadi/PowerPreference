@@ -128,11 +128,11 @@ PowerPreference.getDefaultFile().clearAsync();
 
 #### 2. Clear data from all files
 
-Synchronous
+* Synchronous
 ```java
 PowerPreference.clearAllData();
 ```
-Asynchronous
+* Asynchronous
 ```java
 PowerPreference.clearAllDataAsync();
 ```
