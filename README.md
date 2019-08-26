@@ -114,20 +114,39 @@ If the key dosn't exist the library will return an empty string.
 You also can choose a default value for each key in you preference file by ``seDefaults()`` method see the defaults section for more.
 
 ## Clear Data
-1. Clear data from specefic file
+
+#### Clear data from specefic file
+
+Synchronous
 ```java
 PowerPreference.getDefaultFile().clear();
 ```
-2. Clear data from all files
+Asynchronous
 ```java
-PowerPreference.getAllData()
+PowerPreference.getDefaultFile().clearAsync();
+```
+
+#### Clear data from all files
+
+Synchronous
+```java
+PowerPreference.clearAllData();
+```
+Asynchronous
+```java
+PowerPreference.clearAllDataAsync();
 ```
 
 ## Remove Data
+
+Synchronous
 ```java
 PowerPreference.getDefaultFile().remove("key");
 ```
-
+Asynchronous
+```java
+PowerPreference.getDefaultFile().removeAsync("key");
+```
 ## Get Data
 
 1. Get all data for a specefic file
