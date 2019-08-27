@@ -1,5 +1,15 @@
 apply plugin: 'com.android.library'
 apply plugin: "net.ltgt.errorprone"
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'aliassadi'
+    groupId = 'com.aliassadi'
+    artifactId = 'power-preference-lib'
+    publishVersion = '2.0.0'
+    desc = 'A Powerful library to control and simplify the usage of shared preference in Android'
+    website = 'https://github.com/AliAsadi/PowerPreference'
+}
 
 buildscript {
     repositories {
