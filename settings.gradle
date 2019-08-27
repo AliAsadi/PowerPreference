@@ -1,1 +1,1 @@
-include ':sample-app', ':power-preference-lib'
+include ':sample-app', ':power-preference'
