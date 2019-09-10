@@ -47,7 +47,7 @@ dependencies {
 //Disable javadoc generation while building module
 tasks.withType(Javadoc).all { enabled = false }
 
-apply plugin: 'com.aliasadi.android-bintray'
+apply plugin: 'com.aliasadi.bintray-upload'
 
 uploadToBintray {
     versionName = '2.0.0'
