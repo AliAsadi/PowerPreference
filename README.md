@@ -40,7 +40,8 @@ This is the default file provided by the library.
 ```java
 Preference preference = PowerPreference.getDefaultFile();
 ```
-2. Custom File.
+2. Custom File
+
 When you choose a file name, a new file with that name will be created.
 ```java
 Preference preference = PowerPreference.getFileByName("preferenceName");
