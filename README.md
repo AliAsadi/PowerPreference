@@ -3,13 +3,26 @@
 
 A Powerful library to control and simplify the usage of shared preference in Android.
 
-[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-PowerPreference-green.svg?style=flat )]( https://android-arsenal.com/details/1/7353 ) [ ![Download](https://api.bintray.com/packages/aliassadi/maven/power-preference-lib/images/download.svg) ](https://bintray.com/aliassadi/maven/power-preference-lib/_latestVersion) ![Travis](https://travis-ci.com/AliAsadi/PowerPreference.svg?branch=master)
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-PowerPreference-green.svg?style=flat )]( https://android-arsenal.com/details/1/7353 ) 
+![Travis](https://travis-ci.com/AliAsadi/PowerPreference.svg?branch=master)
+[ ![Download](https://jitpack.io/v/AliAsadi/PowerPreference.svg)](https://jitpack.io/#AliAsadi/PowerPreference) 
+
 
 
 # Download
 
+Step 1. Add the JitPack repository to your build file
 ```gradle
-implementation 'com.aliassadi:power-preference-lib:2.0.0'
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+Step 2. Add the dependency
+```gradle
+implementation 'com.github.AliAsadi:PowerPreference:2.0.0'
 ```
 
 # Getting started
