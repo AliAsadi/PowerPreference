@@ -31,6 +31,7 @@ Initialize the library in your `Application.onCreate()` method:
 PowerPreference.init(this);
 ```
 
+# Access the Preference File
 There are two ways to access the preference file:
 
 1. Default File
