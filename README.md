@@ -32,28 +32,41 @@ Initialize the library in your `Application.onCreate()` method:
 PowerPreference.init(this);
 ```
 
-To accsess preference file there is two option:
+There are two ways to access the preference file:
 
-1. Default file.
+1. Default File
+
+This is the default file provided by the library.
 
 ```java
 Preference preference = PowerPreference.getDefaultFile();
 ```
-2. Specefic file.
+2. Custom File.
+When you choose a file name, a new file with that name will be created.
 ```java
 Preference preference = PowerPreference.getFileByName("preferenceName");
 ```
 
-## Save Data - Asynchronous(PUT)
+# Save Data
 
-To write data to preference file **asynchronous**.
+The library can store data in two ways. **asynchronously** and **synchronously**.
 
-1. Insert single value
+Also, The library can store any type of data.
+
+**Integer, Long, Float, Double, String, ArrayList, Map, Object** are all valid data types.
+
+## Asynchronous
+
+To write data to a preference file **asynchronously**, use methods that begin with the **put** prefix. 
+
+The thread you're working on will **not** be blocked.
+
+* Insert single value
 ```java
 PowerPreference.getDefaultFile().putString("key",value);
 ```
 
-2. Insert multiple values
+* Insert multiple values
 
 ```java
 PowerPreference.getDefaultFile()
@@ -64,29 +77,22 @@ PowerPreference.getDefaultFile()
         .putMap("key", value);
 ```
 
-Put will asynchronously save the preferences without holding the current thread.
+## Synchronous
 
-The library support the default implementation of shared preference such as `putBoolean()` and `putString()`.
+To write data to a preference file **synchronous**, use methods that begin with the **set** prefix. 
 
-### Note:
-You can write any type of data **Integer, Long, Float, Double, String, ArrayList, Map, Object**
+Until the save operation's result is received, the thread you're working on will be blocked. 
 
-
-## Save Data - Synchronous(SET)
-To write data to preference file **synchronous**.
-
-Set will synchronously save the preference while holding the current 
-thread until done and returning a success flag.
 
 ```java
 boolean result = PowerPreference.getDefaultFile().setString("key",value);
 ```
 
-You can also call set with the type such as `setBoolean()` and `setObject()`.
+Set can also be called with other types, such as `setBoolean()` and `setObject()`.
 
-## Read Data
+# Read Data
 
-To retrieve values from a preference file, call methods such as `getInt()` and `getString()`, 
+To retrieve data from a preference file, use methods that begin with the **get** prefix. 
 
 1. **String**
 ```java
@@ -110,13 +116,14 @@ HashMap<String, Object> value = PowerPreference.getDefaultFile().getMap("key", s
 ```
 
 ### Note:
+If you don't specify a default value when calling get and the key you're looking for doesn't exist, the library will return default value from the list below.
 
-You can getting a value with out pass a `defaultValue` the library well return a default from the list if the key not exist.
-
+**For Example:**
 ```java
 String value = PowerPreference.getDefaultFile().getString("key");
 ```
-If the key dosn't exist the library will return an empty string.
+If you call get string without specifying a default value and the key does not exist, the library will return an empty string as a default value.
+
 
 | Type | Default |
 | --- | --- |
@@ -126,7 +133,18 @@ If the key dosn't exist the library will return an empty string.
 
 You also can choose a default value for each key in you preference file by ``seDefaults()`` method see the defaults section for more.
 
-## Clear Data
+# Remove Data
+
+* Synchronous
+```java
+PowerPreference.getDefaultFile().remove("key");
+```
+* Asynchronous
+```java
+PowerPreference.getDefaultFile().removeAsync("key");
+```
+
+# Clear Data
 
 #### 1. Clear data from specefic file
 
@@ -150,17 +168,7 @@ PowerPreference.clearAllData();
 PowerPreference.clearAllDataAsync();
 ```
 
-## Remove Data
-
-* Synchronous
-```java
-PowerPreference.getDefaultFile().remove("key");
-```
-* Asynchronous
-```java
-PowerPreference.getDefaultFile().removeAsync("key");
-```
-## Get Data
+# Get Data
 
 1. Get all data for a specefic file
 ```java
@@ -171,7 +179,6 @@ Map<String, ?> data = PowerPreference.getDefaultFile().getData();
 ```java
 List<PreferenceFile> data = PowerPreference.getAllData()
 ```
-
 
 # Default Values
 
@@ -227,8 +234,7 @@ PowerPreference.getDefaultFile().setDefaults(hashMap);
 
 
 # Preference Debbuger 
-
-By preference debugger you can show all the preference in all the file in your app simply by calling.
+Using the preference debugger, you can easily see and edit all of your app's preferences data.
 
 ```java
 PowerPreference.showDebugScreen();
