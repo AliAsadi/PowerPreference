@@ -1,28 +1,27 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
-
 buildscript {
 
     ext.versions = [
             'compileSdk': 28,
-            'minSdk': 16,
-            'targetSdk': 28,
+            'minSdk'    : 16,
+            'targetSdk' : 28,
     ]
 
     ext.deps = [
-            appCompat   : "com.android.support:appcompat-v7:25.0.0",
-            recyclerView: "com.android.support:recyclerview-v7:25.0.0",
+            appCompat             : "com.android.support:appcompat-v7:25.0.0",
+            recyclerView          : "com.android.support:recyclerview-v7:25.0.0",
             expandablerecyclerview: "com.github.thoughtbot.expandable-recycler-view:expandablerecyclerview:v1.3",
-            gson: "com.google.code.gson:gson:2.8.5",
-            junit: 'androidx.test.ext:junit:1.1.1',
-            mockito: 'org.mockito:mockito-core:2.23.0',
-            runner: 'androidx.test:runner:1.2.0'
+            gson                  : "com.google.code.gson:gson:2.8.5",
+            junit                 : 'androidx.test.ext:junit:1.1.1',
+            mockito               : 'org.mockito:mockito-core:2.23.0',
+            runner                : 'androidx.test:runner:1.2.0'
     ]
 
     repositories {
         google()
         mavenCentral()
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
     }
@@ -35,8 +34,6 @@ allprojects {
         maven { url 'https://jitpack.io' }
     }
 }
-
-
 
 task clean(type: Delete) {
     delete rootProject.buildDir
