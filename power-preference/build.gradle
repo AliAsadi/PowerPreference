@@ -1,16 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: "net.ltgt.errorprone"
-
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "net.ltgt.gradle:gradle-errorprone-plugin:0.0.13"
-    }
-}
 
 android {
     compileSdkVersion versions.compileSdk
