@@ -8,8 +8,8 @@ buildscript {
     ]
 
     ext.deps = [
-            appCompat             : "com.android.support:appcompat-v7:25.0.0",
-            recyclerView          : "com.android.support:recyclerview-v7:25.0.0",
+            appCompat             : 'androidx.appcompat:appcompat:1.0.0',
+            recyclerView          : 'androidx.recyclerview:recyclerview:1.0.0',
             expandablerecyclerview: "com.github.thoughtbot.expandable-recycler-view:expandablerecyclerview:v1.3",
             gson                  : "com.google.code.gson:gson:2.8.5",
             junit                 : 'androidx.test.ext:junit:1.1.1',
@@ -20,6 +20,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 
     dependencies {
@@ -31,7 +32,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
     }
 }
 
