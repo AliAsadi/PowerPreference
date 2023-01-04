@@ -3,7 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 30
     defaultConfig {
-        applicationId 'com.aliassadi.preference'
         minSdkVersion 20
         targetSdkVersion 30
         versionCode 1
@@ -16,6 +15,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'consumer-proguard-rules.pro'
         }
     }
+    namespace 'com.sample.main'
 }
 
 dependencies {
