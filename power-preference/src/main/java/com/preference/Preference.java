@@ -1,6 +1,6 @@
 package com.preference;
 
-import android.support.annotation.XmlRes;
+import androidx.annotation.XmlRes;
 
 import java.util.AbstractMap;
 import java.util.Map;
