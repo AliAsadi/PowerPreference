@@ -21,7 +21,7 @@ allprojects {
 ```
 Step 2. Add the dependency
 ```gradle
-implementation 'com.github.AliAsadi:PowerPreference:2.1.0'
+implementation 'com.github.AliAsadi:PowerPreference:2.1.1'
 ```
 
 # Getting started
